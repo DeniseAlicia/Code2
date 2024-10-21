@@ -1,4 +1,4 @@
-// Linter Test
+namespace LinterTest  {
    
   enum KEY {
     POS = 1, NEG = -1
@@ -21,3 +21,4 @@
   return result;
 }
  
+}
