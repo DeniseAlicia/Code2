@@ -1,7 +1,8 @@
 "use strict";
 console.log("Hello There");
-let cannons = [];
-let cannonBalls = [];
+const cannons = [];
+const cannonBalls = [];
+const canvas = document.getElementsByTagName("canvas")[0];
 window.addEventListener("load", handleLoad);
 setInterval(animationFrame, 16);
 function handleLoad() {
@@ -17,7 +18,7 @@ function generateTerrain() {
 }
 function generateCannons(_amount) {
     for (let i = 0; i < _amount; i++) {
-        let newCannon = {
+        const newCannon = {
             player: i + 1,
             angle: 0,
             gunpowder: 0,
@@ -28,6 +29,14 @@ function generateCannons(_amount) {
     }
 }
 function generateBalls(_cannon) {
+    const newBall = {
+        player: _cannon.player,
+        speed: 0,
+        posX: _cannon.posX,
+        posY: _cannon.posY,
+        shoot: false,
+    };
+    cannonBalls.push(newBall);
 }
 function drawTerrain() {
 }
