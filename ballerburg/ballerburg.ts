@@ -7,6 +7,7 @@ const cannonBalls: Ball[] = [];
 const canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
 const ctx: CanvasRenderingContext2D = canvas.getContext("2d")!;
 
+
 window.addEventListener("load", handleLoad);
 setInterval(animationFrame, 16);
 
@@ -30,14 +31,22 @@ interface Ball {
 
 }
 
+let slider: HTMLInputElement = <HTMLInputElement>document.getElementById("angle1");
+let Angle1: number = Number(slider.value);
+
+
+slider.oninput = function() {
+  Angle1 = Number(slider.value);
+  console.log(Angle1); 
+}
+
+
 
 function handleLoad(): void {
-
     generateTerrain();
     generateCannons(2);
     drawTerrain();
     drawCannons();
-
 }
 
 function generateTerrain(): void {

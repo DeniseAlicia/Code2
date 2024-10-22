@@ -1,5 +1,21 @@
 "use strict";
 console.log("Hello There");
+
+const canvas = document.querySelector("canvas");
+const ctx = canvas.getContext("2d");
+let cannons = [];
+window.addEventListener("load", handleLoad);
+setInterval(animationFrame, 16);
+let slider = document.getElementById("angle1");
+let Angle1 = Number(slider.value);
+slider.oninput = function () {
+    Angle1 = Number(slider.value);
+    console.log(Angle1);
+};
+function handleLoad(_event) {
+    generateTerrain();
+    generateCannons(2);
+
 const gravity = 5;
 const cannons = [];
 const cannonBalls = [];
@@ -12,6 +28,7 @@ function handleLoad() {
     generateCannons(2);
     drawTerrain();
     drawCannons();
+
 }
 function generateTerrain() {
 }
