@@ -23,6 +23,12 @@ const canvas = document.getElementsByTagName("canvas")[0];
 const ctx = canvas.getContext("2d");
 window.addEventListener("load", handleLoad);
 setInterval(animationFrame, 16);
+let slider = document.getElementById("angle1");
+let angle1 = Number(slider.value);
+slider.oninput = function () {
+    angle1 = Number(slider.value);
+    console.log(angle1);
+};
 function handleLoad() {
     generateTerrain();
     generateCannons(2);
