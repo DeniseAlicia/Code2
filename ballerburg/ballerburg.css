@@ -1,9 +1,16 @@
 #canvas {
     background-color: rgb(225, 232, 239);
+    display: block;
+    position: absolute;
+
 }
 
 .slidecontainer {
     width: 100%; 
+    top: 5%;
+    left: 2%;
+    width: 20%;
+    height: 40%;
   }
   
   .slider {

@@ -34,8 +34,8 @@ let slider1: HTMLInputElement = <HTMLInputElement>document.getElementById("angle
 let angle1: number = Number(slider1.value);
 
 
-slider.oninput = function() {
-  angle1 = Number(slider.value);
+slider1.oninput = function() {
+  angle1 = Number(slider1.value);
   console.log(angle1); 
 }
 

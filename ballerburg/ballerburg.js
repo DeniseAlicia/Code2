@@ -9,8 +9,8 @@ window.addEventListener("load", handleLoad);
 setInterval(animationFrame, 16);
 let slider1 = document.getElementById("angle1");
 let angle1 = Number(slider1.value);
-slider.oninput = function () {
-    angle1 = Number(slider.value);
+slider1.oninput = function () {
+    angle1 = Number(slider1.value);
     console.log(angle1);
 };
 function handleLoad() {
