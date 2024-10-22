@@ -30,17 +30,30 @@ interface Ball {
     shoot: boolean,
 
 }
+let slider1: HTMLInputElement = <HTMLInputElement>document.getElementById("angle1");
+let Angle1: number = Number(slider1.value);
 
-let slider: HTMLInputElement = <HTMLInputElement>document.getElementById("angle1");
-let Angle1: number = Number(slider.value);
 
-
-slider.oninput = function() {
-  Angle1 = Number(slider.value);
+slider1.oninput = function() {
+  Angle1 = Number(slider1.value);
   console.log(Angle1); 
 }
 
+let slider2: HTMLInputElement = <HTMLInputElement>document.getElementById("angle2");
+let Angle2: number = Number(slider2.value);
 
+
+slider2.oninput = function() {
+  Angle2 = Number(slider2.value); 
+}
+
+let slider3: HTMLInputElement = <HTMLInputElement>document.getElementById("gunpower1");
+let Gunpower1: number = Number(slider3.value);
+
+
+slider3.oninput = function() {
+  Gunpower1 = Number(slider3.value);
+}
 
 function handleLoad(): void {
     generateTerrain();

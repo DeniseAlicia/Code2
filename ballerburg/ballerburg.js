@@ -7,11 +7,21 @@ const canvas = document.getElementsByTagName("canvas")[0];
 const ctx = canvas.getContext("2d");
 window.addEventListener("load", handleLoad);
 setInterval(animationFrame, 16);
-let slider = document.getElementById("angle1");
-let Angle1 = Number(slider.value);
-slider.oninput = function () {
-    Angle1 = Number(slider.value);
+let slider1 = document.getElementById("angle1");
+let Angle1 = Number(slider1.value);
+slider1.oninput = function () {
+    Angle1 = Number(slider1.value);
     console.log(Angle1);
+};
+let slider2 = document.getElementById("angle2");
+let Angle2 = Number(slider2.value);
+slider2.oninput = function () {
+    Angle2 = Number(slider2.value);
+};
+let slider3 = document.getElementById("gunpower1");
+let Gunpower1 = Number(slider3.value);
+slider3.oninput = function () {
+    Gunpower1 = Number(slider3.value);
 };
 function handleLoad() {
     generateTerrain();
