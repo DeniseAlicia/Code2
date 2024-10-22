@@ -1,5 +1,8 @@
 console.log("Hello There");
 
+const canvas: HTMLCanvasElement = document.querySelector("canvas")!;
+const ctx = canvas.getContext("2d");
+
 let cannons: Cannon[] = [];
 
 window.addEventListener("load", handleLoad);
@@ -24,13 +27,18 @@ interface Ball {
 
 }
 
+let slider: HTMLElement = document.getElementById("Angle1")!;
+let output: HTMLElement = document.getElementById("Angle1")!;
+output.innerHTML = slider.value; 
 
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
 
 function handleLoad(_event: Event): void {
     generateTerrain();
     generateCannons(2);
     for 
-    
 
 }
 

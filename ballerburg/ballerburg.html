@@ -4,9 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ballerburg</title>
+    <link rel="stylesheet" href="ballerburg.css">
 </head>
 <body>
     <script src="ballerburg.js"></script>
-    
+    <canvas width="500" height="400" id="canvas"></canvas>
+
+    <span id="left-window">
+        <h1>Player One</h1>
+        <div class="slidecontainer">
+            Angle
+            <input type="range" min="0" max="90" value="0" class="slider" id="Angle1">
+        </div>
+        <div class="slidecontainer">
+            Gunpowder
+            <input type="range" min="0" max="100" value="0" class="slider" id="Gunpowder1">
+        </div>
+        <button id="Shoot1">Shoot</button>
+    </span>
 </body>
 </html>
