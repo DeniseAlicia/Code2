@@ -66,9 +66,8 @@ function generateCannons(_amount: number): void {
 
 function generateBalls(_cannon: Cannon): void {
 
-    for (let i: number = 0; i<cannons.length; i++) {
+    
 
-    }
 }
 
 function drawTerrain(): void {
@@ -81,7 +80,7 @@ function drawCannons(): void {
 
 
 
-function drawBalls(_cannon: Cannon, _ball: Ball): void {
+function drawBalls(): void {
 
 
 }
@@ -97,5 +96,11 @@ function collisionCheck(_ball: Ball): void {
 }
 
 function animationFrame(): void {
-    
+    drawTerrain();
+    drawCannons();
+    drawBalls();
+    for (let i:number = 0; i<cannonBalls.length; i++) {
+        ballFly(cannonBalls[i]);
+    }
+
 }

@@ -28,14 +28,12 @@ function generateCannons(_amount) {
     }
 }
 function generateBalls(_cannon) {
-    for (let i = 0; i < cannons.length; i++) {
-    }
 }
 function drawTerrain() {
 }
 function drawCannons() {
 }
-function drawBalls(_cannon, _ball) {
+function drawBalls() {
 }
 function ballFly(_ball) {
     collisionCheck(_ball);
@@ -43,4 +41,10 @@ function ballFly(_ball) {
 function collisionCheck(_ball) {
 }
 function animationFrame() {
+    drawTerrain();
+    drawCannons();
+    drawBalls();
+    for (let i = 0; i < cannonBalls.length; i++) {
+        ballFly(cannonBalls[i]);
+    }
 }
