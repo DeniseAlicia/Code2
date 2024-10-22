@@ -1,5 +1,7 @@
 console.log("Hello There");
 
+let cannons: Cannon[] = [];
+
 window.addEventListener("load", handleLoad);
 setInterval(animationFrame, 16);
 
@@ -23,7 +25,12 @@ interface Ball {
 }
 
 
+
 function handleLoad(_event: Event): void {
+    generateTerrain();
+    generateCannons(2);
+    for 
+    
 
 }
 
@@ -31,7 +38,7 @@ function generateTerrain(): void {
 
 }
 
-function generateCannons(): void {
+function generateCannons(_amount: number) {
 
 }
 
@@ -51,9 +58,6 @@ function drawControls(): void {
 
 }
 
-function drawPlayerWindow(_window: PlayerWindow, _cannon: Cannon): void {
-
-}
 
 function drawBalls(_cannon: Cannon, _ball: Ball): void {
 
