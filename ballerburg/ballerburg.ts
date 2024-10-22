@@ -1,12 +1,16 @@
 console.log("Hello There");
 
-const canvas: HTMLCanvasElement = document.querySelector("canvas")!;
-const ctx = canvas.getContext("2d");
+const gravity: number = 5;
+const cannons: Cannon[] = [];
+const cannonBalls: Ball[] = [];
 
-let cannons: Cannon[] = [];
+const canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
+const ctx: CanvasRenderingContext2D = canvas.getContext("2d")!;
+
 
 window.addEventListener("load", handleLoad);
 setInterval(animationFrame, 16);
+
 
 interface Cannon {
 
@@ -23,61 +27,106 @@ interface Ball {
     speed: number,
     posX: number,
     posY: number,
-    inAir: boolean,
+    shoot: boolean,
 
 }
 
 let slider: HTMLInputElement = <HTMLInputElement>document.getElementById("angle1");
 let Angle1: number = Number(slider.value);
 
+
 slider.oninput = function() {
   Angle1 = Number(slider.value);
   console.log(Angle1); 
 }
 
-function handleLoad(_event: Event): void {
+
+
+function handleLoad(): void {
     generateTerrain();
     generateCannons(2);
-
+    drawTerrain();
+    drawCannons();
 }
 
 function generateTerrain(): void {
 
-}
-
-function generateCannons(_amount: number) {
 
 }
 
-function generateBalls(_cannon: Cannon): void {
+function generateCannons(_amount: number): void {
+
+    for (let i: number = 0; i<_amount; i++) {
+        const newCannon: Cannon = {
+
+            player: i+1,
+            angle: 0,
+            gunpowder: 0,
+            posX: 0,
+            posY: 0,
+
+        }
+        cannons.push(newCannon);
+    }
+
+
+}
+
+function generateBall(_cannon: Cannon): void {
+
+    const newBall: Ball = {
+
+        player: _cannon.player,
+        speed: _cannon.gunpowder,
+        posX: _cannon.posX,
+        posY: _cannon.posY,
+        shoot: false,
+    }
+    cannonBalls.push(newBall);
 
 }
 
 function drawTerrain(): void {
 
+
 }
 
 function drawCannons(): void {
 
-}
-
-function drawControls(): void {
 
 }
 
 
-function drawBalls(_cannon: Cannon, _ball: Ball): void {
+
+function drawBalls(): void {
+
 
 }
 
 function ballFly(_ball: Ball): void {
-    
+
+    _ball.posX += _ball.speed;
+    _ball.posY += gravity;
+
+    collisionCheck(_ball);
+
 }
 
-function collsionCheck(_ball: Ball): void {
+function collisionCheck(_ball: Ball): void {
+
+}
+
+function winner(_player: number): void {
+
 
 }
 
 function animationFrame(): void {
-    
+    drawTerrain();
+    drawCannons();
+    drawBalls();
+    for (let i:number = 0; i<cannonBalls.length; i++) {
+        ballFly(cannonBalls[i]);
+    }
+
 }
