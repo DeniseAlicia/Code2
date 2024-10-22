@@ -34,7 +34,6 @@ function handleLoad() {
     generateCannons(2);
     drawTerrain();
     drawCannons();
-
 }
 function generateTerrain() {
 }
