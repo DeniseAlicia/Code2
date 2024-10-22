@@ -8,9 +8,11 @@
 </head>
 <body>
     <script src="ballerburg.js"></script>
-    <canvas width="500" height="400" id="canvas"></canvas>
+    <canvas width="1000" height="500" id="canvas" style="border: 1px solid black;"></canvas>
 
-    <header></header>
+    <header>
+        <h1>Ballerburg</h1>
+    </header>
 
     <div class="Box">
         <div class="Player1">
@@ -20,6 +22,15 @@
 
             <label for="Gunpower1">Gunpower</label>
             <input type="range" id="gunpower1" min="0" max="90" value="0">
+        </div>
+
+        <div class="Player2">
+            <h2>Player Two</h2>
+            <label for="Angle2">Angle</label>
+            <input type="range" id="angle2" min="0" max="90" value="0">
+
+            <label for="Gunpower2">Gunpower</label>
+            <input type="range" id="gunpower2" min="0" max="90" value="0">
         </div>
     </div>
 

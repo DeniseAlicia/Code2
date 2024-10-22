@@ -30,9 +30,8 @@ interface Ball {
     shoot: boolean,
 
 }
-
-let slider: HTMLInputElement = <HTMLInputElement>document.getElementById("angle1");
-let angle1: number = Number(slider.value);
+let slider1: HTMLInputElement = <HTMLInputElement>document.getElementById("angle1");
+let angle1: number = Number(slider1.value);
 
 
 slider.oninput = function() {
