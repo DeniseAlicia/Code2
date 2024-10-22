@@ -32,12 +32,12 @@ interface Ball {
 }
 
 let slider: HTMLInputElement = <HTMLInputElement>document.getElementById("angle1");
-let Angle1: number = Number(slider.value);
+let angle1: number = Number(slider.value);
 
 
 slider.oninput = function() {
-  Angle1 = Number(slider.value);
-  console.log(Angle1); 
+  angle1 = Number(slider.value);
+  console.log(angle1); 
 }
 
 
