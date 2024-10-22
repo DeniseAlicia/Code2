@@ -55,6 +55,14 @@ slider3.oninput = function() {
   Gunpower1 = Number(slider3.value);
 }
 
+let slider4: HTMLInputElement = <HTMLInputElement>document.getElementById("gunpower2");
+let Gunpower2: number = Number(slider4.value);
+
+
+slider4.oninput = function() {
+  Gunpower2 = Number(slider4.value);
+}
+
 function handleLoad(): void {
     generateTerrain();
     generateCannons(2);
