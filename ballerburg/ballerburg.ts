@@ -27,18 +27,17 @@ interface Ball {
 
 }
 
-let slider: HTMLElement = document.getElementById("Angle1")!;
-let output: HTMLElement = document.getElementById("Angle1")!;
-output.innerHTML = slider.value; 
+let slider: HTMLInputElement = <HTMLInputElement>document.getElementById("angle1");
+let Angle1: number = Number(slider.value);
 
 slider.oninput = function() {
-  output.innerHTML = this.value;
+  Angle1 = Number(slider.value);
+  console.log(Angle1); 
 }
 
 function handleLoad(_event: Event): void {
     generateTerrain();
     generateCannons(2);
-    for 
 
 }
 
