@@ -1,11 +1,15 @@
 console.log("Hello There");
 
+const gravity: number = 5;
 const cannons: Cannon[] = [];
 const cannonBalls: Ball[] = [];
+
 const canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
+const ctx: CanvasRenderingContext2D = canvas.getContext("2d")!;
 
 window.addEventListener("load", handleLoad);
 setInterval(animationFrame, 16);
+
 
 interface Cannon {
 
@@ -31,15 +35,13 @@ function handleLoad(): void {
 
     generateTerrain();
     generateCannons(2);
-    for (let i: number = 0; i < cannons.length; i++) {
-        generateBalls(cannons[i]);
-    }
     drawTerrain();
     drawCannons();
 
 }
 
 function generateTerrain(): void {
+
 
 }
 
@@ -61,12 +63,12 @@ function generateCannons(_amount: number): void {
 
 }
 
-function generateBalls(_cannon: Cannon): void {
+function generateBall(_cannon: Cannon): void {
 
     const newBall: Ball = {
 
         player: _cannon.player,
-        speed: 0,
+        speed: _cannon.gunpowder,
         posX: _cannon.posX,
         posY: _cannon.posY,
         shoot: false,
@@ -94,11 +96,19 @@ function drawBalls(): void {
 
 function ballFly(_ball: Ball): void {
 
+    _ball.posX += _ball.speed;
+    _ball.posY += gravity;
 
     collisionCheck(_ball);
+
 }
 
 function collisionCheck(_ball: Ball): void {
+
+}
+
+function winner(_player: number): void {
+
 
 }
 
