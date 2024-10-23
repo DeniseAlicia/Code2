@@ -25,8 +25,6 @@ function generateCannons(_amount) {
     for (let i = 0; i < _amount; i++) {
         const newCannon = {
             player: i + 1,
-            angle: 0,
-            gunpowder: 0,
             posX: 0,
             posY: 0,
         };
@@ -36,7 +34,7 @@ function generateCannons(_amount) {
 function generateBall(_cannon) {
     const newBall = {
         player: _cannon.player,
-        speed: _cannon.gunpowder,
+        speed: GUNPOWDERSLIDER,
         posX: _cannon.posX,
         posY: _cannon.posY,
         shoot: false,
@@ -46,6 +44,11 @@ function generateBall(_cannon) {
 function drawTerrain() {
 }
 function drawCannons() {
+    for (let i = 0; i < cannons.length; i++) {
+        const x = cannons[i].posX;
+        const y = cannons[i].posY;
+        const angle;
+    }
 }
 function drawBalls() {
 }

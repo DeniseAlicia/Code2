@@ -15,8 +15,6 @@ setInterval(animationFrame, 16);
 interface Cannon {
 
     player: number,
-    angle: number,
-    gunpowder: number,
     posX: number,
     posY: number,
 }
@@ -59,8 +57,6 @@ function generateCannons(_amount: number): void {
         const newCannon: Cannon = {
 
             player: i+1,
-            angle: 0,
-            gunpowder: 0,
             posX: 0,
             posY: 0,
 
@@ -76,7 +72,7 @@ function generateBall(_cannon: Cannon): void {
     const newBall: Ball = {
 
         player: _cannon.player,
-        speed: _cannon.gunpowder,
+        speed: GUNPOWDERSLIDER,
         posX: _cannon.posX,
         posY: _cannon.posY,
         shoot: false,
@@ -92,7 +88,12 @@ function drawTerrain(): void {
 
 function drawCannons(): void {
 
+    for (let i: number = 0; i<cannons.length; i++) {
+        const x: number = cannons[i].posX;
+        const y: number = cannons[i].posY;
+        const angle: number
 
+    }
 }
 
 
