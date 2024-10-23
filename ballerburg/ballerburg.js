@@ -6,8 +6,6 @@ const cannonBalls = [];
 const posPlayers = [];
 const canvas = document.getElementsByTagName("canvas")[0];
 const ctx = canvas.getContext("2d");
-const area1 = canvas.width * 0.3;
-const areaMountain = canvas.width * 0.7;
 window.addEventListener("load", handleLoad);
 setInterval(animationFrame, 16);
 let slider1 = document.getElementById("angle1");
@@ -43,6 +41,8 @@ function generateBall(_cannon) {
     const newBall = {
         player: _cannon.player,
         speed: 0,
+        angle: 0,
+        radius: 5,
         posX: _cannon.posX,
         posY: _cannon.posY,
         shoot: false,
