@@ -171,14 +171,14 @@ function drawCannons(): void {
         cannon.path.moveTo(x,y);
         cannon.path.arc(x, y, cannonRadius, 0, 360);
 
-        ctx.save();
+        //ctx.save();
 
         //ctx.rotate(Number(cannon.angle.value));
         cannon.path.rect(x, y - cannonRadius*0.5, barrelLength, barrelWidth);
         ctx.fillStyle = "black";
         ctx.fill(cannon.path);
 
-        ctx.restore();
+        //ctx.restore();
 
     }
 }
