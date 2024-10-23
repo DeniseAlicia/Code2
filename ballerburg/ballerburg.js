@@ -50,6 +50,7 @@ function generateCannons(_amount) {
             posX: posPlayers[i],
             posY: 0,
             path: new Path2D,
+            shoot: false
         };
         cannons.push(newCannon);
     }
@@ -62,7 +63,6 @@ function generateBall(_cannon) {
         radius: 5,
         posX: _cannon.posX,
         posY: _cannon.posY,
-        shoot: false,
     };
     cannonBalls.push(newBall);
 }
@@ -70,9 +70,15 @@ function drawTerrain() {
 }
 function drawCannons() {
     for (let i = 0; i < cannons.length; i++) {
-        const x = cannons[i].posX;
-        const y = cannons[i].posY;
+        const cannon = cannons[i];
+        const x = cannon.posX;
+        const y = cannon.posY;
         const angle = 0;
+        const cannonRadius = 15;
+        cannon.path.moveTo(x, y);
+        cannon.path.arc(x, y, cannonRadius, 0, 360);
+        ctx.fillStyle = "black";
+        ctx.fill(cannon.path);
     }
 }
 function drawBalls() {

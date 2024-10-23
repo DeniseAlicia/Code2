@@ -46,6 +46,7 @@ interface Ball {
     radius: number,
     posX: number,
     posY: number,
+    shoot: boolean,
 
 }
 
@@ -96,7 +97,7 @@ function generateCannons(_amount: number): void {
 
 
 }
-
+//generates cannonballs
 function generateBall(_cannon: Cannon): void {
 
     const newBall: Ball = {
@@ -107,6 +108,7 @@ function generateBall(_cannon: Cannon): void {
         radius: 5,
         posX: _cannon.posX,
         posY: _cannon.posY,
+        shoot:false
 
     }
     cannonBalls.push(newBall);
@@ -118,32 +120,57 @@ function drawTerrain(): void {
 
 }
 
+//draws cannons
 function drawCannons(): void {
 
     for (let i: number = 0; i<cannons.length; i++) {
-        const x: number = cannons[i].posX;
-        const y: number = cannons[i].posY;
-        const angle: number = 0;
 
-        
+        const cannon: Cannon = cannons[i];
+        const x: number = cannon.posX;
+        const y: number = cannon.posY;
+        const angle: number = 0;
+        const cannonRadius: number = 15;
+
+        cannon.path.moveTo(x,y);
+        cannon.path.arc(x, y, cannonRadius, 0, 360);
+
+
+        ctx.fillStyle = "black";
+        ctx.fill(cannon.path);
     }
 }
 
 
-
+//draws the cannonballs currently in the air
 function drawBalls(): void {
 
 }
 
+//fires the cannon
+function fireCannon(_cannon: Cannon): void {
+    
+}
+
+//calculates the balls flight path if cannon is fired
 function ballFly(_ball: Ball): void {
 
-    _ball.posX += _ball.speed;
-    _ball.posY += gravity;
+    if (_ball.shoot)
 
-    collisionCheck(_ball);
+
+           
+            _ball.posX += _ball.speed;
+            _ball.posY += gravity;
+
+            collisionCheck(_ball);
+            }
+    
+        }
+    }
+    
 
 }
 
+//checks if the ball hits something
 function collisionCheck(_ball: Ball): void {
 
 }
