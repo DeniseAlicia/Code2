@@ -4,7 +4,7 @@ const gravity: number = 5;
 const cannons: Cannon[] = [];
 const cannonBalls: Ball[] = [];
 
-const canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
+const canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0]!;
 const ctx: CanvasRenderingContext2D = canvas.getContext("2d")!;
 
 
