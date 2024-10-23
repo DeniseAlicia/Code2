@@ -5,27 +5,36 @@ const cannons: Cannon[] = [];
 const cannonBalls: Ball[] = [];
 const posPlayers: number[] = [];
 
+
 const canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0]!;
 const ctx: CanvasRenderingContext2D = canvas.getContext("2d")!;
 
 const peak: number = Math.floor(Math.random()*canvas.height*0.5)+canvas.height*0.25;
 const platform1: number = Math.floor(Math.random()*canvas.height*0.5)+canvas.height*0.5;
 const platform2: number = Math.floor(Math.random()*canvas.height*0.5)+canvas.height*0.5;
+const platforms: number[] = [platform1, platform2];
 
 // Slider Variables
-let slider1: HTMLInputElement = <HTMLInputElement>document.getElementById("angle1");
+const slider1: HTMLInputElement = <HTMLInputElement>document.getElementById("angle1");
 let angle1: number = Number(slider1.value);
 
-let slider2: HTMLInputElement = <HTMLInputElement>document.getElementById("angle2");
+const slider2: HTMLInputElement = <HTMLInputElement>document.getElementById("angle2");
 let angle2: number = Number(slider2.value);
 
-let slider3: HTMLInputElement = <HTMLInputElement>document.getElementById("gunpower1");
+const slider3: HTMLInputElement = <HTMLInputElement>document.getElementById("gunpower1");
 let gunpower1: number = Number(slider3.value);
 
-let slider4: HTMLInputElement = <HTMLInputElement>document.getElementById("gunpower2");
+const slider4: HTMLInputElement = <HTMLInputElement>document.getElementById("gunpower2");
 let gunpower2: number = Number(slider4.value);
 
+//EventListeners
 window.addEventListener("load", handleLoad);
+slider1.addEventListener("input", hndSiderInput);
+slider2.addEventListener("input", hndSiderInput);
+slider3.addEventListener("input", hndSiderInput);
+slider4.addEventListener("input", hndSiderInput);
+
+//fps
 setInterval(animationFrame, 16);
 
 //interfaces
@@ -50,35 +59,26 @@ interface Ball {
 
 }
 
-// Slider Values on Input
-slider1.oninput = function(): void {
-  angle1 = Number(slider1.value);
-  console.log(angle1); 
-}
 
-slider2.oninput = function(): void {
-    angle2 = Number(slider2.value);
-}
-
-slider3.oninput = function(): void {
-    gunpower1 = Number(slider3.value);
-}
-
-slider4.oninput = function(): void {
-    gunpower2 = Number(slider4.value);
+function hndSiderInput(_event: Event): void {
+    const slider: HTMLInputElement = <HTMLInputElement>_event.target;
+    console.log(slider.value);
 }
 
 
+//what happens on load
 function handleLoad(): void {
-    generateCannons(2);
+    generateCannons(3);
     drawTerrain();
     drawCannons();
 }
 
+//generates the specified amount of cannons
 function generateCannons(_amount: number): void {
 
     const pos1: number = canvas.width*0.15;
     const pos2: number = canvas.width*0.85;
+     
 
     posPlayers.push(pos1);
     posPlayers.push(pos2);
@@ -88,7 +88,7 @@ function generateCannons(_amount: number): void {
 
             player: i+1,
             posX: posPlayers[i],
-            posY: 0,
+            posY: platforms[i],
             path: new Path2D,
             shoot: false
         }
@@ -105,7 +105,7 @@ function generateBall(_cannon: Cannon): void {
         player: _cannon.player,
         speed: 0,
         angle: 0,
-        radius: 5,
+        radius: 10,
         posX: _cannon.posX,
         posY: _cannon.posY,
         shoot:false
@@ -117,25 +117,49 @@ function generateBall(_cannon: Cannon): void {
 
 function drawTerrain(): void {
 
+    ctx.beginPath();
+    ctx.moveTo(0,platform1);
+    ctx.lineTo(canvas.width*0.3,platform1);
+    ctx.lineTo(Math.floor(Math.random()*canvas.width*0.3)+canvas.width*0.3, peak);
+    ctx.lineTo(canvas.width*0.7,platform2);
+    ctx.lineTo(canvas.width,platform2);
+    ctx.lineTo(canvas.width, canvas.height);
+    ctx.lineTo(0, canvas.height);
+    ctx.lineTo(0, platform1);
+
+    ctx.strokeStyle = "black"
+    ctx.stroke();
+    ctx.fillStyle = "black";
+
+    ctx.fill();
 
 }
 
 //draws cannons
 function drawCannons(): void {
 
+    let n: number = 0;
+
     for (let i: number = 0; i<cannons.length; i++) {
 
         const cannon: Cannon = cannons[i];
         const x: number = cannon.posX;
-        const y: number = cannon.posY;
-        const angle: number = 0;
-        const cannonRadius: number = 15;
+        const y: number = cannon.posY-20;
+        const angle: number = 90;
+        const cannonRadius: number = 30;
+        const barrelLength: number = 200;
+        const barrelWidth: number = 30;
 
         cannon.path.moveTo(x,y);
         cannon.path.arc(x, y, cannonRadius, 0, 360);
+        ctx.translate(x, y);
+        //ctx.rotate(angle);
+        cannon.path.rect(x, y, barrelLength*n, barrelWidth);
 
         ctx.fillStyle = "black";
         ctx.fill(cannon.path);
+
+        n = n*-1;
     }
 }
 
@@ -188,7 +212,7 @@ function winner(_player: number): void {
 }
 
 function animationFrame(): void {
-    drawTerrain();
+    //drawTerrain();
     drawCannons();
     drawBalls();
     for (let i:number = 0; i<cannonBalls.length; i++) {
