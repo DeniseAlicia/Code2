@@ -134,7 +134,6 @@ function drawCannons(): void {
         cannon.path.moveTo(x,y);
         cannon.path.arc(x, y, cannonRadius, 0, 360);
 
-
         ctx.fillStyle = "black";
         ctx.fill(cannon.path);
     }
@@ -144,17 +143,25 @@ function drawCannons(): void {
 //draws the cannonballs currently in the air
 function drawBalls(): void {
 
+    for (let i:number = 0; i<cannonBalls.length; i++) {
+        const ball: Ball = cannonBalls[i];
+
+        if (ball.shoot == true) {
+
+        }
+    }
+
 }
 
 //fires the cannon
 function fireCannon(_cannon: Cannon): void {
-    
+
 }
 
-//calculates the balls flight path if cannon is fired
+//calculates the balls flight path if ball is in air
 function ballFly(_ball: Ball): void {
 
-    if (_ball.shoot)
+    if (_ball.shoot){
 
 
            
@@ -164,11 +171,11 @@ function ballFly(_ball: Ball): void {
             collisionCheck(_ball);
             }
     
-        }
+    
     }
     
 
-}
+
 
 //checks if the ball hits something
 function collisionCheck(_ball: Ball): void {
