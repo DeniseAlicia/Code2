@@ -8,7 +8,22 @@ const posPlayers: number[] = [];
 const canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0]!;
 const ctx: CanvasRenderingContext2D = canvas.getContext("2d")!;
 
+const peak: number = Math.floor(Math.random()*canvas.height*0.5)+canvas.height*0.25;
+const platform1: number = Math.floor(Math.random()*canvas.height*0.5)+canvas.height*0.5;
+const platform2: number = Math.floor(Math.random()*canvas.height*0.5)+canvas.height*0.5;
 
+// Slider Variables
+let slider1: HTMLInputElement = <HTMLInputElement>document.getElementById("angle1");
+let angle1: number = Number(slider1.value);
+
+let slider2: HTMLInputElement = <HTMLInputElement>document.getElementById("angle2");
+let angle2: number = Number(slider2.value);
+
+let slider3: HTMLInputElement = <HTMLInputElement>document.getElementById("gunpower1");
+let gunpower1: number = Number(slider3.value);
+
+let slider4: HTMLInputElement = <HTMLInputElement>document.getElementById("gunpower2");
+let gunpower2: number = Number(slider4.value);
 
 window.addEventListener("load", handleLoad);
 setInterval(animationFrame, 16);
@@ -34,28 +49,29 @@ interface Ball {
 
 }
 
-
-let slider1: HTMLInputElement = <HTMLInputElement>document.getElementById("angle1");
-let angle1: number = Number(slider1.value);
-
-
+// Slider Values on Input
 slider1.oninput = function(): void {
   angle1 = Number(slider1.value);
   console.log(angle1); 
 }
 
+slider2.oninput = function(): void {
+    angle2 = Number(slider2.value);
+}
+
+slider3.oninput = function(): void {
+    gunpower1 = Number(slider3.value);
+}
+
+slider4.oninput = function(): void {
+    gunpower2 = Number(slider4.value);
+}
 
 
 function handleLoad(): void {
-    generateTerrain();
     generateCannons(2);
     drawTerrain();
     drawCannons();
-}
-
-function generateTerrain(): void {
-
-
 }
 
 function generateCannons(_amount: number): void {
