@@ -17,16 +17,16 @@ const platforms: number[] = [platform1, platform2];
 
 // Slider Variables
 const slider1: HTMLInputElement = <HTMLInputElement>document.getElementById("angle1");
-let angle1: number = Number(slider1.value);
+//let angle1: number = Number(slider1.value);
 
 const slider2: HTMLInputElement = <HTMLInputElement>document.getElementById("angle2");
-let angle2: number = Number(slider2.value);
+// let angle2: number = Number(slider2.value);
 
 const slider3: HTMLInputElement = <HTMLInputElement>document.getElementById("gunpower1");
-let gunpower1: number = Number(slider3.value);
+// let gunpower1: number = Number(slider3.value);
 
 const slider4: HTMLInputElement = <HTMLInputElement>document.getElementById("gunpower2");
-let gunpower2: number = Number(slider4.value);
+// let gunpower2: number = Number(slider4.value);
 
 //EventListeners
 window.addEventListener("load", handleLoad);
@@ -44,7 +44,9 @@ interface Cannon {
     player: number,
     posX: number,
     posY: number,
-    ball: Ball,
+    angle: HTMLInputElement,
+    gunpowder: HTMLInputElement,
+    ball?: Ball,
     path: Path2D,
     shoot: boolean,
 }
@@ -55,6 +57,7 @@ interface Ball {
     speed: number,
     angle: number,
     radius: number,
+    cannon: Cannon,
     posX: number,
     posY: number,
     shoot: boolean,
@@ -82,29 +85,17 @@ function generateCannons(_amount: number): void {
 
     const pos1: number = canvas.width*0.15;
     const pos2: number = canvas.width*0.85;
-
-    const fakeBall: Ball = {
-
-        player: 0,
-        speed: 0,
-        angle: 0,
-        radius: 0,
-        posX: 0,
-        posY: 0,
-        shoot:false,
-
-    }
      
     posPlayers.push(pos1);
     posPlayers.push(pos2);
 
     for (let i: number = 0; i<_amount; i++) {
         const newCannon: Cannon = {
-
             player: i+1,
-            posX: posPlayers[i],
+            posX: canvas.width * (i==0 ? 0.15 : 0.85),//posPlayers[i],
             posY: platforms[i],
-            ball: fakeBall,
+            angle: slider1,
+            gunpowder: slider2,
             path: new Path2D,
             shoot: false
         }
@@ -123,12 +114,14 @@ function generateBall(_cannon: Cannon): void {
         speed: 0,
         angle: 0,
         radius: 100,
+        cannon: _cannon,
         posX: _cannon.posX,
         posY: _cannon.posY,
         shoot:false
 
     }
 
+    _cannon.ball = newBall;
     cannonBalls.push(newBall);
 
 }
@@ -166,24 +159,26 @@ function drawCannons(): void {
         //const angle: number = 90;
 
         const cannonRadius: number = 30;
-        const barrelLength: number = 50;
+        let barrelLength: number = 50;
         const barrelWidth: number = 30;
 
         //checks which direction cannon has to face
-        if (cannon.player % 2 !== 0) {
-
+        if (cannon.player % 2 == 0) {
+            barrelLength = barrelLength*-1;
         }
-        else {
-
-        }
+       
 
         cannon.path.moveTo(x,y);
         cannon.path.arc(x, y, cannonRadius, 0, 360);
 
-        cannon.path.rect(x, y, barrelLength*n, barrelWidth);
+        ctx.save();
 
+        //ctx.rotate(Number(cannon.angle.value));
+        cannon.path.rect(x, y, barrelLength, barrelWidth);
         ctx.fillStyle = "black";
         ctx.fill(cannon.path);
+
+        ctx.restore();
 
     }
 }
@@ -206,9 +201,11 @@ function drawBalls(): void {
 function fireCannon(_cannon: Cannon): void {
 
     if (_cannon.shoot == false) {
+
         _cannon.shoot = true;
 
-
+        _cannon.ball!.speed = Math.cos(Number(_cannon.angle.value));
+        _cannon.ball!.angle = Math.sin(Number(_cannon.angle.value));
     }
 }
 
@@ -218,7 +215,8 @@ function ballFly(_ball: Ball): void {
     if (_ball.shoot == true) {
            
             _ball.posX += _ball.speed;
-            _ball.posY += gravity;
+            _ball.angle += gravity;
+            _ball.posY += _ball.angle;
 
             collisionCheck(_ball);
             }
@@ -232,6 +230,7 @@ function ballFly(_ball: Ball): void {
 //checks if the ball hits something
 function collisionCheck(_ball: Ball): void {
 
+    winner(_ball.player);
 }
 
 //if one player hits the other cannon

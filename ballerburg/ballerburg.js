@@ -14,13 +14,13 @@ const platform2 = Math.floor(Math.random() * canvas.height * 0.5) + canvas.heigh
 const platforms = [platform1, platform2];
 // Slider Variables
 const slider1 = document.getElementById("angle1");
-let angle1 = Number(slider1.value);
+//let angle1: number = Number(slider1.value);
 const slider2 = document.getElementById("angle2");
-let angle2 = Number(slider2.value);
+// let angle2: number = Number(slider2.value);
 const slider3 = document.getElementById("gunpower1");
-let gunpower1 = Number(slider3.value);
+// let gunpower1: number = Number(slider3.value);
 const slider4 = document.getElementById("gunpower2");
-let gunpower2 = Number(slider4.value);
+// let gunpower2: number = Number(slider4.value);
 //EventListeners
 window.addEventListener("load", handleLoad);
 slider1.addEventListener("input", hndSiderInput);
@@ -45,23 +45,15 @@ function handleLoad() {
 function generateCannons(_amount) {
     const pos1 = canvas.width * 0.15;
     const pos2 = canvas.width * 0.85;
-    const fakeBall = {
-        player: 0,
-        speed: 0,
-        angle: 0,
-        radius: 0,
-        posX: 0,
-        posY: 0,
-        shoot: false,
-    };
     posPlayers.push(pos1);
     posPlayers.push(pos2);
     for (let i = 0; i < _amount; i++) {
         const newCannon = {
             player: i + 1,
-            posX: posPlayers[i],
+            posX: canvas.width * (i == 0 ? 0.15 : 0.85), //posPlayers[i],
             posY: platforms[i],
-            ball: fakeBall,
+            angle: slider1,
+            gunpowder: slider2,
             path: new Path2D,
             shoot: false
         };
@@ -76,10 +68,12 @@ function generateBall(_cannon) {
         speed: 0,
         angle: 0,
         radius: 100,
+        cannon: _cannon,
         posX: _cannon.posX,
         posY: _cannon.posY,
         shoot: false
     };
+    _cannon.ball = newBall;
     cannonBalls.push(newBall);
 }
 function drawTerrain() {
@@ -105,18 +99,20 @@ function drawCannons() {
         const y = cannon.posY - 20;
         //const angle: number = 90;
         const cannonRadius = 30;
-        const barrelLength = 50;
+        let barrelLength = 50;
         const barrelWidth = 30;
         //checks which direction cannon has to face
-        if (cannon.player % 2 !== 0) {
-        }
-        else {
+        if (cannon.player % 2 == 0) {
+            barrelLength = barrelLength * -1;
         }
         cannon.path.moveTo(x, y);
         cannon.path.arc(x, y, cannonRadius, 0, 360);
-        cannon.path.rect(x, y, barrelLength * n, barrelWidth);
+        ctx.save();
+        //ctx.rotate(Number(cannon.angle.value));
+        cannon.path.rect(x, y, barrelLength, barrelWidth);
         ctx.fillStyle = "black";
         ctx.fill(cannon.path);
+        ctx.restore();
     }
 }
 //draws the cannonballs currently in the air
@@ -131,18 +127,22 @@ function drawBalls() {
 function fireCannon(_cannon) {
     if (_cannon.shoot == false) {
         _cannon.shoot = true;
+        _cannon.ball.speed = Math.cos(Number(_cannon.angle.value));
+        _cannon.ball.angle = Math.sin(Number(_cannon.angle.value));
     }
 }
 //calculates the balls flight path if ball is in air
 function ballFly(_ball) {
     if (_ball.shoot == true) {
         _ball.posX += _ball.speed;
-        _ball.posY += gravity;
+        _ball.angle += gravity;
+        _ball.posY += _ball.angle;
         collisionCheck(_ball);
     }
 }
 //checks if the ball hits something
 function collisionCheck(_ball) {
+    winner(_ball.player);
 }
 //if one player hits the other cannon
 function winner(_player) {
