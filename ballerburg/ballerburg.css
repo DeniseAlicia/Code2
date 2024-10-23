@@ -1,7 +1,24 @@
 #canvas {
     background-color: rgb(225, 232, 239);
-    display: block;
+    display: flexbox;
+    flex-direction: column;
     position: absolute;
+    top: 15%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  color: rgb(0, 0, 0);
+  border-radius: 0.5em;
+  margin-bottom: 5px;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  width: 100%;
+  background-color: #cad7e4;
 
 }
 
@@ -33,7 +50,7 @@
     display: flexbox;
     flex-direction: column;
     position: absolute;
-    top: 5%;
+    top: 15%;
     left: 2%;
     width: 20%;
     height: 40%;
@@ -55,7 +72,7 @@
 
 .Player2 {
     position: absolute;
-    top: 5%;
+    top: 15%;
     right: 2%;
     display: grid;
     width: 20%;
