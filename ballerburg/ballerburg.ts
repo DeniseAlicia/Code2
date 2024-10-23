@@ -5,7 +5,7 @@ const cannons: Cannon[] = [];
 const cannonBalls: Ball[] = [];
 const posPlayers: number[] = [];
 
-const canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
+const canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0]!;
 const ctx: CanvasRenderingContext2D = canvas.getContext("2d")!;
 const area1: number = canvas.width*0.3;
 const areaMountain: number = canvas.width*0.7;
