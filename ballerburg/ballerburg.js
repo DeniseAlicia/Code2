@@ -1,9 +1,13 @@
 "use strict";
+//global variables
 const gravity = 5;
 const cannons = [];
 const cannonBalls = [];
+const posPlayers = [];
 const canvas = document.getElementsByTagName("canvas")[0];
 const ctx = canvas.getContext("2d");
+const area1 = canvas.width * 0.3;
+const areaMountain = canvas.width * 0.7;
 window.addEventListener("load", handleLoad);
 setInterval(animationFrame, 16);
 let slider1 = document.getElementById("angle1");
@@ -21,11 +25,16 @@ function handleLoad() {
 function generateTerrain() {
 }
 function generateCannons(_amount) {
+    const pos1 = canvas.width * 0.15;
+    const pos2 = canvas.width * 0.85;
+    posPlayers.push(pos1);
+    posPlayers.push(pos2);
     for (let i = 0; i < _amount; i++) {
         const newCannon = {
             player: i + 1,
-            posX: 0,
+            posX: posPlayers[i],
             posY: 0,
+            path: new Path2D,
         };
         cannons.push(newCannon);
     }
@@ -68,3 +77,4 @@ function animationFrame() {
         ballFly(cannonBalls[i]);
     }
 }
+//# sourceMappingURL=ballerburg.js.map
