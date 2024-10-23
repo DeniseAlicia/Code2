@@ -5,11 +5,12 @@ const cannons: Cannon[] = [];
 const cannonBalls: Ball[] = [];
 const posPlayers: number[] = [];
 
-
 const canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0]!;
 const ctx: CanvasRenderingContext2D = canvas.getContext("2d")!;
 
-const peak: number = Math.floor(Math.random()*canvas.height*0.5)+canvas.height*0.25;
+//Terrain variables
+const peakX: number = Math.floor(Math.random()*canvas.width*0.3)+canvas.width*0.3;
+const peakY: number = Math.floor(Math.random()*canvas.height*0.5)+canvas.height*0.25;
 const platform1: number = Math.floor(Math.random()*canvas.height*0.5)+canvas.height*0.5;
 const platform2: number = Math.floor(Math.random()*canvas.height*0.5)+canvas.height*0.5;
 const platforms: number[] = [platform1, platform2];
@@ -43,6 +44,7 @@ interface Cannon {
     player: number,
     posX: number,
     posY: number,
+    ball: Ball,
     path: Path2D,
     shoot: boolean,
 }
@@ -59,16 +61,18 @@ interface Ball {
 
 }
 
-
+//value test
 function hndSiderInput(_event: Event): void {
     const slider: HTMLInputElement = <HTMLInputElement>_event.target;
-    console.log(slider.value);
+    const value: number = Number(slider.value);
+    console.log(value);
+
 }
 
 
 //what happens on load
 function handleLoad(): void {
-    generateCannons(3);
+    generateCannons(2);
     drawTerrain();
     drawCannons();
 }
@@ -78,8 +82,19 @@ function generateCannons(_amount: number): void {
 
     const pos1: number = canvas.width*0.15;
     const pos2: number = canvas.width*0.85;
-     
 
+    const fakeBall: Ball = {
+
+        player: 0,
+        speed: 0,
+        angle: 0,
+        radius: 0,
+        posX: 0,
+        posY: 0,
+        shoot:false,
+
+    }
+     
     posPlayers.push(pos1);
     posPlayers.push(pos2);
 
@@ -89,9 +104,11 @@ function generateCannons(_amount: number): void {
             player: i+1,
             posX: posPlayers[i],
             posY: platforms[i],
+            ball: fakeBall,
             path: new Path2D,
             shoot: false
         }
+        generateBall(newCannon);
         cannons.push(newCannon);
     }
 
@@ -105,12 +122,13 @@ function generateBall(_cannon: Cannon): void {
         player: _cannon.player,
         speed: 0,
         angle: 0,
-        radius: 10,
+        radius: 100,
         posX: _cannon.posX,
         posY: _cannon.posY,
         shoot:false
 
     }
+
     cannonBalls.push(newBall);
 
 }
@@ -120,7 +138,7 @@ function drawTerrain(): void {
     ctx.beginPath();
     ctx.moveTo(0,platform1);
     ctx.lineTo(canvas.width*0.3,platform1);
-    ctx.lineTo(Math.floor(Math.random()*canvas.width*0.3)+canvas.width*0.3, peak);
+    ctx.lineTo(peakX, peakY);
     ctx.lineTo(canvas.width*0.7,platform2);
     ctx.lineTo(canvas.width,platform2);
     ctx.lineTo(canvas.width, canvas.height);
@@ -138,28 +156,35 @@ function drawTerrain(): void {
 //draws cannons
 function drawCannons(): void {
 
-    let n: number = 0;
+   
 
     for (let i: number = 0; i<cannons.length; i++) {
 
         const cannon: Cannon = cannons[i];
         const x: number = cannon.posX;
         const y: number = cannon.posY-20;
-        const angle: number = 90;
+        //const angle: number = 90;
+
         const cannonRadius: number = 30;
-        const barrelLength: number = 200;
+        const barrelLength: number = 50;
         const barrelWidth: number = 30;
+
+        //checks which direction cannon has to face
+        if (cannon.player % 2 !== 0) {
+
+        }
+        else {
+
+        }
 
         cannon.path.moveTo(x,y);
         cannon.path.arc(x, y, cannonRadius, 0, 360);
-        ctx.translate(x, y);
-        //ctx.rotate(angle);
+
         cannon.path.rect(x, y, barrelLength*n, barrelWidth);
 
         ctx.fillStyle = "black";
         ctx.fill(cannon.path);
 
-        n = n*-1;
     }
 }
 
@@ -180,14 +205,17 @@ function drawBalls(): void {
 //fires the cannon
 function fireCannon(_cannon: Cannon): void {
 
+    if (_cannon.shoot == false) {
+        _cannon.shoot = true;
+
+
+    }
 }
 
 //calculates the balls flight path if ball is in air
 function ballFly(_ball: Ball): void {
 
-    if (_ball.shoot){
-
-
+    if (_ball.shoot == true) {
            
             _ball.posX += _ball.speed;
             _ball.posY += gravity;
@@ -206,13 +234,18 @@ function collisionCheck(_ball: Ball): void {
 
 }
 
+//if one player hits the other cannon
 function winner(_player: number): void {
 
 
 }
 
+//happens every frame
 function animationFrame(): void {
-    //drawTerrain();
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    drawTerrain();
     drawCannons();
     drawBalls();
     for (let i:number = 0; i<cannonBalls.length; i++) {
