@@ -6,23 +6,38 @@ const cannonBalls = [];
 const posPlayers = [];
 const canvas = document.getElementsByTagName("canvas")[0];
 const ctx = canvas.getContext("2d");
-const area1 = canvas.width * 0.3;
-const areaMountain = canvas.width * 0.7;
-window.addEventListener("load", handleLoad);
-setInterval(animationFrame, 16);
+const peak = Math.floor(Math.random() * canvas.height * 0.5) + canvas.height * 0.25;
+const platform1 = Math.floor(Math.random() * canvas.height * 0.5) + canvas.height * 0.5;
+const platform2 = Math.floor(Math.random() * canvas.height * 0.5) + canvas.height * 0.5;
+// Slider Variables
 let slider1 = document.getElementById("angle1");
 let angle1 = Number(slider1.value);
+let slider2 = document.getElementById("angle2");
+let angle2 = Number(slider2.value);
+let slider3 = document.getElementById("gunpower1");
+let gunpower1 = Number(slider3.value);
+let slider4 = document.getElementById("gunpower2");
+let gunpower2 = Number(slider4.value);
+window.addEventListener("load", handleLoad);
+setInterval(animationFrame, 16);
+// Slider Values on Input
 slider1.oninput = function () {
     angle1 = Number(slider1.value);
     console.log(angle1);
 };
+slider2.oninput = function () {
+    angle2 = Number(slider2.value);
+};
+slider3.oninput = function () {
+    gunpower1 = Number(slider3.value);
+};
+slider4.oninput = function () {
+    gunpower2 = Number(slider4.value);
+};
 function handleLoad() {
-    generateTerrain();
     generateCannons(2);
     drawTerrain();
     drawCannons();
-}
-function generateTerrain() {
 }
 function generateCannons(_amount) {
     const pos1 = canvas.width * 0.15;
