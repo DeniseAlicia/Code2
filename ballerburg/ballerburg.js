@@ -65,6 +65,16 @@ function generateBall(_cannon) {
     cannonBalls.push(newBall);
 }
 function drawTerrain() {
+    ctx.beginPath();
+    ctx.moveTo(0, platform1);
+    ctx.lineTo(canvas.width * 0.3, platform1);
+    ctx.lineTo(Math.floor(Math.random() * canvas.width * 0.3) + canvas.width * 0.3, peak);
+    ctx.lineTo(canvas.width * 0.7, platform2);
+    ctx.lineTo(canvas.width, platform2);
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.fillStyle = "black";
+    //ctx.fill();
 }
 function drawCannons() {
     for (let i = 0; i < cannons.length; i++) {
@@ -85,7 +95,6 @@ function collisionCheck(_ball) {
 function winner(_player) {
 }
 function animationFrame() {
-    drawTerrain();
     drawCannons();
     drawBalls();
     for (let i = 0; i < cannonBalls.length; i++) {

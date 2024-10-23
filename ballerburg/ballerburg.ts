@@ -110,7 +110,17 @@ function generateBall(_cannon: Cannon): void {
 
 function drawTerrain(): void {
 
+    ctx.beginPath();
+    ctx.moveTo(0,platform1);
+    ctx.lineTo(canvas.width*0.3,platform1);
+    ctx.lineTo(Math.floor(Math.random()*canvas.width*0.3)+canvas.width*0.3, peak);
+    ctx.lineTo(canvas.width*0.7,platform2);
+    ctx.lineTo(canvas.width,platform2);
 
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.fillStyle = "black";
+    //ctx.fill();
 }
 
 function drawCannons(): void {
@@ -149,7 +159,6 @@ function winner(_player: number): void {
 }
 
 function animationFrame(): void {
-    drawTerrain();
     drawCannons();
     drawBalls();
     for (let i:number = 0; i<cannonBalls.length; i++) {
