@@ -1,5 +1,4 @@
 "use strict";
-console.log("Hello There");
 const gravity = 5;
 const cannons = [];
 const cannonBalls = [];
@@ -34,7 +33,7 @@ function generateCannons(_amount) {
 function generateBall(_cannon) {
     const newBall = {
         player: _cannon.player,
-        speed: GUNPOWDERSLIDER,
+        speed: 0,
         posX: _cannon.posX,
         posY: _cannon.posY,
         shoot: false,
@@ -47,7 +46,7 @@ function drawCannons() {
     for (let i = 0; i < cannons.length; i++) {
         const x = cannons[i].posX;
         const y = cannons[i].posY;
-        const angle;
+        const angle = 0;
     }
 }
 function drawBalls() {

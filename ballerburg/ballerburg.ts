@@ -1,4 +1,4 @@
-console.log("Hello There");
+
 
 const gravity: number = 5;
 const cannons: Cannon[] = [];
@@ -6,6 +6,7 @@ const cannonBalls: Ball[] = [];
 
 const canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
 const ctx: CanvasRenderingContext2D = canvas.getContext("2d")!;
+
 
 
 window.addEventListener("load", handleLoad);
@@ -32,7 +33,7 @@ let slider1: HTMLInputElement = <HTMLInputElement>document.getElementById("angle
 let angle1: number = Number(slider1.value);
 
 
-slider1.oninput = function() {
+slider1.oninput = function(): void {
   angle1 = Number(slider1.value);
   console.log(angle1); 
 }
@@ -72,7 +73,7 @@ function generateBall(_cannon: Cannon): void {
     const newBall: Ball = {
 
         player: _cannon.player,
-        speed: GUNPOWDERSLIDER,
+        speed: 0,
         posX: _cannon.posX,
         posY: _cannon.posY,
         shoot: false,
@@ -91,7 +92,7 @@ function drawCannons(): void {
     for (let i: number = 0; i<cannons.length; i++) {
         const x: number = cannons[i].posX;
         const y: number = cannons[i].posY;
-        const angle: number
+        const angle: number = 0;
 
     }
 }
