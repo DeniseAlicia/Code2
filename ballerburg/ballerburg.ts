@@ -35,12 +35,15 @@ interface Cannon {
     posX: number,
     posY: number,
     path: Path2D,
+    shoot: boolean,
 }
 
 interface Ball {
 
     player: number,
     speed: number,
+    angle: number,
+    radius: number,
     posX: number,
     posY: number,
     shoot: boolean,
@@ -87,22 +90,26 @@ function generateCannons(_amount: number): void {
             posX: posPlayers[i],
             posY: 0,
             path: new Path2D,
+            shoot: false
         }
         cannons.push(newCannon);
     }
 
 
 }
-
+//generates cannonballs
 function generateBall(_cannon: Cannon): void {
 
     const newBall: Ball = {
 
         player: _cannon.player,
         speed: 0,
+        angle: 0,
+        radius: 5,
         posX: _cannon.posX,
         posY: _cannon.posY,
-        shoot: false,
+        shoot:false
+
     }
     cannonBalls.push(newBall);
 
@@ -123,32 +130,57 @@ function drawTerrain(): void {
     //ctx.fill();
 }
 
+//draws cannons
 function drawCannons(): void {
 
     for (let i: number = 0; i<cannons.length; i++) {
-        const x: number = cannons[i].posX;
-        const y: number = cannons[i].posY;
-        const angle: number = 0;
 
-        
+        const cannon: Cannon = cannons[i];
+        const x: number = cannon.posX;
+        const y: number = cannon.posY;
+        const angle: number = 0;
+        const cannonRadius: number = 15;
+
+        cannon.path.moveTo(x,y);
+        cannon.path.arc(x, y, cannonRadius, 0, 360);
+
+
+        ctx.fillStyle = "black";
+        ctx.fill(cannon.path);
     }
 }
 
 
-
+//draws the cannonballs currently in the air
 function drawBalls(): void {
 
 }
 
+//fires the cannon
+function fireCannon(_cannon: Cannon): void {
+    
+}
+
+//calculates the balls flight path if cannon is fired
 function ballFly(_ball: Ball): void {
 
-    _ball.posX += _ball.speed;
-    _ball.posY += gravity;
+    if (_ball.shoot)
 
-    collisionCheck(_ball);
+
+           
+            _ball.posX += _ball.speed;
+            _ball.posY += gravity;
+
+            collisionCheck(_ball);
+            }
+    
+        }
+    }
+    
 
 }
 
+//checks if the ball hits something
 function collisionCheck(_ball: Ball): void {
 
 }
