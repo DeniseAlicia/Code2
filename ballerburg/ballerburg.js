@@ -55,6 +55,7 @@ function generateCannons(_amount) {
         cannons.push(newCannon);
     }
 }
+//generates cannonballs
 function generateBall(_cannon) {
     const newBall = {
         player: _cannon.player,
@@ -63,6 +64,7 @@ function generateBall(_cannon) {
         radius: 5,
         posX: _cannon.posX,
         posY: _cannon.posY,
+        shoot: false
     };
     cannonBalls.push(newBall);
 }
@@ -78,6 +80,7 @@ function drawTerrain() {
     ctx.fillStyle = "black";
     //ctx.fill();
 }
+//draws cannons
 function drawCannons() {
     for (let i = 0; i < cannons.length; i++) {
         const cannon = cannons[i];
@@ -91,13 +94,20 @@ function drawCannons() {
         ctx.fill(cannon.path);
     }
 }
+//draws the cannonballs currently in the air
 function drawBalls() {
 }
+//fires the cannon
+function fireCannon(_cannon) {
+}
+//calculates the balls flight path if cannon is fired
 function ballFly(_ball) {
-    _ball.posX += _ball.speed;
+    if (_ball.shoot)
+        _ball.posX += _ball.speed;
     _ball.posY += gravity;
     collisionCheck(_ball);
 }
+//checks if the ball hits something
 function collisionCheck(_ball) {
 }
 function winner(_player) {
