@@ -17,7 +17,7 @@ var OldMacDonald;
             const v2 = "And on this farm he had a " + this.species + ", ee-a-ee-a-oh!";
             const v3 = "With a " + sound + " " + sound + " here and a " + sound + " " + sound + " there";
             const v4 = "Here a " + sound + ", " + "there a " + sound + ", everywhere just " + sound + " " + sound + "!";
-            console.log(this.name + " the " + this.species + ":");
+            console.group(this.name + " the " + this.species + ":");
             console.log(v1);
             console.log(v2);
             console.log(v3);
@@ -38,7 +38,7 @@ var OldMacDonald;
         reducefeed(_amount, _amountfeed) {
             this.amount = _amount - _amountfeed;
             console.log(this.name + " left: " + String(this.amount));
-            console.log(" "); //creates a paragraph in the console (nicer to look at)
+            console.groupEnd();
         }
         refillSilo(_amount, _maxamount) {
             if (_amount >= _maxamount) {
