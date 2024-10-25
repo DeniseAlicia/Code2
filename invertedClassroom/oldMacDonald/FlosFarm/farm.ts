@@ -18,12 +18,12 @@ class Animal {
         
     }
 
-    sing(_sound: string): void {
+    sing(): void {
 
         console.log(this.sound);
     }
 
-    eat(_amount: number, _amountfeed: number): void {
+    eat(): void {
 
         console.log()
     }
@@ -36,21 +36,27 @@ class Feed {
     maxamount: number;
     minamount: number;
 
-    constructor(_name: string, _amount: number) {
+    constructor(_name: string, _amount: number, _maxamount: number, _minamount: number) {
 
         this.name = _name;
         this.amount = _amount;
-        this.maxamount = 100;
-        this.minamount = 0;
+        this.maxamount = _maxamount;
+        this.minamount = _minamount;
         
     }
 
     reducefeed(_amount: number, _amountfeed: number): void {
 
+        this.amount= _amount-_amountfeed;
     }
 
-    refill(_amount: number, _minamount: number): void {
+    refillSilo(_amount: number, _maxamount: number): void {
 
+        if(_amount>= _maxamount) {
+            console.log(this.name + "-silo is full");
+        }
+
+        
     }
 }
 
@@ -62,10 +68,10 @@ const stable: Animal[] = [];
 function handleLoad(): void {
 
     //creating the foods
-    const hay: Feed = new Feed("hay", 100);
-    const meat: Feed = new Feed("meat", 100);
-    const cheese: Feed = new Feed("cheese", 100);
-    const seeds: Feed = new Feed("seeds", 100);
+    const hay: Feed = new Feed("hay", 100, 100, 0);
+    const meat: Feed = new Feed("meat", 20, 20, 0);
+    const cheese: Feed = new Feed("cheese", 5, 5, 0);
+    const seeds: Feed = new Feed("seeds", 50, 50, 0);
 
     silos.push(hay, meat, cheese, seeds);
 
@@ -92,7 +98,7 @@ function startSimulation(): void {
         const animal: Animal = stable[i];
         console.log(animal.name);
 
-        animal.sing(animal.sound);
+        animal.sing();
         animal.eat();
     }
 }
