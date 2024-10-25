@@ -16,7 +16,7 @@ var OldMacDonald;
             const v1 = "Old MacDonald had a farm, ee-a-ee-a-oh!";
             const v2 = "And on this farm he had a " + this.species + ", ee-a-ee-a-oh!";
             const v3 = "With a " + sound + " " + sound + " here and a " + sound + " " + sound + " there";
-            const v4 = "Here a " + sound + ", " + "there a " + sound + ", everywhere just " + sound + " " + sound;
+            const v4 = "Here a " + sound + ", " + "there a " + sound + ", everywhere just " + sound + " " + sound + "!";
             console.log(this.name + " the " + this.species + ":");
             console.log(v1);
             console.log(v2);
