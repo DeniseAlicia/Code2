@@ -21,6 +21,7 @@ namespace OldMacDonald {
 
         sing(): void {
 
+            //construct and logs the verses seperately for better structure
             const sound: string = this.sound;
 
             const v1: string = "Old MacDonald had a farm, ee-a-ee-a-oh!";
@@ -57,17 +58,18 @@ namespace OldMacDonald {
 
         }
 
+        //reduces the amount of food in silo
         reducefeed(_amount: number, _amountfeed: number): void {
 
             this.amount = _amount - _amountfeed;
             console.log(this.name + " left: " + String(this.amount));
-            console.log(" ");
+            console.log(" "); //creates a paragraph in the console (nicer to look at)
         }
 
         refillSilo(_amount: number, _maxamount: number): void {
 
             if (_amount >= _maxamount) {
-                console.log(this.name + "-silo is full");
+                console.log(this.name + "-silo is full"); //the way this code currently works, this message will never appear
             }
             else if (_amount <= this.minamount) {
 
@@ -89,7 +91,7 @@ namespace OldMacDonald {
 
     function handleLoad(): void {
 
-        //creating the foods
+        //creating the foods first, because of the references
         const hay: Feed = new Feed("Hay", 50, 50, 0);
         const meat: Feed = new Feed("Meat", 10, 10, 0);
         const cheese: Feed = new Feed("Cheese", 5, 5, 0);
@@ -109,7 +111,7 @@ namespace OldMacDonald {
 
         stable.push(cow, dog, cat, sheep, chicken, duck, rat, turkey);
 
-        window.addEventListener("click", startSimulation);
+        window.addEventListener("click", startSimulation); //allows multiple days to be simulated
 
     }
 

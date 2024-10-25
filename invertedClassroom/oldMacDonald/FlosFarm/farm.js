@@ -11,6 +11,7 @@ var OldMacDonald;
             this.sound = _sound;
         }
         sing() {
+            //construct and logs the verses seperately for better structure
             const sound = this.sound;
             const v1 = "Old MacDonald had a farm, ee-a-ee-a-oh!";
             const v2 = "And on this farm he had a " + this.species + ", ee-a-ee-a-oh!";
@@ -33,14 +34,15 @@ var OldMacDonald;
             this.maxamount = _maxamount;
             this.minamount = _minamount;
         }
+        //reduces the amount of food in silo
         reducefeed(_amount, _amountfeed) {
             this.amount = _amount - _amountfeed;
             console.log(this.name + " left: " + String(this.amount));
-            console.log(" ");
+            console.log(" "); //creates a paragraph in the console (nicer to look at)
         }
         refillSilo(_amount, _maxamount) {
             if (_amount >= _maxamount) {
-                console.log(this.name + "-silo is full");
+                console.log(this.name + "-silo is full"); //the way this code currently works, this message will never appear
             }
             else if (_amount <= this.minamount) {
                 _amount = _maxamount;
@@ -55,7 +57,7 @@ var OldMacDonald;
     const stable = [];
     window.addEventListener("load", handleLoad);
     function handleLoad() {
-        //creating the foods
+        //creating the foods first, because of the references
         const hay = new Feed("Hay", 50, 50, 0);
         const meat = new Feed("Meat", 10, 10, 0);
         const cheese = new Feed("Cheese", 5, 5, 0);
@@ -71,7 +73,7 @@ var OldMacDonald;
         const rat = new Animal("Oreo", "rat", cheese, 1, "Squeak");
         const turkey = new Animal("Otto", "turkey", seeds, 3, "Gobble");
         stable.push(cow, dog, cat, sheep, chicken, duck, rat, turkey);
-        window.addEventListener("click", startSimulation);
+        window.addEventListener("click", startSimulation); //allows multiple days to be simulated
     }
     function startSimulation() {
         for (let i = 0; i < stable.length; i++) {
