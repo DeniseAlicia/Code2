@@ -13,7 +13,7 @@ var OldMacDonald;
             //construct and logs the verses seperately for better structure
             const sound = this.sound;
             const v1 = "Old MacDonald had a farm, ee-a-ee-a-oh!";
-            const v2 = "And on this farm he had a " + this.species + ", ee-a-ee-a-oh!";
+            const v2 = "And on his farm he had a " + this.species + ", ee-a-ee-a-oh!";
             const v3 = "With a " + sound + " " + sound + " here and a " + sound + " " + sound + " there";
             const v4 = "Here a " + sound + ", " + "there a " + sound + ", everywhere just " + sound + " " + sound + "!";
             console.group(this.name + " the " + this.species + ":");

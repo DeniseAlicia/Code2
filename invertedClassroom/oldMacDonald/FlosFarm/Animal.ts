@@ -24,7 +24,7 @@ namespace OldMacDonald {
             const sound: string = this.sound;
 
             const v1: string = "Old MacDonald had a farm, ee-a-ee-a-oh!";
-            const v2: string = "And on this farm he had a " + this.species + ", ee-a-ee-a-oh!";
+            const v2: string = "And on his farm he had a " + this.species + ", ee-a-ee-a-oh!";
             const v3: string = "With a " + sound + " " + sound + " here and a " + sound + " " + sound + " there"
             const v4: string = "Here a " + sound + ", " + "there a " + sound + ", everywhere just " + sound + " " + sound + "!"
 
