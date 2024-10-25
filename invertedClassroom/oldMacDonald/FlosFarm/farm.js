@@ -1,6 +1,7 @@
 "use strict";
 var OldMacDonald;
 (function (OldMacDonald) {
+    //classes
     class Animal {
         constructor(_name, _species, _feed, _amountfeed, _sound) {
             this.name = _name;
@@ -9,53 +10,71 @@ var OldMacDonald;
             this.amountfeed = _amountfeed;
             this.sound = _sound;
         }
-        sing(_sound) {
-            console.log(this.sound);
+        sing() {
+            console.log(this.name + " the " + this.species + ":");
+            console.log(this.sound + " " + this.sound + "!");
         }
-        eat(_amount, _amountfeed) {
-            console.log();
+        eat() {
+            console.log(this.name + " is eating " + this.feed.name);
         }
     }
     class Feed {
-        constructor(_name, _amount) {
+        constructor(_name, _amount, _maxamount, _minamount) {
             this.name = _name;
             this.amount = _amount;
-            this.maxamount = 100;
-            this.minamount = 0;
+            this.maxamount = _maxamount;
+            this.minamount = _minamount;
         }
         reducefeed(_amount, _amountfeed) {
+            this.amount = _amount - _amountfeed;
+            console.log(this.name + " left: " + String(this.amount));
+            console.log(" ");
         }
-        refill(_amount, _minamount) {
+        refillSilo(_amount, _maxamount) {
+            if (_amount >= _maxamount) {
+                console.log(this.name + "-silo is full");
+            }
+            else if (_amount <= this.minamount) {
+                _amount = _maxamount;
+            }
+            else {
+                this.amount += 1;
+            }
         }
     }
-    window.addEventListener("load", handleLoad);
+    //global variables
     const silos = [];
     const stable = [];
+    window.addEventListener("load", handleLoad);
     function handleLoad() {
         //creating the foods
-        const hay = new Feed("hay", 100);
-        const meat = new Feed("meat", 100);
-        const cheese = new Feed("cheese", 100);
-        const seeds = new Feed("seeds", 100);
+        const hay = new Feed("Hay", 50, 50, 0);
+        const meat = new Feed("Meat", 10, 10, 0);
+        const cheese = new Feed("Cheese", 5, 5, 0);
+        const seeds = new Feed("Seeds", 20, 20, 0);
         silos.push(hay, meat, cheese, seeds);
         //creating the animals
-        const cow = new Animal("Claire", "cow", "hay", 10, "Moo");
-        const dog = new Animal("Rex", "dog", "meat", 5, "Woof");
-        const cat = new Animal("Mimi", "cat", "meat", 4, "Meow");
-        const sheep = new Animal("Leslie", "sheep", "hay", 7, "Baa");
-        const chicken = new Animal("Ella", "chicken", "seeds", 2, "Cluck");
-        const duck = new Animal("Jasper", "duck", "seeds", 2, "Quack");
-        const rat = new Animal("Oreo", "rat", "cheese", 1, "Squeak");
-        const turkey = new Animal("Otto", "turkey", "seeds", 3, "Gobble");
+        const cow = new Animal("Claire", "cow", hay, 10, "Moo");
+        const dog = new Animal("Rex", "dog", meat, 5, "Woof");
+        const cat = new Animal("Mimi", "cat", meat, 4, "Meow");
+        const sheep = new Animal("Leslie", "sheep", hay, 7, "Baa");
+        const chicken = new Animal("Ella", "chicken", seeds, 2, "Cluck");
+        const duck = new Animal("Jasper", "duck", seeds, 2, "Quack");
+        const rat = new Animal("Oreo", "rat", cheese, 1, "Squeak");
+        const turkey = new Animal("Otto", "turkey", seeds, 3, "Gobble");
         stable.push(cow, dog, cat, sheep, chicken, duck, rat, turkey);
         window.addEventListener("click", startSimulation);
     }
     function startSimulation() {
         for (let i = 0; i < stable.length; i++) {
             const animal = stable[i];
-            console.log(animal.name);
-            animal.sing(animal.sound);
+            animal.sing();
             animal.eat();
+            animal.feed.reducefeed(animal.feed.amount, animal.amountfeed);
+        }
+        for (let i = 0; i < silos.length; i++) {
+            const silo = silos[i];
+            silo.refillSilo(silo.amount, silo.maxamount);
         }
     }
 })(OldMacDonald || (OldMacDonald = {}));

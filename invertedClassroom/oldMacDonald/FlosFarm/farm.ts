@@ -1,6 +1,6 @@
 namespace OldMacDonald {
 
-//classes
+    //classes
     class Animal {
 
         name: string;
@@ -21,12 +21,13 @@ namespace OldMacDonald {
 
         sing(): void {
 
-            console.log(this.sound);
+            console.log(this.name + " the " + this.species + ":");
+            console.log(this.sound + " " + this.sound + "!");
         }
 
         eat(): void {
 
-            console.log(this.feed)
+            console.log(this.name + " is eating " + this.feed.name)
         }
     }
 
@@ -49,13 +50,18 @@ namespace OldMacDonald {
         reducefeed(_amount: number, _amountfeed: number): void {
 
             this.amount = _amount - _amountfeed;
-            console.log(this.amount);
+            console.log(this.name + " left: " + String(this.amount));
+            console.log(" ");
         }
 
         refillSilo(_amount: number, _maxamount: number): void {
 
             if (_amount >= _maxamount) {
                 console.log(this.name + "-silo is full");
+            }
+            else if (_amount <= this.minamount) {
+
+                _amount = _maxamount;
             }
             else {
                 this.amount += 1;
@@ -65,7 +71,7 @@ namespace OldMacDonald {
         }
     }
 
-//global variables
+    //global variables
     const silos: Feed[] = [];
     const stable: Animal[] = [];
 
@@ -74,10 +80,10 @@ namespace OldMacDonald {
     function handleLoad(): void {
 
         //creating the foods
-        const hay: Feed = new Feed("hay", 50, 50, 0);
-        const meat: Feed = new Feed("meat", 10, 10, 0);
-        const cheese: Feed = new Feed("cheese", 5, 5, 0);
-        const seeds: Feed = new Feed("seeds", 20, 20, 0);
+        const hay: Feed = new Feed("Hay", 50, 50, 0);
+        const meat: Feed = new Feed("Meat", 10, 10, 0);
+        const cheese: Feed = new Feed("Cheese", 5, 5, 0);
+        const seeds: Feed = new Feed("Seeds", 20, 20, 0);
 
         silos.push(hay, meat, cheese, seeds);
 
@@ -102,7 +108,6 @@ namespace OldMacDonald {
         for (let i: number = 0; i < stable.length; i++) {
 
             const animal: Animal = stable[i];
-            console.log(animal.name);
 
             animal.sing();
             animal.eat();
