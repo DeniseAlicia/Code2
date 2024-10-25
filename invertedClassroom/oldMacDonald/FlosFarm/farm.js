@@ -11,8 +11,16 @@ var OldMacDonald;
             this.sound = _sound;
         }
         sing() {
+            const sound = this.sound;
+            const v1 = "Old MacDonald had a farm, ee-a-ee-a-oh!";
+            const v2 = "And on this farm he had a " + this.species + ", ee-a-ee-a-oh!";
+            const v3 = "With a " + sound + " " + sound + " here and a " + sound + " " + sound + " there";
+            const v4 = "Here a " + sound + ", " + "there a " + sound + ", everywhere just " + sound + " " + sound;
             console.log(this.name + " the " + this.species + ":");
-            console.log(this.sound + " " + this.sound + "!");
+            console.log(v1);
+            console.log(v2);
+            console.log(v3);
+            console.log(v4);
         }
         eat() {
             console.log(this.name + " is eating " + this.feed.name);
