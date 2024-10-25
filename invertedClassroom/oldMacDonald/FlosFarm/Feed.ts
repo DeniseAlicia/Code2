@@ -32,7 +32,7 @@ namespace OldMacDonald {
             }
             else if (_amount <= this.minamount) {
 
-                _amount = _maxamount;
+                this.amount = this.maxamount;
             }
             else {
                 this.amount += 1;

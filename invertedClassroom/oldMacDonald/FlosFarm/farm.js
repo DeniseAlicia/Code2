@@ -7,10 +7,10 @@ var OldMacDonald;
     window.addEventListener("load", handleLoad);
     function handleLoad() {
         //creating the foods first, because of the references
-        const hay = new OldMacDonald.Feed("Hay", 50, 50, 0);
-        const meat = new OldMacDonald.Feed("Meat", 10, 10, 0);
-        const cheese = new OldMacDonald.Feed("Cheese", 5, 5, 0);
-        const seeds = new OldMacDonald.Feed("Seeds", 20, 20, 0);
+        const hay = new OldMacDonald.Feed("Hay", 50, 50, 10);
+        const meat = new OldMacDonald.Feed("Meat", 20, 20, 9);
+        const cheese = new OldMacDonald.Feed("Cheese", 5, 5, 1);
+        const seeds = new OldMacDonald.Feed("Seeds", 20, 20, 10);
         silos.push(hay, meat, cheese, seeds);
         //creating the animals
         const cow = new OldMacDonald.Animal("Claire", "cow", hay, 10, "Moo");

@@ -19,7 +19,7 @@ var OldMacDonald;
                 console.log(this.name + "-silo is full"); //the way this code currently works, this message will never appear
             }
             else if (_amount <= this.minamount) {
-                _amount = _maxamount;
+                this.amount = this.maxamount;
             }
             else {
                 this.amount += 1;

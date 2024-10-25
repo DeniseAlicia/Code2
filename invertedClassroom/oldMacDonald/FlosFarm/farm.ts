@@ -9,10 +9,10 @@ namespace OldMacDonald {
     function handleLoad(): void {
 
         //creating the foods first, because of the references
-        const hay: Feed = new Feed("Hay", 50, 50, 0);
-        const meat: Feed = new Feed("Meat", 10, 10, 0);
-        const cheese: Feed = new Feed("Cheese", 5, 5, 0);
-        const seeds: Feed = new Feed("Seeds", 20, 20, 0);
+        const hay: Feed = new Feed("Hay", 50, 50, 10);
+        const meat: Feed = new Feed("Meat", 20, 20, 9);
+        const cheese: Feed = new Feed("Cheese", 5, 5, 1);
+        const seeds: Feed = new Feed("Seeds", 20, 20, 10);
 
         silos.push(hay, meat, cheese, seeds);
 
