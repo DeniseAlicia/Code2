@@ -17,14 +17,22 @@ namespace Asteroids {
 
         scale(_factor: number): void {
 
-            this.x = this.x * _factor;
-            this.y = this.y * _factor;
+            this.x *= _factor;
+            this.y *= _factor;
         }
 
         add(_addend: Vector): void {
 
             this.x += _addend.x;
             this.y += _addend.y;
+        }
+
+        random(_minLength: number, _maxLength: number): void {
+            const length: number = _minLength + Math.random() * (_maxLength - _minLength);
+            const direction: number = Math.random() * 2 * Math.PI;
+
+            this.set(Math.cos(direction), Math.sin(direction));
+            this.scale(length);
         }
     }
 }

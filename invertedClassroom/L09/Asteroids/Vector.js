@@ -10,12 +10,18 @@ var Asteroids;
             this.y = _y;
         }
         scale(_factor) {
-            this.x = this.x * _factor;
-            this.y = this.y * _factor;
+            this.x *= _factor;
+            this.y *= _factor;
         }
         add(_addend) {
             this.x += _addend.x;
             this.y += _addend.y;
+        }
+        random(_minLength, _maxLength) {
+            const length = _minLength + Math.random() * (_maxLength - _minLength);
+            const direction = Math.random() * 2 * Math.PI;
+            this.set(Math.cos(direction), Math.sin(direction));
+            this.scale(length);
         }
     }
     Asteroids.Vector = Vector;
