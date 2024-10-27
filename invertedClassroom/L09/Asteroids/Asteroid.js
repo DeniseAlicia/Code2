@@ -5,6 +5,8 @@ var Asteroids;
         constructor(_size) {
             console.log("Asteroid constructor");
             this.position = new Asteroids.Vector(0, 0);
+            this.velocity = new Asteroids.Vector(0, 0);
+            this.velocity.random(100, 200);
         }
         move(_timeslice) {
             console.log("Asteroid move");
