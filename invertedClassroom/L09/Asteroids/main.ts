@@ -43,10 +43,26 @@ namespace Asteroids {
         }
     }
 
+    function loadLaser(_event: MouseEvent): void {
+
+    }
+
     function shootLaser(_event: MouseEvent): void {
 
         console.log("shooting laser");
         const hotspot: Vector = new Vector(_event.offsetX, _event.offsetY);
+        let asteroidHit: Asteroid | null = getAsteroidHit(hotspot); // 8min 30s
+    }
+
+    function handleKeypress(_event: KeyboardEvent): void {
+
+    }
+
+    function getAsteroidHit(_hotspot: Vector): Asteroid {
+
+    }
+
+    function breakAsteroid(_asteroid: Asteroid): void {
         
     }
 

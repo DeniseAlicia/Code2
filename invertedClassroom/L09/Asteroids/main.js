@@ -31,9 +31,18 @@ var Asteroids;
             asteroids.push(asteroid);
         }
     }
+    function loadLaser(_event) {
+    }
     function shootLaser(_event) {
         console.log("shooting laser");
         const hotspot = new Asteroids.Vector(_event.offsetX, _event.offsetY);
+        let asteroidHit = getAsteroidHit(hotspot); // 8min 30s
+    }
+    function handleKeypress(_event) {
+    }
+    function getAsteroidHit(_hotspot) {
+    }
+    function breakAsteroid(_asteroid) {
     }
     //animation frame
     function update() {
