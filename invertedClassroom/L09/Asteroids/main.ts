@@ -10,9 +10,12 @@ namespace Asteroids {
 
         crc2.fillStyle = "black";
         crc2.strokeStyle = "green";
+        crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
+        
 
         const asteroid: Asteroid = new Asteroid(1);
         console.log(asteroid);
-        asteroid.draw();
+
+        createPaths();
     }
 }
