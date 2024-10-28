@@ -38,7 +38,7 @@ var Asteroids;
         }
         return paths;
     }
-    function createUfoPaths() {
-    }
+    // function createUfoPaths(): Path2D {
+    // }
 })(Asteroids || (Asteroids = {}));
 //# sourceMappingURL=Paths.js.map

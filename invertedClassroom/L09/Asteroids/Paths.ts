@@ -49,8 +49,8 @@ namespace Asteroids {
         return paths;
     }
 
-    function createUfoPaths(): Path2D {
-        
-    }
+    // function createUfoPaths(): Path2D {
+
+    // }
 
 }

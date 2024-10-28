@@ -7,7 +7,7 @@ var Asteroids;
         const canvas = document.querySelector("canvas");
         Asteroids.crc2 = canvas.getContext("2d");
         Asteroids.crc2.fillStyle = "black";
-        Asteroids.crc2.strokeStyle = "white";
+        Asteroids.crc2.strokeStyle = "green";
         const asteroid = new Asteroids.Asteroid(1);
         console.log(asteroid);
         asteroid.draw();

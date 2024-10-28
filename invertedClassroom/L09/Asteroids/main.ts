@@ -9,7 +9,7 @@ namespace Asteroids {
         crc2 = <CanvasRenderingContext2D> canvas.getContext("2d");
 
         crc2.fillStyle = "black";
-        crc2.strokeStyle = "white";
+        crc2.strokeStyle = "green";
 
         const asteroid: Asteroid = new Asteroid(1);
         console.log(asteroid);
