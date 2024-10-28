@@ -23,16 +23,17 @@ namespace Asteroids {
         move(_timeslice: number): void {
             console.log("Asteroid move");
 
+        }
+
+        draw(): void {
+            console.log("Asteroid draw");
+
             crc2.save();
             crc2.translate(this.position.x, this.position.y);
             crc2.scale(this.size, this.size);
             crc2.stroke(asteroidPaths[this.type]);
             crc2.restore();
 
-        }
-
-        draw(): void {
-            console.log("Asteroid draw");
         }
 
         // isHit(_hotspot: Vector): boolean 
