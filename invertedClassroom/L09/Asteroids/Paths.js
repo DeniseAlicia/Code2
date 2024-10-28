@@ -15,5 +15,27 @@ var Asteroids;
             [37, 3], [70, 14]
         ]
     ];
+    function createPaths() {
+        Asteroids.asteroidPaths = createAsteroidPaths(Asteroids.shapeAsteroids);
+    }
+    Asteroids.createPaths = createPaths;
+    function createAsteroidPaths(_shapes) {
+        const paths = [];
+        for (const type of _shapes) {
+            const path = new Path2D;
+            let first = true;
+            for (const coordinates of type) {
+                if (first) {
+                    path.moveTo(coordinates[0], coordinates[1]);
+                }
+                else {
+                    path.lineTo(coordinates[0], coordinates[1]);
+                }
+                first = false;
+            }
+            path.closePath();
+            paths.push(path);
+        }
+    }
 })(Asteroids || (Asteroids = {}));
 //# sourceMappingURL=Paths.js.map
