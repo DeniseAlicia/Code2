@@ -13,5 +13,6 @@ namespace Asteroids {
 
         const asteroid: Asteroid = new Asteroid(1);
         console.log(asteroid);
+        asteroid.draw();
     }
 }

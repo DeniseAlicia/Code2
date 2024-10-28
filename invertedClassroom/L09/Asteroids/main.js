@@ -10,6 +10,7 @@ var Asteroids;
         Asteroids.crc2.strokeStyle = "white";
         const asteroid = new Asteroids.Asteroid(1);
         console.log(asteroid);
+        asteroid.draw();
     }
 })(Asteroids || (Asteroids = {}));
 //# sourceMappingURL=main.js.map

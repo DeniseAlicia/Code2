@@ -36,6 +36,9 @@ var Asteroids;
             path.closePath();
             paths.push(path);
         }
+        return paths;
+    }
+    function createUfoPaths() {
     }
 })(Asteroids || (Asteroids = {}));
 //# sourceMappingURL=Paths.js.map

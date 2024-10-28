@@ -26,6 +26,9 @@ namespace Asteroids {
             crc2.save();
             crc2.translate(this.position.x, this.position.y);
             crc2.scale(this.size, this.size);
+            crc2.stroke(asteroidPaths[this.type]);
+            crc2.restore();
+
         }
 
         draw(): void {

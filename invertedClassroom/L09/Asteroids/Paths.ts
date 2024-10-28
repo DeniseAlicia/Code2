@@ -46,6 +46,11 @@ namespace Asteroids {
             paths.push(path);
 
         }
+        return paths;
+    }
+
+    function createUfoPaths(): Path2D {
+        
     }
 
 }
