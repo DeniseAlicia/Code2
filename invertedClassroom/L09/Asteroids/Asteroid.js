@@ -7,9 +7,14 @@ var Asteroids;
             this.position = new Asteroids.Vector(0, 0);
             this.velocity = new Asteroids.Vector(0, 0);
             this.velocity.random(100, 200);
+            this.type = Math.floor(Math.random() * 4);
+            this.size = _size;
         }
         move(_timeslice) {
             console.log("Asteroid move");
+            Asteroids.crc2.save();
+            Asteroids.crc2.translate(this.position.x, this.position.y);
+            Asteroids.crc2.scale(this.size, this.size);
         }
         draw() {
             console.log("Asteroid draw");

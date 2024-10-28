@@ -1,9 +1,7 @@
-namespace Asteroids {
-
-    export let asteroidPaths: Path2D[];
-    export let ufoPaths: Path2D[];
-
-    export const shapeAsteroids: number[][][] = [
+"use strict";
+var Asteroids;
+(function (Asteroids) {
+    Asteroids.shapeAsteroids = [
         [
             [30, 1], [50, 15]
         ],
@@ -16,5 +14,6 @@ namespace Asteroids {
         [
             [37, 3], [70, 14]
         ]
-    ]
-}
+    ];
+})(Asteroids || (Asteroids = {}));
+//# sourceMappingURL=Paths.js.map
