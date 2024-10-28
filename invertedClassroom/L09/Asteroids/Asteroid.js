@@ -15,6 +15,7 @@ var Asteroids;
             const offset = new Asteroids.Vector(this.velocity.x, this.velocity.y);
             offset.scale(_timeslice);
             this.position.add(offset);
+            //check if Asteroid leaves canvas
             if (this.position.x < 0)
                 this.position.x += Asteroids.crc2.canvas.width;
             if (this.position.x > Asteroids.crc2.canvas.width)
