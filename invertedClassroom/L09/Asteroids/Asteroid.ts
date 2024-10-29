@@ -21,7 +21,7 @@ namespace Asteroids {
         }
 
         move(_timeslice: number): void {
-            console.log("Asteroid move");
+            // console.log("Asteroid move");
 
             const offset: Vector = new Vector(this.velocity.x, this.velocity.y);
             offset.scale(_timeslice);
@@ -43,7 +43,7 @@ namespace Asteroids {
         }
 
         draw(): void {
-            console.log("Asteroid draw");
+            // console.log("Asteroid draw");
 
             crc2.save();
             crc2.translate(this.position.x, this.position.y);
@@ -54,6 +54,7 @@ namespace Asteroids {
 
         }
 
+        //check if laser hits asteroid
         isHit(_hotspot: Vector): boolean {
 
             const hitsize: number = 50 * this.size;

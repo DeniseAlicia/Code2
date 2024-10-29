@@ -36,11 +36,19 @@ var Asteroids;
     function shootLaser(_event) {
         console.log("shooting laser");
         const hotspot = new Asteroids.Vector(_event.offsetX, _event.offsetY);
-        let asteroidHit = getAsteroidHit(hotspot); // 8min 30s
+        const asteroidHit = getAsteroidHit(hotspot); // 8min 30s
+        if (asteroidHit)
+            console.log(asteroidHit);
+        breakAsteroid(asteroidHit);
     }
     function handleKeypress(_event) {
     }
     function getAsteroidHit(_hotspot) {
+        for (const asteroid of asteroids) {
+            if (asteroid.isHit(_hotspot))
+                return asteroid;
+        }
+        return null;
     }
     function breakAsteroid(_asteroid) {
     }

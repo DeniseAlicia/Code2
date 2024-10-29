@@ -11,7 +11,7 @@ var Asteroids;
             this.size = _size;
         }
         move(_timeslice) {
-            console.log("Asteroid move");
+            // console.log("Asteroid move");
             const offset = new Asteroids.Vector(this.velocity.x, this.velocity.y);
             offset.scale(_timeslice);
             this.position.add(offset);
@@ -26,13 +26,19 @@ var Asteroids;
                 this.position.y -= Asteroids.crc2.canvas.height;
         }
         draw() {
-            console.log("Asteroid draw");
+            // console.log("Asteroid draw");
             Asteroids.crc2.save();
             Asteroids.crc2.translate(this.position.x, this.position.y);
             Asteroids.crc2.scale(this.size, this.size);
             Asteroids.crc2.translate(-50, -50); //position is set to asteroid center
             Asteroids.crc2.stroke(Asteroids.asteroidPaths[this.type]);
             Asteroids.crc2.restore();
+        }
+        //check if laser hits asteroid
+        isHit(_hotspot) {
+            const hitsize = 50 * this.size;
+            const difference = new Asteroids.Vector(_hotspot.x - this.position.x, _hotspot.y - this.position.y);
+            return (Math.abs(difference.x) < hitsize && Math.abs(difference.y) < hitsize);
         }
     }
     Asteroids.Asteroid = Asteroid;

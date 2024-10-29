@@ -54,6 +54,7 @@ namespace Asteroids {
         const asteroidHit: Asteroid | null = getAsteroidHit(hotspot); // 8min 30s
         
         if(asteroidHit) 
+            console.log(asteroidHit)
             breakAsteroid(asteroidHit);
     }
 
