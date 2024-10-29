@@ -7,12 +7,18 @@ namespace Asteroids {
         type: number;
         size: number; //0.25, 0.5, 1.0 as sizes
 
-        constructor(_size: number) {
+        constructor(_size: number, _position?: Vector) {
             console.log("Asteroid constructor");
 
-            this.position = new Vector(0, 0);
+            if (_position) {
+                this.position = _position;
+            }
+            else {
+                this.position = new Vector(0, 0);
+            }
+
             this.velocity = new Vector(0, 0);
-            this.velocity.random(100, 200);
+            this.velocity.random(10, 100);
 
             this.type = Math.floor(Math.random() * 4);
 
@@ -48,6 +54,7 @@ namespace Asteroids {
             crc2.save();
             crc2.translate(this.position.x, this.position.y);
             crc2.scale(this.size, this.size);
+            crc2.lineWidth = crc2.lineWidth / this.size;
             crc2.translate(-50, -50); //position is set to asteroid center
             crc2.stroke(asteroidPaths[this.type]);
             crc2.restore();

@@ -29,7 +29,7 @@ namespace Asteroids {
         // canvas.addEventListener("keypress", handleKeypress);
         // canvas.addEventListener("mousemove", setHeading);
 
-        window.setInterval(update, 20);
+        window.setInterval(update, frameTime);
     }
 
     //creates given number of asteroids in array
@@ -52,10 +52,10 @@ namespace Asteroids {
         console.log("shooting laser");
         const hotspot: Vector = new Vector(_event.offsetX, _event.offsetY);
         const asteroidHit: Asteroid | null = getAsteroidHit(hotspot); // 8min 30s
-        
-        if(asteroidHit) 
+
+        if (asteroidHit)
             console.log(asteroidHit)
-            breakAsteroid(asteroidHit);
+        breakAsteroid(asteroidHit);
     }
 
     function handleKeypress(_event: KeyboardEvent): void {
@@ -64,8 +64,8 @@ namespace Asteroids {
 
     function getAsteroidHit(_hotspot: Vector): Asteroid | null {
 
-        for(const asteroid of asteroids) {
-            if(asteroid.isHit(_hotspot))
+        for (const asteroid of asteroids) {
+            if (asteroid.isHit(_hotspot))
                 return asteroid;
 
         }
@@ -74,15 +74,16 @@ namespace Asteroids {
     }
 
     function breakAsteroid(_asteroid: Asteroid): void {
-        
-        if(_asteroid.size > 0.3) {
-            for(let i: number = 0; i<2; i++) {
-                const fragment: Asteroid = new Asteroid(_asteroid.size/2);
-                
+
+        if (_asteroid.size > 0.3) {
+            for (let i: number = 0; i < 2; i++) {
+                const fragment: Asteroid = new Asteroid(_asteroid.size / 2, _asteroid.position.copy());
+                fragment.velocity.add(_asteroid.velocity);
+                asteroids.push(fragment);
             }
         }
 
-        let index: number = asteroids.indexOf(_asteroid);
+        const index: number = asteroids.indexOf(_asteroid);
         asteroids.splice(index, 1);
     }
 

@@ -34,5 +34,12 @@ namespace Asteroids {
             this.set(Math.cos(direction), Math.sin(direction));
             this.scale(length);
         }
+
+        copy(): Vector {
+
+            const vectorCopy: Vector = new Vector(this.x, this.y);
+            return vectorCopy;
+
+        }
     }
 }

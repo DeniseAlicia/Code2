@@ -21,7 +21,7 @@ var Asteroids;
         canvas.addEventListener("mouseup", shootLaser);
         // canvas.addEventListener("keypress", handleKeypress);
         // canvas.addEventListener("mousemove", setHeading);
-        window.setInterval(update, 20);
+        window.setInterval(update, frameTime);
     }
     //creates given number of asteroids in array
     function createAsteroids(_nAsteroids) {
@@ -53,10 +53,12 @@ var Asteroids;
     function breakAsteroid(_asteroid) {
         if (_asteroid.size > 0.3) {
             for (let i = 0; i < 2; i++) {
-                const fragment = new Asteroids.Asteroid(_asteroid.size / 2);
+                const fragment = new Asteroids.Asteroid(_asteroid.size / 2, _asteroid.position.copy());
+                fragment.velocity.add(_asteroid.velocity);
+                asteroids.push(fragment);
             }
         }
-        let index = asteroids.indexOf(_asteroid);
+        const index = asteroids.indexOf(_asteroid);
         asteroids.splice(index, 1);
     }
     //animation frame

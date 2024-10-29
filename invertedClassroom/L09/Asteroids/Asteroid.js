@@ -2,11 +2,16 @@
 var Asteroids;
 (function (Asteroids) {
     class Asteroid {
-        constructor(_size) {
+        constructor(_size, _position) {
             console.log("Asteroid constructor");
-            this.position = new Asteroids.Vector(0, 0);
+            if (_position) {
+                this.position = _position;
+            }
+            else {
+                this.position = new Asteroids.Vector(0, 0);
+            }
             this.velocity = new Asteroids.Vector(0, 0);
-            this.velocity.random(100, 200);
+            this.velocity.random(10, 100);
             this.type = Math.floor(Math.random() * 4);
             this.size = _size;
         }
@@ -30,6 +35,7 @@ var Asteroids;
             Asteroids.crc2.save();
             Asteroids.crc2.translate(this.position.x, this.position.y);
             Asteroids.crc2.scale(this.size, this.size);
+            Asteroids.crc2.lineWidth = Asteroids.crc2.lineWidth / this.size;
             Asteroids.crc2.translate(-50, -50); //position is set to asteroid center
             Asteroids.crc2.stroke(Asteroids.asteroidPaths[this.type]);
             Asteroids.crc2.restore();
