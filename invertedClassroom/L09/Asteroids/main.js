@@ -51,6 +51,13 @@ var Asteroids;
         return null;
     }
     function breakAsteroid(_asteroid) {
+        if (_asteroid.size > 0.3) {
+            for (let i = 0; i < 2; i++) {
+                const fragment = new Asteroids.Asteroid(_asteroid.size / 2);
+            }
+        }
+        let index = asteroids.indexOf(_asteroid);
+        asteroids.splice(index, 1);
     }
     //animation frame
     function update() {

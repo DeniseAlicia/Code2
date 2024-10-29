@@ -75,6 +75,15 @@ namespace Asteroids {
 
     function breakAsteroid(_asteroid: Asteroid): void {
         
+        if(_asteroid.size > 0.3) {
+            for(let i: number = 0; i<2; i++) {
+                const fragment: Asteroid = new Asteroid(_asteroid.size/2);
+                
+            }
+        }
+
+        let index: number = asteroids.indexOf(_asteroid);
+        asteroids.splice(index, 1);
     }
 
     //animation frame
