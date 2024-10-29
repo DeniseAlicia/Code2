@@ -51,14 +51,17 @@ namespace Asteroids {
 
         console.log("shooting laser");
         const hotspot: Vector = new Vector(_event.offsetX, _event.offsetY);
-        let asteroidHit: Asteroid | null = getAsteroidHit(hotspot); // 8min 30s
+        const asteroidHit: Asteroid | null = getAsteroidHit(hotspot); // 8min 30s
+        
+        if(asteroidHit) 
+            breakAsteroid(asteroidHit);
     }
 
     function handleKeypress(_event: KeyboardEvent): void {
 
     }
 
-    function getAsteroidHit(_hotspot: Vector): Asteroid {
+    function getAsteroidHit(_hotspot: Vector): Asteroid | null {
 
     }
 
