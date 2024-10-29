@@ -5,7 +5,7 @@ namespace Asteroids {
         position: Vector;
         velocity: Vector;
         type: number;
-        size: number;
+        size: number; //0.25, 0.5, 1.0 as sizes
 
         constructor(_size: number) {
             console.log("Asteroid constructor");
@@ -54,7 +54,14 @@ namespace Asteroids {
 
         }
 
-        // isHit(_hotspot: Vector): boolean 
+        isHit(_hotspot: Vector): boolean {
+
+            const hitsize: number = 50 * this.size;
+            const difference: Vector = new Vector(_hotspot.x - this.position.x, _hotspot.y - this.position.y);
+
+            return (Math.abs(difference.x) < hitsize && Math.abs(difference.y) < hitsize);
+        }
+
 
 
 

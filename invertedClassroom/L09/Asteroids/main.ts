@@ -63,6 +63,13 @@ namespace Asteroids {
 
     function getAsteroidHit(_hotspot: Vector): Asteroid | null {
 
+        for(const asteroid of asteroids) {
+            if(asteroid.isHit(_hotspot))
+                return asteroid;
+
+        }
+        return null;
+
     }
 
     function breakAsteroid(_asteroid: Asteroid): void {
