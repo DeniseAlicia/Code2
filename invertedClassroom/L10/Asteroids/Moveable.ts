@@ -4,7 +4,7 @@ namespace Asteroids {
 
         position: Vector;
         velocity: Vector;
-        
+
 
         constructor(_position?: Vector) {
             //console.log("Moveable constructor");
@@ -45,26 +45,7 @@ namespace Asteroids {
         draw(): void {
             // console.log("Moveable draw");
 
-            crc2.save();
-            crc2.translate(this.position.x, this.position.y);
-            crc2.scale(this.size, this.size);
-            crc2.lineWidth = 1 / this.size;
-            crc2.translate(-50, -50); //position is set to asteroid center
-            crc2.stroke(asteroidPaths[this.type]);
-            crc2.restore();
-
         }
-
-        //check if laser hits asteroid
-        isHit(_hotspot: Vector): boolean {
-
-            const hitsize: number = 50 * this.size;
-            const difference: Vector = new Vector(_hotspot.x - this.position.x, _hotspot.y - this.position.y);
-
-            return (Math.abs(difference.x) < hitsize && Math.abs(difference.y) < hitsize);
-        }
-
-
 
 
     }
