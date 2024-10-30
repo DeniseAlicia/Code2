@@ -1,15 +1,13 @@
 namespace Asteroids {
 
-    export class Asteroid {
+    export class Moveable {
 
         position: Vector;
         velocity: Vector;
-        type: number;
-        size: number; //0.25, 0.5, 1.0 as sizes
+        
 
-        constructor(_size: number, _position?: Vector) {
-            console.log("Asteroid constructor");
-
+        constructor(_position?: Vector) {
+            //console.log("Moveable constructor");
             if (_position) {
                 this.position = _position.copy();
             }
@@ -18,18 +16,14 @@ namespace Asteroids {
             }
 
             this.velocity = new Vector(0, 0);
-            this.velocity.random(10, 100);
 
-            this.type = Math.floor(Math.random() * 4);
-
-            this.size = _size;
 
         }
 
         move(_timeslice: number): void {
-            // console.log("Asteroid move");
+            // console.log("Moveable move");
 
-            const offset: Vector = new Vector(this.velocity.x, this.velocity.y);
+            const offset: Vector = this.velocity.copy();
             offset.scale(_timeslice);
             this.position.add(offset);
 
@@ -49,7 +43,7 @@ namespace Asteroids {
         }
 
         draw(): void {
-            // console.log("Asteroid draw");
+            // console.log("Moveable draw");
 
             crc2.save();
             crc2.translate(this.position.x, this.position.y);
