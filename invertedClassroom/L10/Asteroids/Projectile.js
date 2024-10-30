@@ -13,6 +13,9 @@ var Asteroids;
             Asteroids.crc2.strokeRect(-1, -1, 1, 1);
             Asteroids.crc2.restore();
         }
+        move(_timeslice) {
+            super.move(_timeslice);
+        }
     }
     Asteroids.Projectile = Projectile;
 })(Asteroids || (Asteroids = {}));

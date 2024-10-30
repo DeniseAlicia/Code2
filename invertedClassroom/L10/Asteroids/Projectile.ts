@@ -20,5 +20,10 @@ namespace Asteroids {
             crc2.restore();
 
         }
+
+        move(_timeslice: number): void {
+
+            super.move(_timeslice);
+        }
     }
 }
