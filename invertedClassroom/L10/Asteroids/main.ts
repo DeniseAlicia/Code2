@@ -3,7 +3,8 @@ namespace Asteroids {
 
     export let crc2: CanvasRenderingContext2D;
 
-    const asteroids: Asteroid[] = [];
+    // const asteroids: Asteroid[] = [];
+    const moveables: Moveable[] = [];
     const frameRate: number = 20;
     const frameTime: number = 1 / frameRate; //time per frame
 
@@ -24,7 +25,7 @@ namespace Asteroids {
         createAsteroids(5);
         // createShip();
 
-        // canvas.addEventListener("mousdown", loadLaser);
+        canvas.addEventListener("mousedown", shootProjectile);
         canvas.addEventListener("mouseup", shootLaser);
         // canvas.addEventListener("keypress", handleKeypress);
         // canvas.addEventListener("mousemove", setHeading);
@@ -39,11 +40,20 @@ namespace Asteroids {
         for (let i: number = 0; i < _nAsteroids; i++) {
 
             const asteroid: Asteroid = new Asteroid(1);
-            asteroids.push(asteroid);
+            moveables.push(asteroid);
         }
     }
 
-    function loadLaser(_event: MouseEvent): void {
+    function shootProjectile(_event: MouseEvent): void {
+
+        console.log("Shooting projectile")
+
+        const origin: Vector = new Vector(_event.offsetX, _event.offsetY);
+        const velocity: Vector = new Vector(0, 0);
+        velocity.random(100, 100);
+
+        const projectile: Projectile = new Projectile(origin, velocity);
+        moveables.push(projectile);
 
     }
 
@@ -53,10 +63,12 @@ namespace Asteroids {
         const hotspot: Vector = new Vector(_event.offsetX, _event.offsetY);
         const asteroidHit: Asteroid | null = getAsteroidHit(hotspot); // 8min 30s
 
-        if (asteroidHit)
+        if (asteroidHit) {
             console.log(asteroidHit)
-        breakAsteroid(asteroidHit);
+            breakAsteroid(asteroidHit);
     }
+        }
+            
 
     function handleKeypress(_event: KeyboardEvent): void {
 
@@ -64,10 +76,9 @@ namespace Asteroids {
 
     function getAsteroidHit(_hotspot: Vector): Asteroid | null {
 
-        for (const asteroid of asteroids) {
-            if (asteroid.isHit(_hotspot))
-                return asteroid;
-
+        for (const moveable of moveables) {
+            if (moveable instanceof Asteroid && moveable.isHit(_hotspot))
+                return moveable;
         }
         return null;
 
@@ -79,12 +90,12 @@ namespace Asteroids {
             for (let i: number = 0; i < 2; i++) {
                 const fragment: Asteroid = new Asteroid(_asteroid.size / 2, _asteroid.position.copy());
                 fragment.velocity.add(_asteroid.velocity);
-                asteroids.push(fragment);
+                moveables.push(fragment);
             }
         }
 
-        const index: number = asteroids.indexOf(_asteroid);
-        asteroids.splice(index, 1);
+        const index: number = moveables.indexOf(_asteroid);
+        moveables.splice(index, 1);
     }
 
     //animation frame
@@ -93,10 +104,10 @@ namespace Asteroids {
         console.log("updating");
         crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height); //reset the canvas
 
-        for (const asteroid of asteroids) {
+        for (const moveable of moveables) {
 
-            asteroid.move(1 / 50);
-            asteroid.draw();
+            moveable.move(1 / 50);
+            moveable.draw();
         }
 
     }

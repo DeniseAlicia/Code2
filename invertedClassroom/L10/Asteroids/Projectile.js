@@ -4,6 +4,7 @@ var Asteroids;
     class Projectile extends Asteroids.Moveable {
         constructor(_position, _velocity) {
             super(_position);
+            this.lifetime = 3; //you can define attributes directly
             this.velocity = _velocity.copy();
         }
         draw() {
@@ -15,6 +16,10 @@ var Asteroids;
         }
         move(_timeslice) {
             super.move(_timeslice);
+            this.lifetime -= _timeslice;
+            if (this.lifetime < 0) {
+                this.velocity = new Asteroids.Vector(0, 0);
+            }
         }
     }
     Asteroids.Projectile = Projectile;

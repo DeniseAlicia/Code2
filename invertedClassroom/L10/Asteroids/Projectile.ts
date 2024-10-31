@@ -2,7 +2,7 @@ namespace Asteroids {
 
     export class Projectile extends Moveable {
 
-        lifetime: number;
+        lifetime: number = 3; //you can define attributes directly
 
         constructor(_position: Vector, _velocity: Vector) {
 
@@ -24,6 +24,11 @@ namespace Asteroids {
         move(_timeslice: number): void {
 
             super.move(_timeslice);
+            this.lifetime -= _timeslice;
+
+            if (this.lifetime < 0) {
+                this.velocity = new Vector(0, 0);
+            }
         }
     }
 }
