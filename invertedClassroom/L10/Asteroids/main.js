@@ -49,8 +49,6 @@ var Asteroids;
             breakAsteroid(asteroidHit);
         }
     }
-    function handleKeypress(_event) {
-    }
     function getAsteroidHit(_hotspot) {
         for (const moveable of moveables) {
             if (moveable instanceof Asteroids.Asteroid && moveable.isHit(_hotspot))

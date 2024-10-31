@@ -70,9 +70,7 @@ namespace Asteroids {
         }
             
 
-    function handleKeypress(_event: KeyboardEvent): void {
-
-    }
+    
 
     function getAsteroidHit(_hotspot: Vector): Asteroid | null {
 
