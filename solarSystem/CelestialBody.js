@@ -22,4 +22,4 @@ var SolarSystem;
     }
     SolarSystem.CelestialBody = CelestialBody;
 })(SolarSystem || (SolarSystem = {}));
-//# sourceMappingURL=solarSystem.js.map
+//# sourceMappingURL=CelestialBody.js.map
