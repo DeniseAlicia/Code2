@@ -1,30 +1,34 @@
 namespace SolarSystem {
 
-    class CelestialBody {
+    export class CelestialBody {
 
-        child: CelestialBody[];
+        children: CelestialBody[];
         name: string;
         info: string;
+        color: string;
         radius: number;
         rotAngle: number;
-        color: string;
-        distanceFromParent: number;
+        rotSpeed: number;
+        distanceFromCenter: number;
+        path: Path2D;
 
-        constructor(_child: CelestialBody[], _name: string, _info: string, _radius: number, _rotAngle: number, _color: string, _distanceFromParent: number) {
-            this.child = _child;
+        constructor(_children: CelestialBody[], _name: string, _info: string, _color: string, _radius: number, _rotAngle: number, _rotSpeed: number, _distanceFromCenter: number, _path: Path2D) {
+            this.children = _children;
             this.name = _name;
             this.info = _info;
+            this.color = _color;
             this.radius = _radius;
             this.rotAngle = _rotAngle;
-            this.color = _color;
-            this.distanceFromParent = _distanceFromParent;
+            this.rotSpeed = _rotSpeed;
+            this.distanceFromCenter = _distanceFromCenter;
+            this.path = _path;
         }
 
         draw() {
             console.log("draw celestial bodies");
         }
 
-        orbitStep() {
+        orbitStep(_speedModifier: number) {
             console.log("orbit step");
         }
 
