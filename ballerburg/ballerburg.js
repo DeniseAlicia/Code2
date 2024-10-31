@@ -80,6 +80,9 @@ function drawTerrain() {
     ctx.beginPath();
     ctx.moveTo(0, platform1);
     ctx.lineTo(canvas.width * 0.3, platform1);
+    ctx.lineTo(Math.floor(Math.random() * canvas.width * 0.3) + canvas.width * 0.3, peak);
+    ctx.lineTo(canvas.width * 0.7, platform2);
+    ctx.lineTo(canvas.width, platform2);
     ctx.lineTo(peakX, peakY);
     ctx.lineTo(canvas.width * 0.7, platform2);
     ctx.lineTo(canvas.width, platform2);
@@ -90,6 +93,10 @@ function drawTerrain() {
     ctx.stroke();
     ctx.fillStyle = "black";
     ctx.fill();
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.fillStyle = "black";
+    //ctx.fill();
 }
 //draws cannons
 function drawCannons() {
@@ -125,13 +132,6 @@ function drawBalls() {
 }
 //fires the cannon
 function fireCannon(_cannon) {
-}
-//calculates the balls flight path if cannon is fired
-function ballFly(_ball) {
-    if (_ball.shoot)
-        _ball.posX += _ball.speed;
-    _ball.posY += gravity;
-    collisionCheck(_ball);
     if (_cannon.shoot == false) {
         _cannon.shoot = true;
         _cannon.ball.speed = Math.cos(Number(_cannon.angle.value));
