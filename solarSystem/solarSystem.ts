@@ -18,10 +18,10 @@ namespace SolarSystem {
             this.info = _info;
             this.color = _color;
             this.radius = _radius;
-            this.rotAngle = _rotAngle;
+            this.rotAngle = 0;
             this.rotSpeed = _rotSpeed;
             this.distanceFromCenter = _distanceFromCenter;
-            this.path = _path;
+            this.path = new Path2D;
         }
 
         draw() {
