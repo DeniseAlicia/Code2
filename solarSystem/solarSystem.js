@@ -12,6 +12,12 @@ var SolarSystem;
             this.color = _color;
             this.distanceFromParent = _distanceFromParent;
         }
+        draw() {
+            console.log("draw celestial bodies");
+        }
+        orbitStep() {
+            console.log("orbit step");
+        }
     }
     SolarSystem.CelestialBody = CelestialBody;
 })(SolarSystem || (SolarSystem = {}));

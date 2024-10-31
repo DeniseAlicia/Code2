@@ -22,6 +22,13 @@ namespace SolarSystem {
             this.distanceFromParent = _distanceFromParent;
         }
 
+        draw(){
+            console.log("draw celestial bodies");
+        }
+
+        orbitStep(){
+            console.log("orbit step");
+        }
 
     }
 
