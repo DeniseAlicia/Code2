@@ -24,11 +24,11 @@ namespace SolarSystem {
             this.path = new Path2D;
         }
 
-        draw() {
+        draw(): void {
             console.log("draw celestial bodies");
         }
 
-        orbitStep(_speedModifier: number) {
+        orbitStep(_speedModifier: number): void {
             console.log("orbit step");
         }
 
