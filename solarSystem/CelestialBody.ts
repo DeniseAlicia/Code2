@@ -26,6 +26,17 @@ namespace SolarSystem {
 
         draw(): void {
             console.log("draw celestial bodies");
+
+           // for (let i: number = 0; 1 < celestials.length; i++) {
+           //     const element = array[index];
+                
+            }
+           // crc2.save();
+            //crc2.rotate(this.rotSpeed);
+            //crc2.translate(this.distanceFromCenter);
+            //crc2.fillStyle(this.color);
+            //crc2.arc(0,0,this.radius);
+
         }
 
         orbitStep(_speedModifier: number): void {
@@ -33,5 +44,3 @@ namespace SolarSystem {
         }
 
     }
-
-}

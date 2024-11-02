@@ -1,4 +1,5 @@
 namespace SolarSystem {
+    
 
     //setting up the canvas
     const canvas: HTMLCanvasElement = document.querySelector("canvas")!;
