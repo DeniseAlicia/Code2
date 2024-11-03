@@ -17,12 +17,15 @@ var SolarSystem;
         draw() {
             //draw every celestial body in the children array
             console.log("draw celestial bodies");
+            const path = new Path2D;
             SolarSystem.crc2.save();
             SolarSystem.crc2.rotate(this.rotAngle);
             SolarSystem.crc2.translate(this.distanceFromCenter, 0);
             SolarSystem.crc2.fillStyle = this.color;
-            SolarSystem.crc2.arc(0, 0, this.radius, 0, 2 * Math.PI, false);
-            SolarSystem.crc2.fill();
+            path.arc(0, 0, this.radius, 0, 2 * Math.PI);
+            SolarSystem.crc2.fill(path);
+            path.closePath();
+            this.path = path;
             SolarSystem.crc2.restore();
             for (let i = 0; i < this.children.length; i++) {
                 const child = this.children[i];

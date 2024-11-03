@@ -30,11 +30,11 @@ namespace SolarSystem {
 
         sun = new CelestialBody(sunA, "sun", sunInfo, sunText, "yellow", 50, 120, 0, 650);
 
-        const mercury: CelestialBody = new CelestialBody(mercuryA, "mercury", mercuryInfo, mercuryText, "orange", 10, 0, 30, 700);
-        const venus: CelestialBody = new CelestialBody(venusA, "venus", venusInfo, venusText, "blue", 10, 0, 40, 800);
+        const mercury: CelestialBody = new CelestialBody(mercuryA, "mercury", mercuryInfo, mercuryText, "orange", 10, 0, 0.15, 700);
+        const venus: CelestialBody = new CelestialBody(venusA, "venus", venusInfo, venusText, "blue", 10, 0, 0.15, 800);
 
 
-        // sun.children.push(mercury, venus);
+        sun.children.push(mercury, venus);
     }
 
 
