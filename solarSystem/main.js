@@ -18,7 +18,7 @@ var SolarSystem;
     function createCelestialBodies() {
         //creating all simulated celestial bodies
         console.log("creating bodies");
-        sun = new SolarSystem.CelestialBody(child, "sun", SolarSystem.sunInfo, SolarSystem.sunText, "yellow", 50, 1, 0);
+        sun = new SolarSystem.CelestialBody(child, "sun", SolarSystem.sunInfo, SolarSystem.sunText, "yellow", 50, 45, 400);
     }
     function update() {
         //updating and redrawing the simulation

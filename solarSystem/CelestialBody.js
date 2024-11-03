@@ -17,13 +17,16 @@ var SolarSystem;
         draw() {
             //draw every celestial body in the children array
             console.log("draw celestial bodies");
+            SolarSystem.crc2.save();
+            SolarSystem.crc2.rotate(this.rotSpeed);
+            SolarSystem.crc2.translate(this.distanceFromCenter, 0);
+            SolarSystem.crc2.fillStyle = this.color;
+            SolarSystem.crc2.arc(0, 0, this.radius, 0, 2 * Math.PI);
+            SolarSystem.crc2.fill();
+            SolarSystem.crc2.restore();
             for (let i = 0; i < this.children.length; i++) {
-                SolarSystem.crc2.save();
-                SolarSystem.crc2.rotate(this.rotSpeed);
-                SolarSystem.crc2.translate(this.distanceFromCenter, 0);
-                SolarSystem.crc2.fillStyle = this.color;
-                SolarSystem.crc2.arc(0, 0, this.radius, 0, 2 * Math.PI);
-                SolarSystem.crc2.restore();
+                const child = this.children[i];
+                child.draw();
             }
         }
         orbitStep(_speedModifier) {

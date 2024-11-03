@@ -30,13 +30,17 @@ namespace SolarSystem {
             //draw every celestial body in the children array
             console.log("draw celestial bodies");
 
+            crc2.save();
+            crc2.rotate(this.rotSpeed);
+            crc2.translate(this.distanceFromCenter, 0);
+            crc2.fillStyle = this.color;
+            crc2.arc(0, 0, this.radius, 0, 2 * Math.PI);
+            crc2.fill();
+            crc2.restore();
+
             for (let i: number = 0; i < this.children.length; i++) {
-                crc2.save();
-                crc2.rotate(this.rotSpeed);
-                crc2.translate(this.distanceFromCenter, 0);
-                crc2.fillStyle = this.color;
-                crc2.arc(0, 0, this.radius, 0, 2 * Math.PI);
-                crc2.restore();
+                const child: CelestialBody = this.children[i];
+                child.draw();
             }
 
         }
