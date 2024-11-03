@@ -23,7 +23,7 @@ namespace SolarSystem {
         //creating all simulated celestial bodies
         console.log("creating bodies");
 
-        const sun: CelestialBody = new CelestialBody([child[0]], "sun", sunInfo, sunText, "yellow", 50, 1, 0, 0, new Path2D);
+        const sun: CelestialBody = new CelestialBody([child[0]], "sun", sunInfo, sunText, "yellow", 50, 1, 0);
 
     }
 
