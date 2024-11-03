@@ -123,48 +123,46 @@ namespace SolarSystem {
         Moons: 95
 
     `;
-    export const jupiterText: string = "The biggest planet of our solar system is ";
+    export const jupiterText: string = " ";
 
     export const ioInfo: string = `
-        Primary body:
-        Measurements:
-        Orbital period:
-        Mean orbital speed:
-        Max surface temperature:
-        Min surface temperature:
+        Primary body: Jupiter
+        Diameter: 3642 km
+        Orbital period: 1,8 earth days
+        Mean orbital speed: 17,34 km/s
+        Surface temperature: -143°C / 130K
 
     `;
     export const ioText: string = "";
 
     export const europaInfo: string = `
-        Primary body:
-        Measurements:
-        Orbital period:
-        Mean orbital speed:
-        Max surface temperature:
-        Min surface temperature:
+        Primary body: Jupiter
+        Diameter: 3121,6 km
+        Orbital period: 3.5 earth days
+        Mean orbital speed: 13,74 km/s
+        Max surface temperature: -133°C / 140K
+        Min surface temperature: -223°C / 50K
 
     `;
     export const europaText: string = "";
 
     export const ganymedeInfo: string = `
-        Primary body:
-        Measurements:
-        Orbital period:
-        Mean orbital speed:
-        Max surface temperature:
-        Min surface temperature:
+        Primary body: Jupiter
+        Diameter: 5262 km
+        Orbital period: 7,1 earth days
+        Mean orbital speed: 10,88 km/s
+        Max surface temperature: / 160K
+        Min surface temperature: / 90K
 
     `;
     export const ganymedeText: string = "";
 
     export const callistoInfo: string = `
-        Primary body:
-        Measurements:
-        Orbital period:
-        Mean orbital speed:
-        Max surface temperature:
-        Min surface temperature:
+        Primary body: Jupiter
+        Diameter: 4820 km
+        Orbital period: 16.7 earth days
+        Mean orbital speed: 8,2 km/s
+        Surface temperature: / 134K
 
     `;
     export const callistoText: string = "";
@@ -181,23 +179,20 @@ namespace SolarSystem {
     export const saturnText: string = "";
 
     export const titanInfo: string = `
-        Primary body:
-        Measurements:
-        Orbital period:
-        Mean orbital speed:
-        Max surface temperature:
-        Min surface temperature:
+        Primary body: Saturn
+        Diameter: 5150 km
+        Orbital period: 16 earth days
+        Mean orbital speed: 5,57 km/s
+        Surface temperature: / 90K
 
     `;
     export const titanText: string = "";
 
     export const prometheusInfo: string = `
-        Primary body:
-        Measurements:
-        Orbital period:
-        Mean orbital speed:
-        Max surface temperature:
-        Min surface temperature:
+        Primary body: Saturn
+        Measurements: 126 km x 80 km x 60 km
+        Orbital period: 0,61 earth days
+        Mean orbital speed: 16,53 km/s
 
     `;
     export const prometheusText: string = "";
@@ -215,23 +210,21 @@ namespace SolarSystem {
     export const uranusText: string = "";
 
     export const oberonInfo: string = `
-        Primary body:
-        Measurements:
-        Orbital period:
-        Mean orbital speed:
-        Max surface temperature:
-        Min surface temperature:
+        Primary body: Uranus
+        Diameter: 1522,8 km
+        Orbital period: 13,5 earth days
+        Mean orbital speed: 3,15 km/s
+        Surface temperature: / 70K
 
     `;
     export const oberonText: string = "";
 
     export const titaniaInfo: string = `
-        Primary body:
-        Measurements:
-        Orbital period:
-        Mean orbital speed:
-        Max surface temperature:
-        Min surface temperature:
+        Primary body: Uranus
+        Diameter: 1577,8 km
+        Orbital period: 8,7 earth days
+        Mean orbital speed: 3,64 km/s
+        Surface temperature: / 70K
 
     `;
     export const titaniaText: string = "";
@@ -249,12 +242,11 @@ namespace SolarSystem {
     export const neptunText: string = "";
 
     export const tritonInfo: string = `
-        Primary body:
-        Measurements:
-        Orbital period:
-        Mean orbital speed:
-        Max surface temperature:
-        Min surface temperature:
+        Primary body: Neptun
+        Diameter: 2707 km
+        Orbital period: 5,8 earth days
+        Mean orbital speed: 4,39 km/s
+        Surface temperature: -235°C / 38K
 
     `;
     export const tritonText: string = "";
@@ -272,12 +264,12 @@ namespace SolarSystem {
     export const plutoText: string = "";
 
     export const charonInfo: string = `
-        Primary body:
-        Measurements:
-        Orbital period:
-        Mean orbital speed:
-        Max surface temperature:
-        Min surface temperature:
+        Primary body: Pluto
+        Diameter: 1212 km
+        Orbital period: 6,4 earth days
+        Mean orbital speed: 0,223 km/s
+        Max surface temperature: -213°C / 60K
+        Min surface temperature: -258°C / 15K
 
     `;
     export const charonText: string = "";
