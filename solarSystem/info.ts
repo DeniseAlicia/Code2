@@ -207,7 +207,7 @@ namespace SolarSystem {
     Moons: 28
 
     `;
-    export const uranusText: string = "One of the most interesting thing about this ice giant is its rotation axis, which almost points at the sun, meaning uranus 'rolls' along its orbit, unlike all other planets in our solar system. The common theory for that phenomenon is that very early in its lifecycle, Uranus collided with a rock the size of earth, which tilted it in it's modern position.";
+    export const uranusText: string = "One of the most interesting thing about this ice giant is its rotation axis, which almost points at the sun, meaning uranus 'rolls' along its orbit, unlike almost all other planets in our solar system. The prevalent theory for that phenomenon is that very early in its lifecycle, Uranus collided with a rock the size of earth, which tilted it in it's modern position. In greek mythology, Uranus was the personification of the sky.";
 
     export const oberonInfo: string = `
     Primary body: Uranus
@@ -239,7 +239,7 @@ namespace SolarSystem {
     Moons: 16
 
     `;
-    export const neptunText: string = "Named after the roman god of the sea, ";
+    export const neptunText: string = "Named after the roman god of the sea, you would think that neptune's surface is covered in vast oceans, but it is actually an ice giant, like uranus, and is mostly composed of gases. Although its atmosphäre contains 80% hydrogen, so maybe it still counts. The other 20% are made of helium and traces of other gases.";
 
     export const tritonInfo: string = `
     Primary body: Neptun
@@ -261,7 +261,7 @@ namespace SolarSystem {
     Moons: 5
 
     `;
-    export const plutoText: string = "Although ";
+    export const plutoText: string = "Although Pluto was officially stripped of its 'planet' title by the IAU in 2006, many still consider this dwarf planet a real member of our plantary solar system family. It also 'rolls' on its side like uranus, but there is no clear theroy as to why that is. Plutos surface is almost entirely made of nitrogen ice. Fitting for a (dwarf) planet named after the roman ruler of the underworld.";
 
     export const charonInfo: string = `
     Primary body: Pluto
