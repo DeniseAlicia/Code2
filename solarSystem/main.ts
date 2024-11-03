@@ -29,7 +29,7 @@ namespace SolarSystem {
         const mercury: CelestialBody = new CelestialBody(child, "mercury", mercuryInfo, mercuryText, "orange", 10, 0, 30, 700);
         const venus: CelestialBody = new CelestialBody(child, "venus", venusInfo, venusText, "blue", 10, 0, 40, 800);
 
-        sun.children.push(mercury, venus);
+        // sun.children.push(mercury, venus);
     }
 
 
