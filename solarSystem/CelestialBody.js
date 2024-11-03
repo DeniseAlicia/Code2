@@ -18,7 +18,7 @@ var SolarSystem;
             //draw every celestial body in the children array
             console.log("draw celestial bodies");
             SolarSystem.crc2.save();
-            SolarSystem.crc2.rotate(this.rotSpeed);
+            SolarSystem.crc2.rotate(this.rotAngle);
             SolarSystem.crc2.translate(this.distanceFromCenter, 0);
             SolarSystem.crc2.fillStyle = this.color;
             SolarSystem.crc2.arc(0, 0, this.radius, 0, 2 * Math.PI);

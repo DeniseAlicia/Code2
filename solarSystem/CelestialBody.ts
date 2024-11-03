@@ -31,7 +31,7 @@ namespace SolarSystem {
             console.log("draw celestial bodies");
 
             crc2.save();
-            crc2.rotate(this.rotSpeed);
+            crc2.rotate(this.rotAngle);
             crc2.translate(this.distanceFromCenter, 0);
             crc2.fillStyle = this.color;
             crc2.arc(0, 0, this.radius, 0, 2 * Math.PI);
