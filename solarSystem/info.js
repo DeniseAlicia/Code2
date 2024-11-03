@@ -107,7 +107,7 @@ var SolarSystem;
     Moons: 95
 
     `;
-    SolarSystem.jupiterText = "The biggest planet in our solar system is a gas giant, meaning that is mostly composed of gases like helium, methane and hydrogen. ";
+    SolarSystem.jupiterText = "The biggest planet in our solar system is a gas giant, meaning that is mostly composed of gases like helium, methane and hydrogen, although there are likely ammonia crystals present in its atmosphere, giving the brighter zones their color. Jupiter's name comes from the roman king of sky and thunder, as well as the king of the gods.";
     SolarSystem.ioInfo = `
     Primary body: Jupiter
     Diameter: 3642 km
@@ -155,7 +155,7 @@ var SolarSystem;
     Moons: 146
 
     `;
-    SolarSystem.saturnText = "";
+    SolarSystem.saturnText = "Being called the 'ring planet', Saturn is most famous for its extensive ring system spanning more than 100.000 rings consisting of billions of dust particles, rocks and ice crystals. Saturn's namesake is the roman god of time, wealth and agriculture.";
     SolarSystem.titanInfo = `
     Primary body: Saturn
     Diameter: 5150 km
@@ -182,7 +182,7 @@ var SolarSystem;
     Moons: 28
 
     `;
-    SolarSystem.uranusText = "";
+    SolarSystem.uranusText = "One of the most interesting thing about this ice giant is its rotation axis, ";
     SolarSystem.oberonInfo = `
     Primary body: Uranus
     Diameter: 1522,8 km
@@ -230,7 +230,7 @@ var SolarSystem;
     Moons: 5
 
     `;
-    SolarSystem.plutoText = "";
+    SolarSystem.plutoText = "Although ";
     SolarSystem.charonInfo = `
     Primary body: Pluto
     Diameter: 1212 km

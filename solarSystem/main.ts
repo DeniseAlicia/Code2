@@ -37,7 +37,7 @@ namespace SolarSystem {
         const mars: CelestialBody = new CelestialBody("Mars", marsInfo, marsText, "red", 10, 0, earthSpeed * 0.53, 230);
         const jupiter: CelestialBody = new CelestialBody("Jupiter", jupiterInfo, jupiterText, "orange", 30, 0, earthSpeed * 0.08, 300);
         const saturn: CelestialBody = new CelestialBody("Saturn", saturnInfo, saturnText, "grey", 20, 0, earthSpeed * 0.03, 380);
-        const uranus: CelestialBody = new CelestialBody("Uranus", uranusInfo, uranusText, "green", 15, 0, earthSpeed * 0.01, 420);
+        const uranus: CelestialBody = new CelestialBody("Uranus", uranusInfo, uranusText, "white", 15, 0, earthSpeed * 0.01, 420);
         const neptun: CelestialBody = new CelestialBody("Neptun", neptunInfo, neptunText, "blue", 15, 0, earthSpeed * 0.006, 470);
         const pluto: CelestialBody = new CelestialBody("Pluto", plutoInfo, plutoText, "grey", 5, 0, earthSpeed * 0.004, 510);
         sun.children.push(mercury, venus, earth, mars, jupiter, saturn, uranus, neptun, pluto);
@@ -59,7 +59,7 @@ namespace SolarSystem {
         const prometheus: CelestialBody = new CelestialBody("Prometheus", prometheusInfo, prometheusText, "grey", 4, 0, earthSpeed * 598.4, 50);
         saturn.children.push(titan, prometheus);
 
-        const oberon: CelestialBody = new CelestialBody("Oberon", oberonInfo, oberonText, "white", 4, 0, earthSpeed * 27.1, 20);
+        const oberon: CelestialBody = new CelestialBody("Oberon", oberonInfo, oberonText, "grey", 4, 0, earthSpeed * 27.1, 20);
         const titania: CelestialBody = new CelestialBody("Titania", titaniaInfo, titaniaText, "white", 4, 0, earthSpeed * 42, 30);
         uranus.children.push(oberon, titania);
 
