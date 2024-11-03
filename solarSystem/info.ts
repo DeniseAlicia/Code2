@@ -123,7 +123,7 @@ namespace SolarSystem {
     Moons: 95
 
     `;
-    export const jupiterText: string = "The biggest planet in our solar system is a gas giant, meaning that is mostly composed of gases like helium, methane and hydrogen, although there are likely ammonia crystals present in its atmosphere, giving the brighter zones their color. Jupiter's name comes from the roman king of sky and thunder, as well as the king of the gods.";
+    export const jupiterText: string = "The biggest planet in our solar system is a gas giant, meaning that it is mostly composed of gases like helium, methane and hydrogen, although there are likely ammonia crystals present in its atmosphere, giving the brighter zones their color. Jupiter's name comes from the roman king of sky and thunder, as well as the king of the gods.";
 
     export const ioInfo: string = `
     Primary body: Jupiter
@@ -207,7 +207,7 @@ namespace SolarSystem {
     Moons: 28
 
     `;
-    export const uranusText: string = "One of the most interesting thing about this ice giant is its rotation axis, ";
+    export const uranusText: string = "One of the most interesting thing about this ice giant is its rotation axis, which almost points at the sun, meaning uranus 'rolls' along its orbit, unlike all other planets in our solar system. The common theory for that phenomenon is that very early in its lifecycle, Uranus collided with a rock the size of earth, which tilted it in it's modern position.";
 
     export const oberonInfo: string = `
     Primary body: Uranus
@@ -239,7 +239,7 @@ namespace SolarSystem {
     Moons: 16
 
     `;
-    export const neptunText: string = "";
+    export const neptunText: string = "Named after the roman god of the sea, ";
 
     export const tritonInfo: string = `
     Primary body: Neptun

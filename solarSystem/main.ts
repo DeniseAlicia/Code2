@@ -32,13 +32,13 @@ namespace SolarSystem {
         sun = new CelestialBody("Sun", sunInfo, sunText, "yellow", 40, 120, 0, 750);
 
         const mercury: CelestialBody = new CelestialBody("Mercury", mercuryInfo, mercuryText, "orange", 8, 0, earthSpeed * 4.1, 70);
-        const venus: CelestialBody = new CelestialBody("Venus", venusInfo, venusText, "yellow", 10, 0, earthSpeed * 1.6, 110);
+        const venus: CelestialBody = new CelestialBody("Venus", venusInfo, venusText, "#dce65e", 10, 0, earthSpeed * 1.6, 110);
         const earth: CelestialBody = new CelestialBody("Earth", earthInfo, earthText, "blue", 10, 0, earthSpeed, 180);
-        const mars: CelestialBody = new CelestialBody("Mars", marsInfo, marsText, "red", 10, 0, earthSpeed * 0.53, 230);
-        const jupiter: CelestialBody = new CelestialBody("Jupiter", jupiterInfo, jupiterText, "orange", 30, 0, earthSpeed * 0.08, 300);
-        const saturn: CelestialBody = new CelestialBody("Saturn", saturnInfo, saturnText, "grey", 20, 0, earthSpeed * 0.03, 380);
-        const uranus: CelestialBody = new CelestialBody("Uranus", uranusInfo, uranusText, "white", 15, 0, earthSpeed * 0.01, 420);
-        const neptun: CelestialBody = new CelestialBody("Neptun", neptunInfo, neptunText, "blue", 15, 0, earthSpeed * 0.006, 470);
+        const mars: CelestialBody = new CelestialBody("Mars", marsInfo, marsText, "#d14217", 10, 0, earthSpeed * 0.53, 230);
+        const jupiter: CelestialBody = new CelestialBody("Jupiter", jupiterInfo, jupiterText, "#de8745", 30, 0, earthSpeed * 0.08, 300);
+        const saturn: CelestialBody = new CelestialBody("Saturn", saturnInfo, saturnText, "#ebc681", 20, 0, earthSpeed * 0.03, 380);
+        const uranus: CelestialBody = new CelestialBody("Uranus", uranusInfo, uranusText, "#cfdfe6", 15, 0, earthSpeed * 0.01, 420);
+        const neptun: CelestialBody = new CelestialBody("Neptun", neptunInfo, neptunText, "#b3d6e6", 15, 0, earthSpeed * 0.006, 470);
         const pluto: CelestialBody = new CelestialBody("Pluto", plutoInfo, plutoText, "grey", 5, 0, earthSpeed * 0.004, 510);
         sun.children.push(mercury, venus, earth, mars, jupiter, saturn, uranus, neptun, pluto);
 
