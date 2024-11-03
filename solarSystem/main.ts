@@ -38,8 +38,8 @@ namespace SolarSystem {
         const jupiter: CelestialBody = new CelestialBody("Jupiter", jupiterInfo, jupiterText, "orange", 30, 0, earthSpeed * 0.08, 300);
         const saturn: CelestialBody = new CelestialBody("Saturn", saturnInfo, saturnText, "grey", 20, 0, earthSpeed * 0.03, 380);
         const uranus: CelestialBody = new CelestialBody("Uranus", uranusInfo, uranusText, "green", 15, 0, earthSpeed * 0.01, 420);
-        const neptun: CelestialBody = new CelestialBody("Neptun", neptunInfo, neptunText, "blue", 15, 0, earthSpeed * 0.006, 450);
-        const pluto: CelestialBody = new CelestialBody("Pluto", plutoInfo, plutoText, "grey", 5, 0, earthSpeed * 0.004, 480);
+        const neptun: CelestialBody = new CelestialBody("Neptun", neptunInfo, neptunText, "blue", 15, 0, earthSpeed * 0.006, 470);
+        const pluto: CelestialBody = new CelestialBody("Pluto", plutoInfo, plutoText, "grey", 5, 0, earthSpeed * 0.004, 510);
         sun.children.push(mercury, venus, earth, mars, jupiter, saturn, uranus, neptun, pluto);
 
         const moon: CelestialBody = new CelestialBody("Moon", moonInfo, moonText, "white", 5, 0, earthSpeed * 13, 20);
