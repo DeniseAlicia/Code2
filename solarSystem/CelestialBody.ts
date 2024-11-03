@@ -1,5 +1,7 @@
 namespace SolarSystem {
 
+    //export const child: CelestialBody[] = [];
+
     export class CelestialBody {
 
         children: CelestialBody[];
@@ -25,17 +27,17 @@ namespace SolarSystem {
         }
 
         draw(): void {
+            //draw every celestial body in the children array
             console.log("draw celestial bodies");
 
-           // for (let i: number = 0; 1 < celestials.length; i++) {
-           //     const element = array[index];
-                
+            for (let i: number = 0; i < this.children.length; i++) {
+                crc2.save();
+                crc2.rotate(this.rotSpeed);
+                crc2.translate(this.distanceFromCenter, 0);
+                crc2.fillStyle = this.color;
+                crc2.arc(0, 0, this.radius, 0, 2 * Math.PI);
+                crc2.restore();
             }
-           // crc2.save();
-            //crc2.rotate(this.rotSpeed);
-            //crc2.translate(this.distanceFromCenter);
-            //crc2.fillStyle(this.color);
-            //crc2.arc(0,0,this.radius);
 
         }
 
@@ -43,4 +45,9 @@ namespace SolarSystem {
             console.log("orbit step");
         }
 
+        checkedIfClicked(_x: number, _y: number): void {
+            console.log("clicked");
+            crc2.save
+        }
     }
+}
