@@ -26,7 +26,13 @@ namespace SolarSystem {
 
         sun = new CelestialBody(child, "sun", sunInfo, sunText, "yellow", 50, 120, 0, 650);
 
+        const mercury: CelestialBody = new CelestialBody(child, "mercury", mercuryInfo, mercuryText, "orange", 10, 0, 30, 700);
+        const venus: CelestialBody = new CelestialBody(child, "venus", venusInfo, venusText, "blue", 10, 0, 40, 800);
+
+        sun.children.push(mercury, venus);
     }
+
+
 
     function update(): void {
         //updating and redrawing the simulation
@@ -40,6 +46,7 @@ namespace SolarSystem {
         sun.draw();
         sun.orbitStep(1);
         //sun.checkedIfClicked();
+
         console.log(sun.rotAngle);
 
     }
