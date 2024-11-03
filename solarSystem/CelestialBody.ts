@@ -48,7 +48,7 @@ namespace SolarSystem {
 
             for (let i: number = 0; i < this.children.length; i++) {
                 const child: CelestialBody = this.children[i];
-                child.orbitStep;
+                child.orbitStep(_speedModifier);
             }
         }
 
