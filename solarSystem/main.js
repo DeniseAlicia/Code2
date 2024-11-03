@@ -18,16 +18,18 @@ var SolarSystem;
     function createCelestialBodies() {
         //creating all simulated celestial bodies
         console.log("creating bodies");
-        sun = new SolarSystem.CelestialBody(child, "sun", SolarSystem.sunInfo, SolarSystem.sunText, "yellow", 50, 0, 0, 300);
+        sun = new SolarSystem.CelestialBody(child, "sun", SolarSystem.sunInfo, SolarSystem.sunText, "yellow", 50, 120, 0, 650);
     }
     function update() {
         //updating and redrawing the simulation
         console.log("updating");
+        SolarSystem.crc2.clearRect(0, 0, canvas.width, canvas.height);
         SolarSystem.crc2.fillStyle = "black";
         SolarSystem.crc2.fillRect(0, 0, canvas.width, canvas.height);
         sun.draw();
         sun.orbitStep(1);
         //sun.checkedIfClicked();
+        console.log(sun.rotAngle);
     }
 })(SolarSystem || (SolarSystem = {}));
 //# sourceMappingURL=main.js.map

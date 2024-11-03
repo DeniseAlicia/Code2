@@ -24,7 +24,7 @@ namespace SolarSystem {
         //creating all simulated celestial bodies
         console.log("creating bodies");
 
-        sun = new CelestialBody(child, "sun", sunInfo, sunText, "yellow", 50, 0, 0, 300);
+        sun = new CelestialBody(child, "sun", sunInfo, sunText, "yellow", 50, 120, 0, 650);
 
     }
 
@@ -32,12 +32,15 @@ namespace SolarSystem {
         //updating and redrawing the simulation
         console.log("updating");
 
+        crc2.clearRect(0, 0, canvas.width, canvas.height);
+
         crc2.fillStyle = "black";
         crc2.fillRect(0, 0, canvas.width, canvas.height);
 
         sun.draw();
         sun.orbitStep(1);
         //sun.checkedIfClicked();
+        console.log(sun.rotAngle);
 
     }
 
