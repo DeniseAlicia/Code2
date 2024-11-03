@@ -87,7 +87,7 @@ namespace SolarSystem {
         Moons: 2
 
     `;
-    export const marsText: string = "With its red color stemming from the iron oxide in its atmosphere and surface, it is no surprise Mars was named after the roman god of war. Though it is a dry desert planet today, there is plenty of geographical evidence suggesting there was once an abundance of liquid water, like lake beds, river valleys, and deltas.";
+    export const marsText: string = "With its red color stemming from the iron oxide in its atmosphere and surface, it is no surprise Mars was named after the roman god of war. Though it is a dry desert planet today, there is plenty of geographical evidence suggesting there was once an abundance of liquid water, like lake beds, river valleys, and deltas. Its moons are named after the sons of the greek god of war, Ares.";
 
     export const phobosInfo: string = `
         Primary body: Mars
@@ -98,13 +98,13 @@ namespace SolarSystem {
         Min surface temperature: -110°C / 268K
 
     `;
-    export const phobosText: string = "Phobos' most striking feature is the crater 'Stickney', with a diameter of 9km. Since its discovery in 1877, Phobos has been the setting for multiple pieces of science fiction media, like a map in the video game 'Doom'. In greek mythology, Phobos is the son and companion of Ares, god of war.";
+    export const phobosText: string = "Phobos' most striking feature is the crater 'Stickney', with a diameter of 9km. Since its discovery in 1877, Phobos has been the setting for multiple pieces of media, like a map in the video game 'Doom'. The greek word 'phobos' translates to 'fear'";
 
     export const deimosInfo: string = `
         Primary body: Mars
-        Measurements:
+        Measurements: 15 km x 12 km x 10.4 km
         Orbital period:
-        Mean orbital speed:
+        Mean orbital speed: 1,351 km/s
         Max surface temperature:
         Min surface temperature:
 
@@ -121,7 +121,7 @@ namespace SolarSystem {
         Moons: 95
 
     `;
-    export const jupiterText: string = "";
+    export const jupiterText: string = "The biggest planet of our solar system is ";
 
     //saturn + moons
     export const saturnInfo: string = `
@@ -166,6 +166,8 @@ namespace SolarSystem {
         Moons: 5
 
     `;
+    export const plutoText: string = "";
+
     export const charonInfo: string = `
         Primary body:
         Measurements:
@@ -175,6 +177,7 @@ namespace SolarSystem {
         Min surface temperature:
 
     `;
+    export const charonText: string = "";
 
     //sources
     //https://www.rmg.co.uk/stories/topics/solar-system-data
