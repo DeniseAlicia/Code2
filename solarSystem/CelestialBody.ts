@@ -30,12 +30,15 @@ namespace SolarSystem {
             //draw every celestial body in the children array
             console.log("draw celestial bodies");
 
+            const path: Path2D = new Path2D;
             crc2.save();
             crc2.rotate(this.rotAngle);
             crc2.translate(this.distanceFromCenter, 0);
             crc2.fillStyle = this.color;
-            crc2.arc(0, 0, this.radius, 0, 2 * Math.PI, false);
-            crc2.fill();
+            path.arc(0, 0, this.radius, 0, 2 * Math.PI);
+            crc2.fill(path);
+            path.closePath();
+            this.path = path;
             crc2.restore();
 
             for (let i: number = 0; i < this.children.length; i++) {
@@ -60,7 +63,7 @@ namespace SolarSystem {
             console.log("clicked");
 
             crc2.save();
-            crc2.rotate(this.rotSpeed);
+            crc2.rotate(this.rotAngle);
             crc2.translate(this.distanceFromCenter, 0);
 
             //check if the the planet/its path is clicked -> else: check for the children 
