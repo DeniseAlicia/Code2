@@ -24,7 +24,7 @@ namespace SolarSystem {
         //creating all simulated celestial bodies
         console.log("creating bodies");
 
-        let sun: CelestialBody = new CelestialBody([child[0]], "sun", sunInfo, sunText, "yellow", 50, 1, 0);
+        sun = new CelestialBody([child[0]], "sun", sunInfo, sunText, "yellow", 50, 1, 0);
 
     }
 
@@ -35,9 +35,9 @@ namespace SolarSystem {
         crc2.fillStyle = "black";
         crc2.fillRect(0, 0, canvas.width, canvas.height);
 
-        sun.draw;
-        sun.orbitStep;
-        sun.checkedIfClicked;
+        sun.draw();
+        sun.orbitStep(1);
+        //sun.checkedIfClicked();
 
     }
 
