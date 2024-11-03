@@ -13,14 +13,14 @@ namespace SolarSystem {
         distanceFromCenter: number;
         path: Path2D;
 
-        constructor(_children: CelestialBody[], _name: string, _info: string, _text: string, _color: string, _radius: number, _rotSpeed: number, _distanceFromCenter: number) {
+        constructor(_children: CelestialBody[], _name: string, _info: string, _text: string, _color: string, _radius: number, _rotAngel: number, _rotSpeed: number, _distanceFromCenter: number) {
             this.children = _children;
             this.name = _name;
             this.info = _info;
             this.text = _text;
             this.color = _color;
             this.radius = _radius;
-            this.rotAngle = 0;
+            this.rotAngle = _rotAngel;
             this.rotSpeed = _rotSpeed;
             this.distanceFromCenter = _distanceFromCenter;
             this.path = new Path2D;
@@ -34,7 +34,7 @@ namespace SolarSystem {
             crc2.rotate(this.rotAngle);
             crc2.translate(this.distanceFromCenter, 0);
             crc2.fillStyle = this.color;
-            crc2.arc(0, 0, this.radius, 0, 2 * Math.PI);
+            crc2.arc(0, 0, this.radius, 0, 2 * Math.PI, false);
             crc2.fill();
             crc2.restore();
 

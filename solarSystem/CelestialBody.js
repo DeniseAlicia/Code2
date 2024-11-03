@@ -2,14 +2,14 @@
 var SolarSystem;
 (function (SolarSystem) {
     class CelestialBody {
-        constructor(_children, _name, _info, _text, _color, _radius, _rotSpeed, _distanceFromCenter) {
+        constructor(_children, _name, _info, _text, _color, _radius, _rotAngel, _rotSpeed, _distanceFromCenter) {
             this.children = _children;
             this.name = _name;
             this.info = _info;
             this.text = _text;
             this.color = _color;
             this.radius = _radius;
-            this.rotAngle = 0;
+            this.rotAngle = _rotAngel;
             this.rotSpeed = _rotSpeed;
             this.distanceFromCenter = _distanceFromCenter;
             this.path = new Path2D;
@@ -21,7 +21,7 @@ var SolarSystem;
             SolarSystem.crc2.rotate(this.rotAngle);
             SolarSystem.crc2.translate(this.distanceFromCenter, 0);
             SolarSystem.crc2.fillStyle = this.color;
-            SolarSystem.crc2.arc(0, 0, this.radius, 0, 2 * Math.PI);
+            SolarSystem.crc2.arc(0, 0, this.radius, 0, 2 * Math.PI, false);
             SolarSystem.crc2.fill();
             SolarSystem.crc2.restore();
             for (let i = 0; i < this.children.length; i++) {
