@@ -3,7 +3,7 @@ var SolarSystem;
 (function (SolarSystem) {
     // global variables
     SolarSystem.planetInfo = "";
-    const child = [];
+    //const child: CelestialBody[] = [];
     let sun;
     //setting up the canvas
     const canvas = document.querySelector("canvas");
@@ -18,9 +18,12 @@ var SolarSystem;
     function createCelestialBodies() {
         //creating all simulated celestial bodies
         console.log("creating bodies");
-        sun = new SolarSystem.CelestialBody(child, "sun", SolarSystem.sunInfo, SolarSystem.sunText, "yellow", 50, 120, 0, 650);
-        const mercury = new SolarSystem.CelestialBody(child, "mercury", SolarSystem.mercuryInfo, SolarSystem.mercuryText, "orange", 10, 0, 30, 700);
-        const venus = new SolarSystem.CelestialBody(child, "venus", SolarSystem.venusInfo, SolarSystem.venusText, "blue", 10, 0, 40, 800);
+        const sunA = [];
+        const mercuryA = [];
+        const venusA = [];
+        sun = new SolarSystem.CelestialBody(sunA, "sun", SolarSystem.sunInfo, SolarSystem.sunText, "yellow", 50, 120, 0, 650);
+        const mercury = new SolarSystem.CelestialBody(mercuryA, "mercury", SolarSystem.mercuryInfo, SolarSystem.mercuryText, "orange", 10, 0, 30, 700);
+        const venus = new SolarSystem.CelestialBody(venusA, "venus", SolarSystem.venusInfo, SolarSystem.venusText, "blue", 10, 0, 40, 800);
         sun.children.push(mercury, venus);
     }
     function update() {
