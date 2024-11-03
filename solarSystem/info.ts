@@ -50,7 +50,7 @@ namespace SolarSystem {
         Moons: 0
 
     `;
-    export const venusText: string = "Venus' atmosphere is composed of 96.5% carbon dioxide and 3.5% nitrogen, with other gases like sulfur dioxide, water and argon being found in traces. So despite venus being similar in size and density to earth it is extremly toxic for terrestial life, on top of its atmosphere being much heavier and it being covered in rivers of lava. Venus is named after the roman goddess of beauty and love.";
+    export const venusText: string = "The atmosphere of Venus is composed of 96.5% carbon dioxide and 3.5% nitrogen, with other gases like sulfur dioxide, water and argon being found in traces. So despite venus being similar in size and density to earth it is extremly toxic for terrestial life, on top of its atmosphere being much heavier and it being covered in rivers of lava. Venus is named after the roman goddess of beauty and love.";
 
 
     //earth + moon
@@ -98,18 +98,17 @@ namespace SolarSystem {
         Min surface temperature: -110°C / 268K
 
     `;
-    export const phobosText: string = "Phobos' most striking feature is the crater 'Stickney', with a diameter of 9km. Since its discovery in 1877, Phobos has been the setting for multiple pieces of media, like a map in the video game 'Doom'. The greek word 'phobos' translates to 'fear'";
+    export const phobosText: string = "Since its discovery in 1877, Phobos has been the setting for multiple pieces of media, like a map in the video game 'Doom'. Its most striking feature is the crater 'Stickney' with a diameter of 9 km. The greek word 'phobos' translates to 'fear'";
 
     export const deimosInfo: string = `
         Primary body: Mars
         Measurements: 15 km x 12 km x 10.4 km
-        Orbital period:
+        Orbital period: 1,2 earth days
         Mean orbital speed: 1,351 km/s
-        Max surface temperature:
-        Min surface temperature:
+        Surface temperature: -40°C / 233K
 
     `;
-    export const deimosText: string = "";
+    export const deimosText: string = "Despite being the smaller one of Mars' two moons, Deimos was discovered first. Since Phobos is close enough to be outshone by Mars, Deimos was discovered 6 days earlier. Its name translates to 'terror";
 
 
     //jupiter + moons
@@ -123,6 +122,50 @@ namespace SolarSystem {
     `;
     export const jupiterText: string = "The biggest planet of our solar system is ";
 
+    export const ioInfo: string = `
+        Primary body:
+        Measurements:
+        Orbital period:
+        Mean orbital speed:
+        Max surface temperature:
+        Min surface temperature:
+
+    `;
+    export const ioText: string = "";
+
+    export const europaInfo: string = `
+        Primary body:
+        Measurements:
+        Orbital period:
+        Mean orbital speed:
+        Max surface temperature:
+        Min surface temperature:
+
+    `;
+    export const europaText: string = "";
+
+    export const ganymedeInfo: string = `
+        Primary body:
+        Measurements:
+        Orbital period:
+        Mean orbital speed:
+        Max surface temperature:
+        Min surface temperature:
+
+    `;
+    export const ganymedeText: string = "";
+
+    export const callistoInfo: string = `
+        Primary body:
+        Measurements:
+        Orbital period:
+        Mean orbital speed:
+        Max surface temperature:
+        Min surface temperature:
+
+    `;
+    export const callistoText: string = "";
+
     //saturn + moons
     export const saturnInfo: string = `
         Diameter: 120.000 km
@@ -133,6 +176,29 @@ namespace SolarSystem {
 
     `;
     export const saturnText: string = "";
+
+    export const titanInfo: string = `
+        Primary body:
+        Measurements:
+        Orbital period:
+        Mean orbital speed:
+        Max surface temperature:
+        Min surface temperature:
+
+    `;
+    export const titanText: string = "";
+
+    export const prometheusInfo: string = `
+        Primary body:
+        Measurements:
+        Orbital period:
+        Mean orbital speed:
+        Max surface temperature:
+        Min surface temperature:
+
+    `;
+    export const prometheusText: string = "";
+
 
     //uranus
     export const uranusInfo: string = `
@@ -145,6 +211,29 @@ namespace SolarSystem {
     `;
     export const uranusText: string = "";
 
+    export const oberonInfo: string = `
+        Primary body:
+        Measurements:
+        Orbital period:
+        Mean orbital speed:
+        Max surface temperature:
+        Min surface temperature:
+
+    `;
+    export const oberonText: string = "";
+
+    export const titaniaInfo: string = `
+        Primary body:
+        Measurements:
+        Orbital period:
+        Mean orbital speed:
+        Max surface temperature:
+        Min surface temperature:
+
+    `;
+    export const titaniaText: string = "";
+
+
     //neptun
     export const neptunInfo: string = `
         Diameter: 48.400 km
@@ -155,6 +244,17 @@ namespace SolarSystem {
 
     `;
     export const neptunText: string = "";
+
+    export const tritonInfo: string = `
+        Primary body:
+        Measurements:
+        Orbital period:
+        Mean orbital speed:
+        Max surface temperature:
+        Min surface temperature:
+
+    `;
+    export const tritonText: string = "";
 
     //pluto
     export const plutoInfo: string = `
