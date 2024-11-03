@@ -132,8 +132,8 @@ var SolarSystem;
         Diameter: 5262 km
         Orbital period: 7,1 earth days
         Mean orbital speed: 10,88 km/s
-        Max surface temperature: / 160K
-        Min surface temperature: / 90K
+        Max surface temperature: -113°C / 160K
+        Min surface temperature: -183°C / 90K
 
     `;
     SolarSystem.ganymedeText = "";
@@ -142,7 +142,7 @@ var SolarSystem;
         Diameter: 4820 km
         Orbital period: 16.7 earth days
         Mean orbital speed: 8,2 km/s
-        Surface temperature: / 134K
+        Surface temperature:-139°C / 134K
 
     `;
     SolarSystem.callistoText = "";
@@ -161,7 +161,7 @@ var SolarSystem;
         Diameter: 5150 km
         Orbital period: 16 earth days
         Mean orbital speed: 5,57 km/s
-        Surface temperature: / 90K
+        Surface temperature: -183°C / 90K
 
     `;
     SolarSystem.titanText = "";
@@ -188,7 +188,7 @@ var SolarSystem;
         Diameter: 1522,8 km
         Orbital period: 13,5 earth days
         Mean orbital speed: 3,15 km/s
-        Surface temperature: / 70K
+        Surface temperature: -203°C / 70K
 
     `;
     SolarSystem.oberonText = "";
@@ -197,7 +197,7 @@ var SolarSystem;
         Diameter: 1577,8 km
         Orbital period: 8,7 earth days
         Mean orbital speed: 3,64 km/s
-        Surface temperature: / 70K
+        Surface temperature: -203°C / 70K
 
     `;
     SolarSystem.titaniaText = "";
