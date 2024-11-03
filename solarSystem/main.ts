@@ -1,7 +1,7 @@
 namespace SolarSystem {
 
     // global variables
-    export const planetInfo: string = "";
+    export let planetInfo: string = "";
     const child: CelestialBody[] = [];
 
     //setting up the canvas

@@ -61,7 +61,7 @@ namespace SolarSystem {
 
             //check if the the planet/its path is clicked -> else: check for the children 
             if (crc2.isPointInPath(_x, _y)) {
-                const planetInfo = this.info;
+                planetInfo = this.info;
             }
 
             else
