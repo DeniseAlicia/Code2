@@ -63,7 +63,7 @@ namespace SolarSystem {
             console.log("clicked");
 
             crc2.save();
-            crc2.rotate(this.rotSpeed);
+            crc2.rotate(this.rotAngle);
             crc2.translate(this.distanceFromCenter, 0);
 
             //check if the the planet/its path is clicked -> else: check for the children 

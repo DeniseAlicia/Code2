@@ -43,7 +43,7 @@ var SolarSystem;
         checkedIfClicked(_x, _y) {
             console.log("clicked");
             SolarSystem.crc2.save();
-            SolarSystem.crc2.rotate(this.rotSpeed);
+            SolarSystem.crc2.rotate(this.rotAngle);
             SolarSystem.crc2.translate(this.distanceFromCenter, 0);
             //check if the the planet/its path is clicked -> else: check for the children 
             if (SolarSystem.crc2.isPointInPath(_x, _y)) {
