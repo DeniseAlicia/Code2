@@ -30,7 +30,7 @@ namespace SolarSystem {
 
         draw(): void {
             //draw every celestial body in the children array
-            console.log("draw celestial bodies");
+            // console.log("draw celestial bodies");
 
             const path: Path2D = new Path2D;
 
@@ -54,7 +54,7 @@ namespace SolarSystem {
         }
 
         orbitStep(_speedModifier: number): void {
-            console.log("orbit step");
+            // console.log("orbit step");
 
             this.rotAngle += this.rotSpeed * _speedModifier;
 
@@ -64,21 +64,30 @@ namespace SolarSystem {
             }
         }
 
-        checkedIfClicked(_x: number, _y: number): void {
+        checkedIfClicked(_event: MouseEvent): void {
             console.log("clicked");
 
             crc2.save();
             crc2.rotate(this.rotAngle);
             crc2.translate(this.distanceFromCenter, 0);
 
-            //check if the the planet/its path is clicked -> else: check for the children 
-            if (crc2.isPointInPath(_x, _y)) {
+            const x: number = _event.offsetX //+ Math.cos(this.rotAngle) * this.distanceFromCenter;
+            const y: number = _event.offsetY //+ Math.sin(this.rotAngle) * this.distanceFromCenter;
+
+            //check if the the planet = its path is clicked -> else: check for the children 
+            if (crc2.isPointInPath(this.path, x, y)) {
+                planetName = this.name;
                 planetInfo = this.info;
+                planetText = this.text;
+
+                console.log(planetName);
+                console.log(planetInfo);
+                console.log(planetText);
             }
 
             else
                 for (const child of this.children) {
-                    child.checkedIfClicked(_x, _y);
+                    child.checkedIfClicked(_event);
                 }
 
             crc2.restore();

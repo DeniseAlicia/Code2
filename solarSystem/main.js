@@ -2,13 +2,16 @@
 var SolarSystem;
 (function (SolarSystem) {
     // global variables
+    SolarSystem.planetName = "";
     SolarSystem.planetInfo = "";
+    SolarSystem.planetText = "";
     //const child: CelestialBody[] = [];
     let sun;
     //setting up the canvas
     const canvas = document.querySelector("canvas");
     SolarSystem.crc2 = canvas.getContext("2d");
     window.addEventListener("load", handleLoad);
+    canvas.addEventListener("click", handleClick);
     function handleLoad() {
         //preparing the simulation
         console.log("loading page");
@@ -28,31 +31,39 @@ var SolarSystem;
         const uranus = new SolarSystem.CelestialBody("Uranus", SolarSystem.uranusInfo, SolarSystem.uranusText, "green", 15, 0, 0.015, 420);
         const neptun = new SolarSystem.CelestialBody("Neptun", SolarSystem.neptunInfo, SolarSystem.neptunText, "blue", 15, 0, 0.015, 450);
         const pluto = new SolarSystem.CelestialBody("Pluto", SolarSystem.plutoInfo, SolarSystem.plutoText, "grey", 5, 0, 0.015, 480);
-        sun.children.push(mercury, venus, earth, mars, jupiter, saturn, neptun, uranus, pluto);
+        sun.children.push(mercury, venus, earth, mars, jupiter, saturn, uranus, neptun, pluto);
         const moon = new SolarSystem.CelestialBody();
+        earth.children.push();
         const phobos = new SolarSystem.CelestialBody();
         const deimos = new SolarSystem.CelestialBody();
+        mars.children.push();
         const io = new SolarSystem.CelestialBody();
         const europa = new SolarSystem.CelestialBody();
         const ganymede = new SolarSystem.CelestialBody();
         const callisto = new SolarSystem.CelestialBody();
+        jupiter.children.push();
         const titan = new SolarSystem.CelestialBody();
         const prometheus = new SolarSystem.CelestialBody();
+        saturn.children.push();
         const oberon = new SolarSystem.CelestialBody();
         const titania = new SolarSystem.CelestialBody();
+        uranus.children.push();
         const triton = new SolarSystem.CelestialBody();
+        neptun.children.push();
         const charon = new SolarSystem.CelestialBody();
+        pluto.children.push();
+    }
+    function handleClick(_event) {
+        sun.checkedIfClicked(_event);
     }
     function update() {
         //updating and redrawing the simulation
-        console.log("updating");
+        // console.log("updating");
         SolarSystem.crc2.clearRect(0, 0, canvas.width, canvas.height);
         SolarSystem.crc2.fillStyle = "black";
         SolarSystem.crc2.fillRect(0, 0, canvas.width, canvas.height);
         sun.draw();
         sun.orbitStep(1);
-        //sun.checkedIfClicked();
-        console.log(sun.rotAngle);
     }
 })(SolarSystem || (SolarSystem = {}));
 //# sourceMappingURL=main.js.map
