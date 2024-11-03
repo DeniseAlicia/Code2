@@ -27,46 +27,47 @@ namespace SolarSystem {
     function createCelestialBodies(): void {
         //creating all simulated celestial bodies
         console.log("creating bodies");
+        const earthSpeed: number = 0.0015;
 
         sun = new CelestialBody("Sun", sunInfo, sunText, "yellow", 40, 120, 0, 650);
 
-        const mercury: CelestialBody = new CelestialBody("Mercury", mercuryInfo, mercuryText, "orange", 8, 0, 0.015, 70);
-        const venus: CelestialBody = new CelestialBody("Venus", venusInfo, venusText, "yellow", 10, 0, 0.015, 110);
-        const earth: CelestialBody = new CelestialBody("Earth", earthInfo, earthText, "blue", 10, 0, 0.015, 160);
-        const mars: CelestialBody = new CelestialBody("Mars", marsInfo, marsText, "red", 10, 0, 0.015, 210);
-        const jupiter: CelestialBody = new CelestialBody("Jupiter", jupiterInfo, jupiterText, "orange", 30, 0, 0.015, 300);
-        const saturn: CelestialBody = new CelestialBody("Saturn", saturnInfo, saturnText, "grey", 20, 0, 0.015, 380);
-        const uranus: CelestialBody = new CelestialBody("Uranus", uranusInfo, uranusText, "green", 15, 0, 0.015, 420);
-        const neptun: CelestialBody = new CelestialBody("Neptun", neptunInfo, neptunText, "blue", 15, 0, 0.015, 450);
-        const pluto: CelestialBody = new CelestialBody("Pluto", plutoInfo, plutoText, "grey", 5, 0, 0.015, 480);
+        const mercury: CelestialBody = new CelestialBody("Mercury", mercuryInfo, mercuryText, "orange", 8, 0, earthSpeed * 4.1, 70);
+        const venus: CelestialBody = new CelestialBody("Venus", venusInfo, venusText, "yellow", 10, 0, earthSpeed * 1.6, 110);
+        const earth: CelestialBody = new CelestialBody("Earth", earthInfo, earthText, "blue", 10, 0, earthSpeed, 180);
+        const mars: CelestialBody = new CelestialBody("Mars", marsInfo, marsText, "red", 10, 0, earthSpeed * 0.53, 230);
+        const jupiter: CelestialBody = new CelestialBody("Jupiter", jupiterInfo, jupiterText, "orange", 30, 0, earthSpeed * 0.08, 300);
+        const saturn: CelestialBody = new CelestialBody("Saturn", saturnInfo, saturnText, "grey", 20, 0, earthSpeed * 0.03, 380);
+        const uranus: CelestialBody = new CelestialBody("Uranus", uranusInfo, uranusText, "green", 15, 0, earthSpeed * 0.01, 420);
+        const neptun: CelestialBody = new CelestialBody("Neptun", neptunInfo, neptunText, "blue", 15, 0, earthSpeed * 0.006, 450);
+        const pluto: CelestialBody = new CelestialBody("Pluto", plutoInfo, plutoText, "grey", 5, 0, earthSpeed * 0.004, 480);
         sun.children.push(mercury, venus, earth, mars, jupiter, saturn, uranus, neptun, pluto);
 
-        const moon: CelestialBody = new CelestialBody();
-        earth.children.push();
+        const moon: CelestialBody = new CelestialBody("Moon", moonInfo, moonText, "white", 5, 0, earthSpeed * 13, 20);
+        earth.children.push(moon);
 
-        const phobos: CelestialBody = new CelestialBody();
-        const deimos: CelestialBody = new CelestialBody();
-        mars.children.push();
+        const phobos: CelestialBody = new CelestialBody("Phobos", phobosInfo, phobosText, "grey", 3, 0, earthSpeed * 1216.6, 20);
+        const deimos: CelestialBody = new CelestialBody("Deimos", deimosInfo, deimosText, "white", 3, 0, earthSpeed * 304.2, 30);
+        mars.children.push(phobos, deimos);
 
-        const io: CelestialBody = new CelestialBody();
-        const europa: CelestialBody = new CelestialBody();
-        const ganymede: CelestialBody = new CelestialBody();
-        const callisto: CelestialBody = new CelestialBody();
-        jupiter.children.push()
+        const io: CelestialBody = new CelestialBody("Io", ioInfo, ioText, "white", 5, 0, earthSpeed * 202, 40);
+        const europa: CelestialBody = new CelestialBody("Europa", europaInfo, europaText, "grey", 5, 0, earthSpeed * 104, 53);
+        const ganymede: CelestialBody = new CelestialBody("Ganymede", ganymedeInfo, ganymedeText, "white", 5, 0, earthSpeed * 51.5, 66);
+        const callisto: CelestialBody = new CelestialBody("Callisto", callistoInfo, callistoText, "grey", 5, 0, earthSpeed * 21.8, 81);
+        jupiter.children.push(io, europa, ganymede, callisto);
 
-        const titan: CelestialBody = new CelestialBody();
-        const prometheus: CelestialBody = new CelestialBody();
-        saturn.children.push();
+        const titan: CelestialBody = new CelestialBody("Titan", titanInfo, titanText, "white", 4, 0, earthSpeed * 22.8, 35);
+        const prometheus: CelestialBody = new CelestialBody("Prometheus", prometheusInfo, prometheusText, "grey", 4, 0, earthSpeed * 598.4, 50);
+        saturn.children.push(titan, prometheus);
 
-        const oberon: CelestialBody = new CelestialBody();
-        const titania: CelestialBody = new CelestialBody();
-        uranus.children.push();
+        const oberon: CelestialBody = new CelestialBody("Oberon", oberonInfo, oberonText, "white", 4, 0, earthSpeed * 27.1, 20);
+        const titania: CelestialBody = new CelestialBody("Titania", titaniaInfo, titaniaText, "white", 4, 0, earthSpeed * 42, 30);
+        uranus.children.push(oberon, titania);
 
-        const triton: CelestialBody = new CelestialBody();
-        neptun.children.push();
+        const triton: CelestialBody = new CelestialBody("Triton", tritonInfo, tritonText, "grey", 4, 0, earthSpeed * 63, 25);
+        neptun.children.push(triton);
 
-        const charon: CelestialBody = new CelestialBody();
-        pluto.children.push();
+        const charon: CelestialBody = new CelestialBody("Charon", charonInfo, charonText, "white", 3, 0, earthSpeed * 57, 15);
+        pluto.children.push(charon);
 
 
 

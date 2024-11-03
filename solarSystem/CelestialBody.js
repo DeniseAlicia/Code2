@@ -46,8 +46,8 @@ var SolarSystem;
             SolarSystem.crc2.save();
             SolarSystem.crc2.rotate(this.rotAngle);
             SolarSystem.crc2.translate(this.distanceFromCenter, 0);
-            const x = _event.offsetX; //+ Math.cos(this.rotAngle) * this.distanceFromCenter;
-            const y = _event.offsetY; //+ Math.sin(this.rotAngle) * this.distanceFromCenter;
+            const x = _event.offsetX;
+            const y = _event.offsetY;
             //check if the the planet = its path is clicked -> else: check for the children 
             if (SolarSystem.crc2.isPointInPath(this.path, x, y)) {
                 SolarSystem.planetName = this.name;

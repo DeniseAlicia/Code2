@@ -71,8 +71,8 @@ namespace SolarSystem {
             crc2.rotate(this.rotAngle);
             crc2.translate(this.distanceFromCenter, 0);
 
-            const x: number = _event.offsetX //+ Math.cos(this.rotAngle) * this.distanceFromCenter;
-            const y: number = _event.offsetY //+ Math.sin(this.rotAngle) * this.distanceFromCenter;
+            const x: number = _event.offsetX;
+            const y: number = _event.offsetY;
 
             //check if the the planet = its path is clicked -> else: check for the children 
             if (crc2.isPointInPath(this.path, x, y)) {
