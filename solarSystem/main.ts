@@ -27,9 +27,9 @@ namespace SolarSystem {
     function createCelestialBodies(): void {
         //creating all simulated celestial bodies
         console.log("creating bodies");
-        const earthSpeed: number = 0.0015;
+        const earthSpeed: number = 0.015;
 
-        sun = new CelestialBody("Sun", sunInfo, sunText, "yellow", 40, 120, 0, 650);
+        sun = new CelestialBody("Sun", sunInfo, sunText, "yellow", 40, 120, 0, 750);
 
         const mercury: CelestialBody = new CelestialBody("Mercury", mercuryInfo, mercuryText, "orange", 8, 0, earthSpeed * 4.1, 70);
         const venus: CelestialBody = new CelestialBody("Venus", venusInfo, venusText, "yellow", 10, 0, earthSpeed * 1.6, 110);
@@ -76,6 +76,7 @@ namespace SolarSystem {
     function handleClick(_event: MouseEvent): void {
 
         sun.checkedIfClicked(_event);
+        //display planetName, planetInfo and planetText in div element beneath slider
     }
 
 

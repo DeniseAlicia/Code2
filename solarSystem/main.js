@@ -21,8 +21,8 @@ var SolarSystem;
     function createCelestialBodies() {
         //creating all simulated celestial bodies
         console.log("creating bodies");
-        const earthSpeed = 0.0015;
-        sun = new SolarSystem.CelestialBody("Sun", SolarSystem.sunInfo, SolarSystem.sunText, "yellow", 40, 120, 0, 650);
+        const earthSpeed = 0.015;
+        sun = new SolarSystem.CelestialBody("Sun", SolarSystem.sunInfo, SolarSystem.sunText, "yellow", 40, 120, 0, 750);
         const mercury = new SolarSystem.CelestialBody("Mercury", SolarSystem.mercuryInfo, SolarSystem.mercuryText, "orange", 8, 0, earthSpeed * 4.1, 70);
         const venus = new SolarSystem.CelestialBody("Venus", SolarSystem.venusInfo, SolarSystem.venusText, "yellow", 10, 0, earthSpeed * 1.6, 110);
         const earth = new SolarSystem.CelestialBody("Earth", SolarSystem.earthInfo, SolarSystem.earthText, "blue", 10, 0, earthSpeed, 180);
@@ -56,6 +56,7 @@ var SolarSystem;
     }
     function handleClick(_event) {
         sun.checkedIfClicked(_event);
+        //display planetName, planetInfo and planetText in div element beneath slider
     }
     function update() {
         //updating and redrawing the simulation
