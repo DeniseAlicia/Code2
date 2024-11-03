@@ -107,7 +107,7 @@ var SolarSystem;
     Moons: 95
 
     `;
-    SolarSystem.jupiterText = " ";
+    SolarSystem.jupiterText = "The biggest planet in our solar system is a gas giant, meaning that is mostly composed of gases like helium, methane and hydrogen. ";
     SolarSystem.ioInfo = `
     Primary body: Jupiter
     Diameter: 3642 km

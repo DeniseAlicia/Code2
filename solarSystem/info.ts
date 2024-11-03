@@ -123,7 +123,7 @@ namespace SolarSystem {
     Moons: 95
 
     `;
-    export const jupiterText: string = " ";
+    export const jupiterText: string = "The biggest planet in our solar system is a gas giant, meaning that is mostly composed of gases like helium, methane and hydrogen. ";
 
     export const ioInfo: string = `
     Primary body: Jupiter
