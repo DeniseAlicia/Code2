@@ -27,7 +27,7 @@ namespace SolarSystem {
     function createCelestialBodies(): void {
         //creating all simulated celestial bodies
         console.log("creating bodies");
-        const earthSpeed: number = 0.015;
+        const earthSpeed: number = 0.0015;
 
         sun = new CelestialBody("Sun", sunInfo, sunText, "yellow", 40, 120, 0, 750);
 
