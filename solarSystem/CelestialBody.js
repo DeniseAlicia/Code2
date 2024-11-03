@@ -26,11 +26,11 @@ var SolarSystem;
             SolarSystem.crc2.fill(path);
             path.closePath();
             this.path = path;
-            SolarSystem.crc2.restore();
             for (let i = 0; i < this.children.length; i++) {
                 const child = this.children[i];
                 child.draw();
             }
+            SolarSystem.crc2.restore();
         }
         orbitStep(_speedModifier) {
             console.log("orbit step");

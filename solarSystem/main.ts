@@ -16,7 +16,7 @@ namespace SolarSystem {
         console.log("loading page");
 
         createCelestialBodies();
-        setInterval(update, 25);
+        setInterval(update, 1000);
 
     }
 
@@ -30,8 +30,8 @@ namespace SolarSystem {
 
         sun = new CelestialBody(sunA, "sun", sunInfo, sunText, "yellow", 50, 120, 0, 650);
 
-        const mercury: CelestialBody = new CelestialBody(mercuryA, "mercury", mercuryInfo, mercuryText, "orange", 10, 0, 0.15, 700);
-        const venus: CelestialBody = new CelestialBody(venusA, "venus", venusInfo, venusText, "blue", 10, 0, 0.15, 800);
+        const mercury: CelestialBody = new CelestialBody(mercuryA, "mercury", mercuryInfo, mercuryText, "orange", 10, 0, 0.15, 70);
+        const venus: CelestialBody = new CelestialBody(venusA, "venus", venusInfo, venusText, "blue", 10, 0, 0.15, 80);
 
 
         sun.children.push(mercury, venus);
