@@ -1,14 +1,15 @@
 namespace SolarSystem {
-    
+
     // global variables
-   export const planetInfo: string = "";
+    export const planetInfo: string = "";
+    const child: CelestialBody[] = [];
 
     //setting up the canvas
     const canvas: HTMLCanvasElement = document.querySelector("canvas")!;
-    export const crc2: CanvasRenderingContext2D = <CanvasRenderingContext2D> canvas.getContext("2d"); 
+    export const crc2: CanvasRenderingContext2D = <CanvasRenderingContext2D>canvas.getContext("2d");
 
     window.addEventListener("load", handleLoad);
-    
+
     function handleLoad(): void {
         //preparing the simulation
         console.log("loading page");
@@ -17,10 +18,13 @@ namespace SolarSystem {
         setInterval(update, 25);
 
     }
-    
+
     function createCelestialBodies(): void {
         //creating all simulated celestial bodies
         console.log("creating bodies");
+
+        const sun: CelestialBody = new CelestialBody([child[0]], "sun", sunInfo, sunText, "yellow", 50, 1, 0, 0, new Path2D);
+
     }
 
     function update(): void {
@@ -31,6 +35,5 @@ namespace SolarSystem {
         crc2.fillRect(0, 0, canvas.width, canvas.height);
 
     }
-
 
 }
