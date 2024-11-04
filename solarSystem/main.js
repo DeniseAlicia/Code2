@@ -10,13 +10,22 @@ var SolarSystem;
     //setting up the canvas
     const canvas = document.querySelector("canvas");
     SolarSystem.crc2 = canvas.getContext("2d");
+    //Slider for the SpeedModifier
+    const speedSlider = document.getElementById("SpeedModifier");
     window.addEventListener("load", handleLoad);
     canvas.addEventListener("click", handleClick);
+    speedSlider.addEventListener("input", handleSliderInput);
     function handleLoad() {
         //preparing the simulation
         console.log("loading page");
         createCelestialBodies();
         setInterval(update, 25);
+    }
+    //get Slider Input 
+    function handleSliderInput(_event) {
+        let slider = _event.target;
+        let value = Number(slider.value);
+        console.log(value);
     }
     function createCelestialBodies() {
         //creating all simulated celestial bodies
@@ -65,7 +74,7 @@ var SolarSystem;
         SolarSystem.crc2.fillStyle = "black";
         SolarSystem.crc2.fillRect(0, 0, canvas.width, canvas.height);
         sun.draw();
-        sun.orbitStep(1);
+        sun.orbitStep(speedSlider.value);
     }
 })(SolarSystem || (SolarSystem = {}));
 //# sourceMappingURL=main.js.map

@@ -12,8 +12,12 @@ namespace SolarSystem {
     const canvas: HTMLCanvasElement = document.querySelector("canvas")!;
     export const crc2: CanvasRenderingContext2D = <CanvasRenderingContext2D>canvas.getContext("2d");
 
+    //Slider for the SpeedModifier
+    const speedSlider: HTMLInputElement = <HTMLInputElement>document.getElementById("SpeedModifier");
+
     window.addEventListener("load", handleLoad);
     canvas.addEventListener("click", handleClick);
+    speedSlider.addEventListener("input", handleSliderInput);
 
     function handleLoad(): void {
         //preparing the simulation
@@ -21,6 +25,14 @@ namespace SolarSystem {
 
         createCelestialBodies();
         setInterval(update, 25);
+
+    }
+
+    //get Slider Input 
+    function handleSliderInput(_event: Event): void {
+        let slider: HTMLInputElement = <HTMLInputElement>_event.target;
+        let value: number = Number(slider.value);
+        console.log(value);
 
     }
 
@@ -93,7 +105,7 @@ namespace SolarSystem {
         crc2.fillRect(0, 0, canvas.width, canvas.height);
 
         sun.draw();
-        sun.orbitStep(1);
+        sun.orbitStep(speedSlider.value);
 
     }
 
