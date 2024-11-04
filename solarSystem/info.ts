@@ -123,7 +123,7 @@ namespace SolarSystem {
     Moons: 95
 
     `;
-    export const jupiterText: string = "The biggest planet in our solar system is a gas giant, meaning that it is mostly composed of gases like helium, methane and hydrogen, although there are likely ammonia crystals present in its atmosphere, giving the brighter zones their color. Jupiter's name comes from the roman king of sky and thunder, as well as the king of the gods.";
+    export const jupiterText: string = "The biggest planet in our solar system is a gas giant, meaning that it is mostly composed of gases like helium, methane and hydrogen, although there are likely ammonia crystals present in its atmosphere, giving the brighter zones their color. Jupiter's name comes from the roman king of sky and thunder, as well as the king of the god. Juno.";
 
     export const ioInfo: string = `
     Primary body: Jupiter
@@ -133,7 +133,7 @@ namespace SolarSystem {
     Surface temperature: -143°C / 130K
 
     `;
-    export const ioText: string = "";
+    export const ioText: string = "Io is the most geologically active object in our solar system, with more than 400 volcanoes all over its surface, and many mountains, some even higher than Earth's Mount Everest. All the volcanic activity produces a large gas torus around Jupiter. In greek mythology, Io is one of the 'lovers' of Zeus, the greek counterpart to Juno. ";
 
     export const europaInfo: string = `
     Primary body: Jupiter
@@ -144,7 +144,7 @@ namespace SolarSystem {
     Min surface temperature: -223°C / 50K
 
     `;
-    export const europaText: string = "";
+    export const europaText: string = "Not to be confused with one of Earth's continents, Europa, like all four Gallilean moons of Jupiter, is named after a 'lover' of Zeus. It has the smoothest surface out of any object in our solar system, which is explanined by the fact that its outer layer is entirely made of water with an ice crust on top. There could theoretically be extraterrestial life in the ocean underneath the ice, but it would most likely be single cell organisms.";
 
     export const ganymedeInfo: string = `
     Primary body: Jupiter
@@ -155,7 +155,7 @@ namespace SolarSystem {
     Min surface temperature: -183°C / 90K
 
     `;
-    export const ganymedeText: string = "";
+    export const ganymedeText: string = "Ganymede is not only the largest satellite of Jupiter, but the largest one in the entire solar system. Like Europa, Ganymede likely also has subsurface oceans, although might be not only topped by, but also layered with ice sheets. Ganymede is the only of the four Gallilean moons that had its english spelling changed from the original latin one, its inspiration being the trojan prince Ganymedes.";
 
     export const callistoInfo: string = `
     Primary body: Jupiter
@@ -165,7 +165,7 @@ namespace SolarSystem {
     Surface temperature:-139°C / 134K
 
     `;
-    export const callistoText: string = "";
+    export const callistoText: string = "Callisto's surface is completely covered in impact craters, and with no signs of geological activity on this moon, was likely primarily shaped by said impacts. That makes Callisto's not only the most cratered surface in the solar system, but also its oldest. ";
 
     //saturn + moons
     export const saturnInfo: string = `
