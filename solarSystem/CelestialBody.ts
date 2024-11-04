@@ -57,6 +57,9 @@ namespace SolarSystem {
             // console.log("orbit step");
 
             this.rotAngle += this.rotSpeed * _speedModifier;
+            if (this.rotAngle > 360) {
+                this.rotAngle -= 360;
+            }
 
             for (let i: number = 0; i < this.children.length; i++) {
                 const child: CelestialBody = this.children[i];

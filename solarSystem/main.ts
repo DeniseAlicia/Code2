@@ -17,7 +17,7 @@ namespace SolarSystem {
 
     window.addEventListener("load", handleLoad);
     canvas.addEventListener("click", handleClick);
-    speedSlider.addEventListener("input", handleSliderInput);
+    // speedSlider.addEventListener("input", handleSliderInput);
 
     function handleLoad(): void {
         //preparing the simulation
@@ -29,12 +29,12 @@ namespace SolarSystem {
     }
 
     //get Slider Input 
-    function handleSliderInput(_event: Event): void {
-        let slider: HTMLInputElement = <HTMLInputElement>_event.target;
-        let value: number = Number(slider.value);
-        console.log(value);
+    // function handleSliderInput(_event: Event): void {
+    //     let slider: HTMLInputElement = <HTMLInputElement>_event.target;
+    //     let value: number = Number(slider.value);
+    //     console.log(value);
 
-    }
+    // }
 
     function createCelestialBodies(): void {
         //creating all simulated celestial bodies
@@ -89,6 +89,14 @@ namespace SolarSystem {
 
         sun.checkedIfClicked(_event);
         //display planetName, planetInfo and planetText in div element beneath slider
+
+        const nameBox: HTMLElement = document.querySelector(".infoBlock .nameBox")!;
+        const infoBox: HTMLElement = document.querySelector(".infoBlock .infoBox")!;
+        const textBox: HTMLElement = document.querySelector(".infoBlock .textBox")!;
+        
+        nameBox.textContent = planetName;
+        infoBox.textContent = planetInfo;
+        textBox.textContent = planetText;
     }
 
 

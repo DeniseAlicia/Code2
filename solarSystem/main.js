@@ -14,7 +14,7 @@ var SolarSystem;
     const speedSlider = document.getElementById("SpeedModifier");
     window.addEventListener("load", handleLoad);
     canvas.addEventListener("click", handleClick);
-    speedSlider.addEventListener("input", handleSliderInput);
+    // speedSlider.addEventListener("input", handleSliderInput);
     function handleLoad() {
         //preparing the simulation
         console.log("loading page");
@@ -22,11 +22,11 @@ var SolarSystem;
         setInterval(update, 25);
     }
     //get Slider Input 
-    function handleSliderInput(_event) {
-        let slider = _event.target;
-        let value = Number(slider.value);
-        console.log(value);
-    }
+    // function handleSliderInput(_event: Event): void {
+    //     let slider: HTMLInputElement = <HTMLInputElement>_event.target;
+    //     let value: number = Number(slider.value);
+    //     console.log(value);
+    // }
     function createCelestialBodies() {
         //creating all simulated celestial bodies
         console.log("creating bodies");
@@ -66,6 +66,12 @@ var SolarSystem;
     function handleClick(_event) {
         sun.checkedIfClicked(_event);
         //display planetName, planetInfo and planetText in div element beneath slider
+        const nameBox = document.querySelector(".infoBlock .nameBox");
+        const infoBox = document.querySelector(".infoBlock .infoBox");
+        const textBox = document.querySelector(".infoBlock .textBox");
+        nameBox.textContent = SolarSystem.planetName;
+        infoBox.textContent = SolarSystem.planetInfo;
+        textBox.textContent = SolarSystem.planetText;
     }
     function update() {
         //updating and redrawing the simulation

@@ -20,9 +20,9 @@ namespace SolarSystem {
 
     //sun
     export const sunInfo: string = `
-    Diameter: 1.392.700 km
-    Surface temperature: 5498°C / 5772K
-    Core temperature: 15,6 mil. K
+    Diameter: 1.392.700 km 
+    Surface temperature: 5498°C / 5772K 
+    Core temperature: 15,6 mil. K 
 
     `;
 

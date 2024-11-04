@@ -36,6 +36,9 @@ var SolarSystem;
         orbitStep(_speedModifier) {
             // console.log("orbit step");
             this.rotAngle += this.rotSpeed * _speedModifier;
+            if (this.rotAngle > 360) {
+                this.rotAngle -= 360;
+            }
             for (let i = 0; i < this.children.length; i++) {
                 const child = this.children[i];
                 child.orbitStep(_speedModifier);
