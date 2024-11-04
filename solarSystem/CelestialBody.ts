@@ -2,7 +2,6 @@ namespace SolarSystem {
 
     export class CelestialBody {
 
-        children: CelestialBody[];
         name: string;
         info: string;
         text: string;
@@ -12,19 +11,21 @@ namespace SolarSystem {
         rotSpeed: number;
         distanceFromCenter: number;
         path: Path2D;
+        children: CelestialBody[];
 
-        constructor(_name: string, _info: string, _text: string, _color: string, _radius: number, _rotAngle: number, _rotSpeed: number, _distanceFromCenter: number) {
+        constructor(_data: Data) {
             const children: CelestialBody[] = [];
+            const earthSpeed: number = 0.00015;
 
             this.children = children
-            this.name = _name;
-            this.info = _info;
-            this.text = _text;
-            this.color = _color;
-            this.radius = _radius;
-            this.rotAngle = _rotAngle;
-            this.rotSpeed = _rotSpeed;
-            this.distanceFromCenter = _distanceFromCenter;
+            this.name = _data.name;
+            this.info = _data.info;
+            this.text = _data.text;
+            this.color = _data.color;
+            this.radius = _data.radius;
+            this.rotAngle = _data.rotAngle;
+            this.rotSpeed = _data.speedFactor * earthSpeed;
+            this.distanceFromCenter = _data.distanceFromCenter;
             this.path = new Path2D;
         }
 
@@ -68,7 +69,7 @@ namespace SolarSystem {
         }
 
         checkedIfClicked(_event: MouseEvent): void {
-            console.log("clicked");
+            // console.log("clicked");
 
             crc2.save();
             crc2.rotate(this.rotAngle);
@@ -95,6 +96,13 @@ namespace SolarSystem {
 
             crc2.restore();
         }
+        
+        addChild(_child: CelestialBody): void {
+            this.children.push(_child);
+        }
+
+            
+        }
     }
 
-}
+

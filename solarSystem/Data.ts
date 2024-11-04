@@ -20,7 +20,7 @@ namespace SolarSystem {
         radius: 40,
         rotAngle: 120,
         speedFactor: 0,
-        distanceFromCenter: 0,
+        distanceFromCenter: 700,
         children: [
             { name: "Mercury", info: mercuryInfo, text: mercuryText, color: "orange", radius: 8, rotAngle: 0, speedFactor: 4.1, distanceFromCenter: 70, children: [] },
 
@@ -78,7 +78,7 @@ namespace SolarSystem {
             {
                 name: "Pluto", info: plutoInfo, text: plutoText, color: "grey", radius: 5, rotAngle: 0, speedFactor: 0.004, distanceFromCenter: 510,
                 children: [
-                    { name: "Charon", info: , text:, color: "white", radius: 3, rotAngle: 0, speedFactor: 57, distanceFromCenter: 15, children: [] }
+                    { name: "Charon", info: charonInfo, text: charonText, color: "white", radius: 3, rotAngle: 0, speedFactor: 57, distanceFromCenter: 15, children: [] }
                 ]
             }
 

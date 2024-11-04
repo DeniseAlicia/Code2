@@ -2,17 +2,18 @@
 var SolarSystem;
 (function (SolarSystem) {
     class CelestialBody {
-        constructor(_name, _info, _text, _color, _radius, _rotAngle, _rotSpeed, _distanceFromCenter) {
+        constructor(_data) {
             const children = [];
+            const earthSpeed = 0.00015;
             this.children = children;
-            this.name = _name;
-            this.info = _info;
-            this.text = _text;
-            this.color = _color;
-            this.radius = _radius;
-            this.rotAngle = _rotAngle;
-            this.rotSpeed = _rotSpeed;
-            this.distanceFromCenter = _distanceFromCenter;
+            this.name = _data.name;
+            this.info = _data.info;
+            this.text = _data.text;
+            this.color = _data.color;
+            this.radius = _data.radius;
+            this.rotAngle = _data.rotAngle;
+            this.rotSpeed = _data.speedFactor * earthSpeed;
+            this.distanceFromCenter = _data.distanceFromCenter;
             this.path = new Path2D;
         }
         draw() {
@@ -45,7 +46,7 @@ var SolarSystem;
             }
         }
         checkedIfClicked(_event) {
-            console.log("clicked");
+            // console.log("clicked");
             SolarSystem.crc2.save();
             SolarSystem.crc2.rotate(this.rotAngle);
             SolarSystem.crc2.translate(this.distanceFromCenter, 0);
@@ -65,6 +66,9 @@ var SolarSystem;
                     child.checkedIfClicked(_event);
                 }
             SolarSystem.crc2.restore();
+        }
+        addChild(_child) {
+            this.children.push(_child);
         }
     }
     SolarSystem.CelestialBody = CelestialBody;

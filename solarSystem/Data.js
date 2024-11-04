@@ -9,7 +9,7 @@ var SolarSystem;
         radius: 40,
         rotAngle: 120,
         speedFactor: 0,
-        distanceFromCenter: 0,
+        distanceFromCenter: 700,
         children: [
             { name: "Mercury", info: SolarSystem.mercuryInfo, text: SolarSystem.mercuryText, color: "orange", radius: 8, rotAngle: 0, speedFactor: 4.1, distanceFromCenter: 70, children: [] },
             { name: "Venus", info: SolarSystem.venusInfo, text: SolarSystem.venusText, color: "#dce65e", radius: 10, rotAngle: 0, speedFactor: 1.6, distanceFromCenter: 110, children: [] },
@@ -58,7 +58,7 @@ var SolarSystem;
             {
                 name: "Pluto", info: SolarSystem.plutoInfo, text: SolarSystem.plutoText, color: "grey", radius: 5, rotAngle: 0, speedFactor: 0.004, distanceFromCenter: 510,
                 children: [
-                    { name: "Charon", info: , text: , color: "white", radius: 3, rotAngle: 0, speedFactor: 57, distanceFromCenter: 15, children: [] }
+                    { name: "Charon", info: SolarSystem.charonInfo, text: SolarSystem.charonText, color: "white", radius: 3, rotAngle: 0, speedFactor: 57, distanceFromCenter: 15, children: [] }
                 ]
             }
         ]
