@@ -30,7 +30,7 @@ var SolarSystem;
     function createCelestialBodies() {
         //creating all simulated celestial bodies
         console.log("creating bodies");
-        const earthSpeed = 0.0015;
+        const earthSpeed = 0.00015;
         sun = new SolarSystem.CelestialBody("Sun", SolarSystem.sunInfo, SolarSystem.sunText, "yellow", 40, 120, 0, 750);
         const mercury = new SolarSystem.CelestialBody("Mercury", SolarSystem.mercuryInfo, SolarSystem.mercuryText, "orange", 8, 0, earthSpeed * 4.1, 70);
         const venus = new SolarSystem.CelestialBody("Venus", SolarSystem.venusInfo, SolarSystem.venusText, "#dce65e", 10, 0, earthSpeed * 1.6, 110);
@@ -74,7 +74,7 @@ var SolarSystem;
         SolarSystem.crc2.fillStyle = "black";
         SolarSystem.crc2.fillRect(0, 0, canvas.width, canvas.height);
         sun.draw();
-        sun.orbitStep(speedSlider.value);
+        sun.orbitStep(Number(speedSlider.value));
     }
 })(SolarSystem || (SolarSystem = {}));
 //# sourceMappingURL=main.js.map

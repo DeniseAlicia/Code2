@@ -39,7 +39,7 @@ namespace SolarSystem {
     function createCelestialBodies(): void {
         //creating all simulated celestial bodies
         console.log("creating bodies");
-        const earthSpeed: number = 0.0015;
+        const earthSpeed: number = 0.00015;
 
         sun = new CelestialBody("Sun", sunInfo, sunText, "yellow", 40, 120, 0, 750);
 
@@ -105,7 +105,7 @@ namespace SolarSystem {
         crc2.fillRect(0, 0, canvas.width, canvas.height);
 
         sun.draw();
-        sun.orbitStep(speedSlider.value);
+        sun.orbitStep(Number(speedSlider.value));
 
     }
 
