@@ -3,8 +3,6 @@ namespace SolarSystem {
     export class CelestialBody {
 
         name: string;
-        info: string;
-        text: string;
         color: string;
         radius: number;
         rotAngle: number;
@@ -19,8 +17,6 @@ namespace SolarSystem {
 
             this.children = children
             this.name = _data.name;
-            this.info = _data.info;
-            this.text = _data.text;
             this.color = _data.color;
             this.radius = _data.radius;
             this.rotAngle = _data.rotAngle;
@@ -68,7 +64,7 @@ namespace SolarSystem {
             }
         }
 
-        checkedIfClicked(_event: MouseEvent): void {
+        checkedIfClicked(_event: MouseEvent): CelestialBody | null{
             // console.log("clicked");
 
             crc2.save();
@@ -79,15 +75,8 @@ namespace SolarSystem {
             const y: number = _event.offsetY;
 
             //check if the the planet = its path is clicked -> else: check for the children 
-            if (crc2.isPointInPath(this.path, x, y)) {
-                planetName = this.name;
-                planetInfo = this.info;
-                planetText = this.text;
-
-                console.log(planetName);
-                console.log(planetInfo);
-                console.log(planetText);
-            }
+            if (crc2.isPointInPath(this.path, x, y)) 
+                return this;
 
             else
                 for (const child of this.children) {
@@ -95,6 +84,8 @@ namespace SolarSystem {
                 }
 
             crc2.restore();
+
+            return null
         }
         
         addChild(_child: CelestialBody): void {
@@ -103,6 +94,8 @@ namespace SolarSystem {
 
             
         }
+
+
     }
 
 

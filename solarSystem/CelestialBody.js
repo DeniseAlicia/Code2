@@ -7,8 +7,6 @@ var SolarSystem;
             const earthSpeed = 0.00015;
             this.children = children;
             this.name = _data.name;
-            this.info = _data.info;
-            this.text = _data.text;
             this.color = _data.color;
             this.radius = _data.radius;
             this.rotAngle = _data.rotAngle;
@@ -53,19 +51,14 @@ var SolarSystem;
             const x = _event.offsetX;
             const y = _event.offsetY;
             //check if the the planet = its path is clicked -> else: check for the children 
-            if (SolarSystem.crc2.isPointInPath(this.path, x, y)) {
-                SolarSystem.planetName = this.name;
-                SolarSystem.planetInfo = this.info;
-                SolarSystem.planetText = this.text;
-                console.log(SolarSystem.planetName);
-                console.log(SolarSystem.planetInfo);
-                console.log(SolarSystem.planetText);
-            }
+            if (SolarSystem.crc2.isPointInPath(this.path, x, y))
+                return this;
             else
                 for (const child of this.children) {
                     child.checkedIfClicked(_event);
                 }
             SolarSystem.crc2.restore();
+            return null;
         }
         addChild(_child) {
             this.children.push(_child);

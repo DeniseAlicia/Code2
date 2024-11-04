@@ -26,12 +26,7 @@ var SolarSystem;
     SolarSystem.sunText = "The center of our solar system also holds over 99% of its mass, with half of that mass being held by only 1,5% of the sun's volume in its core. In mythology, the sun has always been revered and sometimes feared for the power it holds over human life, being our primary source of light, warmth and being our oldest way to tell time.";
     //mercury
     SolarSystem.mercuryInfo = `
-    Diameter: 4878 km
-    Orbital period: 88 earth days
-    Mean orbital speed: 47,36 km/s
-    Max surface temperature: 427°C / 700K
-    Min surface temperature: -170°C / 100K
-    Moons: 0
+    
 
 
     `;

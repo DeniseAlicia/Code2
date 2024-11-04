@@ -31,12 +31,7 @@ namespace SolarSystem {
 
     //mercury
     export const mercuryInfo: string = `
-    Diameter: 4878 km
-    Orbital period: 88 earth days
-    Mean orbital speed: 47,36 km/s
-    Max surface temperature: 427°C / 700K
-    Min surface temperature: -170°C / 100K
-    Moons: 0
+    
 
 
     `;
