@@ -19,6 +19,8 @@ namespace SolarSystem {
     canvas.addEventListener("click", handleClick);
     speedSlider.addEventListener("input", handleSliderInput);
 
+    document.getElementsByClassName("infoBox").innerHTML 
+
     function handleLoad(): void {
         //preparing the simulation
         console.log("loading page");
