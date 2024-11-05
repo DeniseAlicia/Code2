@@ -1,10 +1,10 @@
 namespace SolarSystem {
 
     // global variables
-    
+
     //const child: CelestialBody[] = [];
     let sun: CelestialBody;
-   export  let jsonInfo: {[key: string]: Description};
+    export let jsonInfo: { [key: string]: Description };
 
     //setting up the canvas
     const canvas: HTMLCanvasElement = document.querySelector("canvas")!;
@@ -42,23 +42,23 @@ namespace SolarSystem {
 
         const infoResponse: Response = await fetch("info.json");
         jsonInfo = await infoResponse.json();
-        
+
 
         // console.log(jsonInfo[body.name].info);
-    
+
         sun = createCelestialBodies(jsonData, jsonInfo);
         canvas.addEventListener("click", handleClick);
         setInterval(update, 25);
 
     }
 
-    function createCelestialBodies(_data: Data, _description: {[key: string]: Description}): CelestialBody {
+    function createCelestialBodies(_data: Data, _description: { [key: string]: Description }): CelestialBody {
         //creating all simulated celestial bodies
-        
+
         const body: CelestialBody = new CelestialBody(_data);
 
-        for(const child of _data.children) {
-            body.addChild(createCelestialBodies(child, _description)); 
+        for (const child of _data.children) {
+            body.addChild(createCelestialBodies(child, _description));
         }
 
         return body;
@@ -72,14 +72,14 @@ namespace SolarSystem {
         let planetInfo: string = "";
         let planetText: string = "";
 
-        
+
         //display planetName, planetInfo and planetText in div element beneath slider
 
         const nameBox: HTMLElement = document.querySelector(".infoBlock .nameBox")!;
         const infoBox: HTMLElement = document.querySelector(".infoBlock .infoBox")!;
         const textBox: HTMLElement = document.querySelector(".infoBlock .textBox")!;
-        
-        if(hit) {
+
+        if (hit) {
             planetName = hit.name;
             planetInfo = jsonInfo[hit.name].info;
             planetText = jsonInfo[hit.name].text;
@@ -91,9 +91,9 @@ namespace SolarSystem {
             nameBox.innerHTML = planetName;
             infoBox.innerHTML = planetInfo;
             textBox.innerHTML = planetText;
-    }
         }
-        
+    }
+
 
 
 
