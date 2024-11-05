@@ -6,12 +6,12 @@
 
     "Mercury": {
         "info": "Diameter: 4878 km <br> Orbital period: 88 earth days <br> Mean orbital speed: 47,36 km/s <br> Max surface temperature: 427°C / 700K <br> Min surface temperature: -170°C / 100K <br> Moons: 0" ,
-        "text": "b"
+        "text": "As the smallest planet in our solar system, mercury is smaller than some of the other planet's moons. Some scientists even theorize that it used to be the moon of venus, hence those two being the only moonless planets in our solar system. Mercury is named after the roman god of trade, thieves and travel."
     },
 
     "Venus": {
-        "info": "a",
-        "text": "b"
+        "info": "Diameter: 12.103 km <br> Orbital period: 225 earth days <br> Mean orbital speed: 35,02 km/s <br> Max surface temperature: 482°C / 755K <br> Min surface temperature: 438°C / 711K <br> Moons: 0",
+        "text": "The atmosphere of Venus is composed of 96.5% carbon dioxide and 3.5% nitrogen, with other gases like sulfur dioxide, water and argon being found in traces. So despite venus being similar in size and density to earth it is extremly toxic for terrestial life, on top of its atmosphere being much heavier and it being covered in rivers of lava. Venus is named after the roman goddess of beauty and love."
     },
 
     "Earth": {
@@ -27,7 +27,94 @@
     "Mars": {
         "info": "a" ,
         "text": "b"
+    },
+
+    "Phobos": {
+        "info": "a" ,
+        "text": "b"
+    },
+
+    "Deimos": {
+        "info": "a" ,
+        "text": "b"
+    },
+
+    "Jupiter": {
+        "info": "a" ,
+        "text": "b"
+    },
+
+    "Io": {
+        "info": "a" ,
+        "text": "b"
+    },
+
+    "Europa": {
+        "info": "a" ,
+        "text": "b"
+    },
+
+    "Ganymede": {
+        "info": "a" ,
+        "text": "b"
+    },
+
+    "Callisto": {
+        "info": "a" ,
+        "text": "b"
+    },
+
+    "Saturn": {
+        "info": "a" ,
+        "text": "b"
+    },
+
+    "Titan": {
+        "info": "a" ,
+        "text": "b"
+    },
+
+    "Prometheus": {
+        "info": "a" ,
+        "text": "b"
+    },
+
+    "Uranus": {
+        "info": "a" ,
+        "text": "b"
+    },
+
+    "Oberon": {
+        "info": "a" ,
+        "text": "b"
+    },
+
+    "Titania": {
+        "info": "a" ,
+        "text": "b"
+    },
+
+    "Neptun": {
+        "info": "a" ,
+        "text": "b"
+    },
+
+    "Triton": {
+        "info": "a" ,
+        "text": "b"
+    },
+
+    "Pluto": {
+        "info": "a" ,
+        "text": "b"
+    },
+
+    "Charon": {
+        "info": "a" ,
+        "text": "b"
     }
+
+
 
 
 }

@@ -29,26 +29,13 @@ namespace SolarSystem {
     export const sunText: string = "The center of our solar system also holds over 99% of its mass, with half of that mass being held by only 1,5% of the sun's volume in its core. In mythology, the sun has always been revered and sometimes feared for the power it holds over human life, being our primary source of light, warmth and being our oldest way to tell time.";
 
 
-    //mercury
-    export const mercuryInfo: string = `
-    
-
-
-    `;
-    export const mercuryText: string = "As the smallest planet in our solar system, mercury is smaller than some of the other planet's moons. Some scientists even theorize that it used to be the moon of venus, hence those two being the only moonless planets in our solar system. Mercury is named after the roman god of trade, thieves and travel.";
-
 
     //venus
     export const venusInfo: string = `
-    Diameter: 12.103 km
-    Orbital period: 225 earth days
-    Mean orbital speed: 35,02 km/s
-    Max surface temperature: 482°C / 755K
-    Min surface temperature: 438°C / 711K
-    Moons: 0
+    Diameter: 12.103 km <br> Orbital period: 225 earth days <br> Mean orbital speed: 35,02 km/s <br> Max surface temperature: 482°C / 755K <br> Min surface temperature: 438°C / 711K <br> Moons: 0
 
     `;
-    export const venusText: string = "The atmosphere of Venus is composed of 96.5% carbon dioxide and 3.5% nitrogen, with other gases like sulfur dioxide, water and argon being found in traces. So despite venus being similar in size and density to earth it is extremly toxic for terrestial life, on top of its atmosphere being much heavier and it being covered in rivers of lava. Venus is named after the roman goddess of beauty and love.";
+   
 
 
     //earth + moon
