@@ -18,20 +18,15 @@ var SolarSystem;
     //Min surface temperature:
     //sun
     SolarSystem.sunInfo = `
-    Diameter: 1.392.700 km
-    Surface temperature: 5498°C / 5772K
-    Core temperature: 15,6 mil. K
+    Diameter: 1.392.700 km 
+    Surface temperature: 5498°C / 5772K 
+    Core temperature: 15,6 mil. K 
 
     `;
     SolarSystem.sunText = "The center of our solar system also holds over 99% of its mass, with half of that mass being held by only 1,5% of the sun's volume in its core. In mythology, the sun has always been revered and sometimes feared for the power it holds over human life, being our primary source of light, warmth and being our oldest way to tell time.";
     //mercury
     SolarSystem.mercuryInfo = `
-    Diameter: 4878 km
-    Orbital period: 88 earth days
-    Mean orbital speed: 47,36 km/s
-    Max surface temperature: 427°C / 700K
-    Min surface temperature: -170°C / 100K
-    Moons: 0
+    
 
 
     `;
@@ -107,7 +102,7 @@ var SolarSystem;
     Moons: 95
 
     `;
-    SolarSystem.jupiterText = "The biggest planet in our solar system is a gas giant, meaning that it is mostly composed of gases like helium, methane and hydrogen, although there are likely ammonia crystals present in its atmosphere, giving the brighter zones their color. Jupiter's name comes from the roman king of sky and thunder, as well as the king of the gods.";
+    SolarSystem.jupiterText = "The biggest planet in our solar system is a gas giant, meaning that it is mostly composed of gases like helium, methane and hydrogen, although there are likely ammonia crystals present in its atmosphere, giving the brighter zones their color. Jupiter's name comes from the roman king of sky and thunder, as well as the king of the god. Juno.";
     SolarSystem.ioInfo = `
     Primary body: Jupiter
     Diameter: 3642 km
@@ -116,7 +111,7 @@ var SolarSystem;
     Surface temperature: -143°C / 130K
 
     `;
-    SolarSystem.ioText = "";
+    SolarSystem.ioText = "Io is the most geologically active object in our solar system, with more than 400 volcanoes all over its surface, and many mountains, some even higher than Earth's Mount Everest. All the volcanic activity produces a large gas torus around Jupiter. In greek mythology, Io is one of the 'lovers' of Zeus, the greek counterpart to Juno. ";
     SolarSystem.europaInfo = `
     Primary body: Jupiter
     Diameter: 3121,6 km
@@ -126,7 +121,7 @@ var SolarSystem;
     Min surface temperature: -223°C / 50K
 
     `;
-    SolarSystem.europaText = "";
+    SolarSystem.europaText = "Not to be confused with one of Earth's continents, Europa, like all four Gallilean moons of Jupiter, is named after a 'lover' of Zeus. It has the smoothest surface out of any object in our solar system, which is explanined by the fact that its outer layer is entirely made of water with an ice crust on top. There could theoretically be extraterrestial life in the ocean underneath the ice, but it would most likely be single cell organisms.";
     SolarSystem.ganymedeInfo = `
     Primary body: Jupiter
     Diameter: 5262 km
@@ -136,7 +131,7 @@ var SolarSystem;
     Min surface temperature: -183°C / 90K
 
     `;
-    SolarSystem.ganymedeText = "";
+    SolarSystem.ganymedeText = "Ganymede is not only the largest satellite of Jupiter, but the largest one in the entire solar system. Like Europa, Ganymede likely also has subsurface oceans, although might be not only topped by, but also layered with ice sheets. Ganymede is the only of the four Gallilean moons that had its english spelling changed from the original latin one, its inspiration being the trojan prince Ganymedes.";
     SolarSystem.callistoInfo = `
     Primary body: Jupiter
     Diameter: 4820 km
@@ -145,7 +140,7 @@ var SolarSystem;
     Surface temperature:-139°C / 134K
 
     `;
-    SolarSystem.callistoText = "";
+    SolarSystem.callistoText = "Callisto's surface is completely covered in impact craters, and with no signs of geological activity on this moon, was likely primarily shaped by said impacts. That makes Callisto's not only the most cratered surface in the solar system, but also its oldest. ";
     //saturn + moons
     SolarSystem.saturnInfo = `
     Diameter: 120.000 km

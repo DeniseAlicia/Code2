@@ -1,10 +1,16 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 var SolarSystem;
 (function (SolarSystem) {
     // global variables
-    SolarSystem.planetName = "";
-    SolarSystem.planetInfo = "";
-    SolarSystem.planetText = "";
     //const child: CelestialBody[] = [];
     let sun;
     //setting up the canvas
@@ -13,59 +19,49 @@ var SolarSystem;
     //Slider for the SpeedModifier
     const speedSlider = document.getElementById("SpeedModifier");
     window.addEventListener("load", handleLoad);
-    canvas.addEventListener("click", handleClick);
-    speedSlider.addEventListener("input", handleSliderInput);
+    // speedSlider.addEventListener("input", handleSliderInput);
     function handleLoad() {
-        //preparing the simulation
-        console.log("loading page");
-        createCelestialBodies();
-        setInterval(update, 25);
+        return __awaiter(this, void 0, void 0, function* () {
+            //preparing the simulation
+            console.log("loading page");
+            const response = yield fetch("Data.json");
+            const jsonData = yield response.json();
+            const infoResponse = yield fetch("info.json");
+            SolarSystem.jsonInfo = yield infoResponse.json();
+            // console.log(jsonInfo[body.name].info);
+            sun = createCelestialBodies(jsonData, SolarSystem.jsonInfo);
+            canvas.addEventListener("click", handleClick);
+            setInterval(update, 25);
+        });
     }
-    //get Slider Input 
-    function handleSliderInput(_event) {
-        let slider = _event.target;
-        let value = Number(slider.value);
-        console.log(value);
-    }
-    function createCelestialBodies() {
+    function createCelestialBodies(_data, _description) {
         //creating all simulated celestial bodies
-        console.log("creating bodies");
-        const earthSpeed = 0.0015;
-        sun = new SolarSystem.CelestialBody("Sun", SolarSystem.sunInfo, SolarSystem.sunText, "yellow", 40, 120, 0, 750);
-        const mercury = new SolarSystem.CelestialBody("Mercury", SolarSystem.mercuryInfo, SolarSystem.mercuryText, "orange", 8, 0, earthSpeed * 4.1, 70);
-        const venus = new SolarSystem.CelestialBody("Venus", SolarSystem.venusInfo, SolarSystem.venusText, "#dce65e", 10, 0, earthSpeed * 1.6, 110);
-        const earth = new SolarSystem.CelestialBody("Earth", SolarSystem.earthInfo, SolarSystem.earthText, "blue", 10, 0, earthSpeed, 180);
-        const mars = new SolarSystem.CelestialBody("Mars", SolarSystem.marsInfo, SolarSystem.marsText, "#d14217", 10, 0, earthSpeed * 0.53, 230);
-        const jupiter = new SolarSystem.CelestialBody("Jupiter", SolarSystem.jupiterInfo, SolarSystem.jupiterText, "#de8745", 30, 0, earthSpeed * 0.08, 300);
-        const saturn = new SolarSystem.CelestialBody("Saturn", SolarSystem.saturnInfo, SolarSystem.saturnText, "#ebc681", 20, 0, earthSpeed * 0.03, 380);
-        const uranus = new SolarSystem.CelestialBody("Uranus", SolarSystem.uranusInfo, SolarSystem.uranusText, "#cfdfe6", 15, 0, earthSpeed * 0.01, 420);
-        const neptun = new SolarSystem.CelestialBody("Neptun", SolarSystem.neptunInfo, SolarSystem.neptunText, "#b3d6e6", 15, 0, earthSpeed * 0.006, 470);
-        const pluto = new SolarSystem.CelestialBody("Pluto", SolarSystem.plutoInfo, SolarSystem.plutoText, "grey", 5, 0, earthSpeed * 0.004, 510);
-        sun.children.push(mercury, venus, earth, mars, jupiter, saturn, uranus, neptun, pluto);
-        const moon = new SolarSystem.CelestialBody("Moon", SolarSystem.moonInfo, SolarSystem.moonText, "white", 5, 0, earthSpeed * 13, 20);
-        earth.children.push(moon);
-        const phobos = new SolarSystem.CelestialBody("Phobos", SolarSystem.phobosInfo, SolarSystem.phobosText, "grey", 3, 0, earthSpeed * 1216.6, 20);
-        const deimos = new SolarSystem.CelestialBody("Deimos", SolarSystem.deimosInfo, SolarSystem.deimosText, "white", 3, 0, earthSpeed * 304.2, 30);
-        mars.children.push(phobos, deimos);
-        const io = new SolarSystem.CelestialBody("Io", SolarSystem.ioInfo, SolarSystem.ioText, "white", 5, 0, earthSpeed * 202, 40);
-        const europa = new SolarSystem.CelestialBody("Europa", SolarSystem.europaInfo, SolarSystem.europaText, "grey", 5, 0, earthSpeed * 104, 53);
-        const ganymede = new SolarSystem.CelestialBody("Ganymede", SolarSystem.ganymedeInfo, SolarSystem.ganymedeText, "white", 5, 0, earthSpeed * 51.5, 66);
-        const callisto = new SolarSystem.CelestialBody("Callisto", SolarSystem.callistoInfo, SolarSystem.callistoText, "grey", 5, 0, earthSpeed * 21.8, 81);
-        jupiter.children.push(io, europa, ganymede, callisto);
-        const titan = new SolarSystem.CelestialBody("Titan", SolarSystem.titanInfo, SolarSystem.titanText, "white", 4, 0, earthSpeed * 22.8, 35);
-        const prometheus = new SolarSystem.CelestialBody("Prometheus", SolarSystem.prometheusInfo, SolarSystem.prometheusText, "grey", 4, 0, earthSpeed * 598.4, 50);
-        saturn.children.push(titan, prometheus);
-        const oberon = new SolarSystem.CelestialBody("Oberon", SolarSystem.oberonInfo, SolarSystem.oberonText, "grey", 4, 0, earthSpeed * 27.1, 20);
-        const titania = new SolarSystem.CelestialBody("Titania", SolarSystem.titaniaInfo, SolarSystem.titaniaText, "white", 4, 0, earthSpeed * 42, 30);
-        uranus.children.push(oberon, titania);
-        const triton = new SolarSystem.CelestialBody("Triton", SolarSystem.tritonInfo, SolarSystem.tritonText, "grey", 4, 0, earthSpeed * 63, 25);
-        neptun.children.push(triton);
-        const charon = new SolarSystem.CelestialBody("Charon", SolarSystem.charonInfo, SolarSystem.charonText, "white", 3, 0, earthSpeed * 57, 15);
-        pluto.children.push(charon);
+        const body = new SolarSystem.CelestialBody(_data);
+        for (const child of _data.children) {
+            body.addChild(createCelestialBodies(child, _description));
+        }
+        return body;
     }
     function handleClick(_event) {
-        sun.checkedIfClicked(_event);
+        const hit = sun.checkedIfClicked(_event);
+        let planetName = "";
+        let planetInfo = "";
+        let planetText = "";
         //display planetName, planetInfo and planetText in div element beneath slider
+        const nameBox = document.querySelector(".infoBlock .nameBox");
+        const infoBox = document.querySelector(".infoBlock .infoBox");
+        const textBox = document.querySelector(".infoBlock .textBox");
+        if (hit) {
+            planetName = hit.name;
+            planetInfo = SolarSystem.jsonInfo[hit.name].info;
+            planetText = SolarSystem.jsonInfo[hit.name].text;
+            console.log(planetName);
+            console.log(planetInfo);
+            console.log(planetText);
+            nameBox.innerHTML = planetName;
+            infoBox.innerHTML = planetInfo;
+            textBox.innerHTML = planetText;
+        }
     }
     function update() {
         //updating and redrawing the simulation
@@ -74,7 +70,7 @@ var SolarSystem;
         SolarSystem.crc2.fillStyle = "black";
         SolarSystem.crc2.fillRect(0, 0, canvas.width, canvas.height);
         sun.draw();
-        sun.orbitStep(speedSlider.value);
+        sun.orbitStep(Number(speedSlider.value));
     }
 })(SolarSystem || (SolarSystem = {}));
 //# sourceMappingURL=main.js.map

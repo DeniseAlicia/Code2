@@ -2,17 +2,16 @@
 var SolarSystem;
 (function (SolarSystem) {
     class CelestialBody {
-        constructor(_name, _info, _text, _color, _radius, _rotAngle, _rotSpeed, _distanceFromCenter) {
+        constructor(_data) {
             const children = [];
+            const earthSpeed = 0.00015;
             this.children = children;
-            this.name = _name;
-            this.info = _info;
-            this.text = _text;
-            this.color = _color;
-            this.radius = _radius;
-            this.rotAngle = _rotAngle;
-            this.rotSpeed = _rotSpeed;
-            this.distanceFromCenter = _distanceFromCenter;
+            this.name = _data.name;
+            this.color = _data.color;
+            this.radius = _data.radius;
+            this.rotAngle = _data.rotAngle;
+            this.rotSpeed = _data.speedFactor * earthSpeed;
+            this.distanceFromCenter = _data.distanceFromCenter;
             this.path = new Path2D;
         }
         draw() {
@@ -36,32 +35,33 @@ var SolarSystem;
         orbitStep(_speedModifier) {
             // console.log("orbit step");
             this.rotAngle += this.rotSpeed * _speedModifier;
+            if (this.rotAngle > 360) {
+                this.rotAngle -= 360;
+            }
             for (let i = 0; i < this.children.length; i++) {
                 const child = this.children[i];
                 child.orbitStep(_speedModifier);
             }
         }
         checkedIfClicked(_event) {
-            console.log("clicked");
+            // console.log("clicked");
             SolarSystem.crc2.save();
             SolarSystem.crc2.rotate(this.rotAngle);
             SolarSystem.crc2.translate(this.distanceFromCenter, 0);
             const x = _event.offsetX;
             const y = _event.offsetY;
             //check if the the planet = its path is clicked -> else: check for the children 
-            if (SolarSystem.crc2.isPointInPath(this.path, x, y)) {
-                SolarSystem.planetName = this.name;
-                SolarSystem.planetInfo = this.info;
-                SolarSystem.planetText = this.text;
-                console.log(SolarSystem.planetName);
-                console.log(SolarSystem.planetInfo);
-                console.log(SolarSystem.planetText);
-            }
+            if (SolarSystem.crc2.isPointInPath(this.path, x, y))
+                return this;
             else
                 for (const child of this.children) {
                     child.checkedIfClicked(_event);
                 }
             SolarSystem.crc2.restore();
+            return null;
+        }
+        addChild(_child) {
+            this.children.push(_child);
         }
     }
     SolarSystem.CelestialBody = CelestialBody;

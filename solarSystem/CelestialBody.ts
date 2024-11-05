@@ -2,29 +2,26 @@ namespace SolarSystem {
 
     export class CelestialBody {
 
-        children: CelestialBody[];
         name: string;
-        info: string;
-        text: string;
         color: string;
         radius: number;
         rotAngle: number;
         rotSpeed: number;
         distanceFromCenter: number;
         path: Path2D;
+        children: CelestialBody[];
 
-        constructor(_name: string, _info: string, _text: string, _color: string, _radius: number, _rotAngle: number, _rotSpeed: number, _distanceFromCenter: number) {
+        constructor(_data: Data) {
             const children: CelestialBody[] = [];
+            const earthSpeed: number = 0.00015;
 
             this.children = children
-            this.name = _name;
-            this.info = _info;
-            this.text = _text;
-            this.color = _color;
-            this.radius = _radius;
-            this.rotAngle = _rotAngle;
-            this.rotSpeed = _rotSpeed;
-            this.distanceFromCenter = _distanceFromCenter;
+            this.name = _data.name;
+            this.color = _data.color;
+            this.radius = _data.radius;
+            this.rotAngle = _data.rotAngle;
+            this.rotSpeed = _data.speedFactor * earthSpeed;
+            this.distanceFromCenter = _data.distanceFromCenter;
             this.path = new Path2D;
         }
 
@@ -57,6 +54,9 @@ namespace SolarSystem {
             // console.log("orbit step");
 
             this.rotAngle += this.rotSpeed * _speedModifier;
+            if (this.rotAngle > 360) {
+                this.rotAngle -= 360;
+            }
 
             for (let i: number = 0; i < this.children.length; i++) {
                 const child: CelestialBody = this.children[i];
@@ -64,8 +64,8 @@ namespace SolarSystem {
             }
         }
 
-        checkedIfClicked(_event: MouseEvent): void {
-            console.log("clicked");
+        checkedIfClicked(_event: MouseEvent): CelestialBody | null{
+            // console.log("clicked");
 
             crc2.save();
             crc2.rotate(this.rotAngle);
@@ -75,15 +75,8 @@ namespace SolarSystem {
             const y: number = _event.offsetY;
 
             //check if the the planet = its path is clicked -> else: check for the children 
-            if (crc2.isPointInPath(this.path, x, y)) {
-                planetName = this.name;
-                planetInfo = this.info;
-                planetText = this.text;
-
-                console.log(planetName);
-                console.log(planetInfo);
-                console.log(planetText);
-            }
+            if (crc2.isPointInPath(this.path, x, y)) 
+                return this;
 
             else
                 for (const child of this.children) {
@@ -91,7 +84,18 @@ namespace SolarSystem {
                 }
 
             crc2.restore();
+
+            return null
         }
+        
+        addChild(_child: CelestialBody): void {
+            this.children.push(_child);
+        }
+
+            
+        }
+
+
     }
 
-}
+
