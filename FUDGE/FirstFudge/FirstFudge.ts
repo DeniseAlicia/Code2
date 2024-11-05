@@ -2,10 +2,14 @@ namespace FirstFudge {
     import f = FudgeCore;
     console.log(f);
 
+    let cubeSpeed: number = 0.02;
+    let control: number = 0;
+    const directionFactor: number = -1;
+
     const node: f.Node = new f.Node("Node"); //create a new node
     let globalViewport: f.Viewport;
     window.addEventListener("load", start); //add a event Listener to the window to load the canvas before executing the script 
-    
+
     function start(): void {
         const canvas: HTMLCanvasElement = document.querySelector("canvas")!; //initialize canvas
 
@@ -40,11 +44,31 @@ namespace FirstFudge {
         globalViewport = viewport;
 
         f.Loop.addEventListener(f.EVENT.LOOP_FRAME, moveCube) //uses fudge loop object to create a game loop (each frame)
-        f.Loop.start();
+        f.Loop.start(); //different modes change beahvior
+
+        f.Time.game.setScale(1);
     }
 
     function moveCube(): void {
-        node.mtxLocal.rotateY(1);
+        // const frameTimeInMilliseconds: number = f.Loop.timeFrameGame;
+        // const frameTimeInSeconds: number = (frameTimeInMilliseconds / 1000);
+        // const degrees: number = 360 * frameTimeInSeconds;
+        // node.mtxLocal.rotateY(degrees);
+
+
+
+
+        node.mtxLocal.translateX(cubeSpeed * directionFactor, false);
+        node.mtxLocal.rotateY(5);
+        control += cubeSpeed;
+        const directionPower: number = control * control;
+
+        if (directionPower >= 4) {
+            cubeSpeed *= directionFactor;
+            control = 0;
+            console.log("direction changes");
+        }
+
         globalViewport.draw();
     }
 }
