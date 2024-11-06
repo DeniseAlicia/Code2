@@ -1,14 +1,14 @@
 "use strict";
 var FirstFudge;
 (function (FirstFudge) {
-    var f = FudgeCore;
+    var f = FudgeCore; //optional, html already loads FudgeCore, but is nicer to look at
     console.log(f);
     let cubeSpeed = 0.02;
     let control = 0;
     const directionFactor = -1;
     const node = new f.Node("Node"); //create a new node
     let globalViewport;
-    window.addEventListener("load", start); //add a event Listener to the window to load the canvas before executing the script 
+    window.addEventListener("load", start); //add an event Listener to the window to load the canvas before executing the script 
     function start() {
         const canvas = document.querySelector("canvas"); //initialize canvas
         const camera = new f.ComponentCamera(); //create a new camera
@@ -39,10 +39,10 @@ var FirstFudge;
         // const frameTimeInSeconds: number = (frameTimeInMilliseconds / 1000);
         // const degrees: number = 360 * frameTimeInSeconds;
         // node.mtxLocal.rotateY(degrees);
-        node.mtxLocal.translateX(cubeSpeed * directionFactor, false);
+        node.mtxLocal.translateX(cubeSpeed * directionFactor, false); //cube moves in the global coord system, not its own, local one (rotation is not factored in)
         node.mtxLocal.rotateY(5);
         control += cubeSpeed;
-        const directionPower = control * control;
+        const directionPower = control * control; //check if cube has moved 2 units in any direction on the x axis
         if (directionPower >= 4) {
             cubeSpeed *= directionFactor;
             control = 0;

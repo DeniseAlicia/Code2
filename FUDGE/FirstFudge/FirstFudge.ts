@@ -1,5 +1,5 @@
 namespace FirstFudge {
-    import f = FudgeCore;
+    import f = FudgeCore; //optional, html already loads FudgeCore, but is nicer to look at
     console.log(f);
 
     let cubeSpeed: number = 0.02;
@@ -8,7 +8,7 @@ namespace FirstFudge {
 
     const node: f.Node = new f.Node("Node"); //create a new node
     let globalViewport: f.Viewport;
-    window.addEventListener("load", start); //add a event Listener to the window to load the canvas before executing the script 
+    window.addEventListener("load", start); //add an event Listener to the window to load the canvas before executing the script 
 
     function start(): void {
         const canvas: HTMLCanvasElement = document.querySelector("canvas")!; //initialize canvas
@@ -58,10 +58,10 @@ namespace FirstFudge {
 
 
 
-        node.mtxLocal.translateX(cubeSpeed * directionFactor, false);
+        node.mtxLocal.translateX(cubeSpeed * directionFactor, false); //cube moves in the global coord system, not its own, local one (rotation is not factored in)
         node.mtxLocal.rotateY(5);
         control += cubeSpeed;
-        const directionPower: number = control * control;
+        const directionPower: number = control * control; //check if cube has moved 2 units in any direction on the x axis
 
         if (directionPower >= 4) {
             cubeSpeed *= directionFactor;
