@@ -100,7 +100,7 @@ namespace FirstFudge {
             cubeNode.mtxLocal.rotateY(rSpeed * frameTimeInSeconds * -1);
 
         
-        viewport.camera.mtxPivot.lookAt(cubeNode.mtxWorld.translation, )
+        viewport.camera.mtxPivot.lookAt(cubeNode.mtxWorld.translation, f.Vector3.Y())
         viewport.draw();
     }
 }

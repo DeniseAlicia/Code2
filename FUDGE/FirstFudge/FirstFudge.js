@@ -73,7 +73,7 @@ var FirstFudge;
             cubeNode.mtxLocal.rotateY(rSpeed * frameTimeInSeconds);
         if (f.Keyboard.isPressedOne([f.KEYBOARD_CODE.D]))
             cubeNode.mtxLocal.rotateY(rSpeed * frameTimeInSeconds * -1);
-        viewport.camera.mtxPivot.lookAt(cubeNode.mtxWorld.translation);
+        viewport.camera.mtxPivot.lookAt(cubeNode.mtxWorld.translation, f.Vector3.Y());
         viewport.draw();
     }
 })(FirstFudge || (FirstFudge = {}));
