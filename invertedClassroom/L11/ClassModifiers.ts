@@ -29,7 +29,7 @@ namespace Modifiers {
         }
     
 
-        abstract build(): void
+        public abstract build(): void
 
 
     }
