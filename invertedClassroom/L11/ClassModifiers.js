@@ -46,4 +46,4 @@ var Modifiers;
         }
     }
 })(Modifiers || (Modifiers = {}));
-//# sourceMappingURL=main.js.map
+//# sourceMappingURL=ClassModifiers.js.map
