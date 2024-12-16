@@ -8,7 +8,7 @@ console.log(Position2);
 
 // cardOne.addEventListener("mouseover", turnCard);
 
-cardOne.addEventListener("onClick", handleTouch12);
+//cardOne.addEventListener("onClick", handleTouch12);
 
 
 
