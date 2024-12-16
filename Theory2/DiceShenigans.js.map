@@ -1,0 +1,1 @@
+{"version":3,"file":"DiceShenigans.js","sourceRoot":"","sources":["DiceShenigans.ts"],"names":[],"mappings":";;;AAAA,IAAiB,aAAa,CAO7B;AAPD,WAAiB,aAAa;IAC1B,OAAO,CAAC,GAAG,CAAC,aAAa,CAAC,CAAA;IAC1B,SAAgB,QAAQ,CAAC,MAAgB,EAAE,OAAe,EAAE,UAAkB;QAE1E,OAAO,IAAI,CAAC,MAAM,EAAE,GAAG,GAAG,CAAC;IAE/B,CAAC;IAJe,sBAAQ,WAIvB,CAAA;AACL,CAAC,EAPgB,aAAa,6BAAb,aAAa,QAO7B"}
