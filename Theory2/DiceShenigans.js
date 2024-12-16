@@ -2,7 +2,13 @@ export var DicePotential;
 (function (DicePotential) {
     console.log("Hello there");
     function strategy(_score, _active, _potential) {
-        return Math.random() < 0.8;
+        if (_potential => 10) {
+            return Math.random() < 0.2;
+        }
+        else {
+            return true
+        }
+            
     }
     DicePotential.strategy = strategy;
 })(DicePotential || (DicePotential = {}));
